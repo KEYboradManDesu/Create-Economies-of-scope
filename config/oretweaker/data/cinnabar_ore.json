@@ -1,0 +1,42 @@
+{
+  "oreConfig": [
+    {
+      "ore": "thermal:cinnabar_ore",
+      "fillers": [
+        "STONE_ORE_REPLACEABLES"
+      ],
+      "distribution": "UNIFORM",
+      "minY": -64,
+      "maxY": 15,
+      "maxVeinSize": 6,
+      "spawnRate": 2.0,
+      "discardChanceOnAirExposure": 0.0,
+      "biomeFilters": {
+        "biomeBlacklist": [],
+        "biomeWhitelist": [
+          "OVERWORLD"
+        ]
+      },
+      "replace": true
+    },
+    {
+      "ore": "thermal:cinnabar_ore",
+      "fillers": [
+        "STONE_ORE_REPLACEABLES"
+      ],
+      "distribution": "TRIANGLE",
+      "minY": -96,
+      "maxY": -32,
+      "maxVeinSize": 9,
+      "spawnRate": 2.0,
+      "discardChanceOnAirExposure": 0.0,
+      "biomeFilters": {
+        "biomeBlacklist": [],
+        "biomeWhitelist": [
+          "OVERWORLD"
+        ]
+      },
+      "replace": true
+    }
+  ]
+}

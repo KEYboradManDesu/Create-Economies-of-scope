@@ -1,0 +1,17 @@
+{
+  "death.attack.dehydrate": "%1$s 脱水致死",
+  "death.attack.dehydrate.player": "%1$s 在战斗中死于脱水 %2$s",
+  "item.thirst.wooden_water_bowl": "木制水碗",
+  "item.thirst.terracotta_water_bowl": "陶瓦水碗",
+  "item.thirst.terracotta_bowl": "陶瓦碗",
+  "item.thirst.clay_bowl": "黏土碗",
+  "thirst.container.kettle.no_water": "无水",
+  "thirst.container.kettle.has_single_water": "含一杯 %s 水",
+  "thirst.container.kettle.has_many_water": "含 %1$s 杯 %2$s 水",
+  "itemGroup.thirst": "Thirst",
+  "thirst.purity.dirty": "肮脏的",
+  "thirst.purity.slightly_dirty": "些许脏",
+  "thirst.purity.acceptable": "可接受的",
+  "thirst.purity.purified": "纯净",
+  "block.create.sand_filter": "砂过滤器"
+}

@@ -1,0 +1,31 @@
+{
+  "type": "ars_nouveau:imbuement",
+  "input": {
+    "item": "neapolitan:ice_cubes"
+  },
+  "output": "thermal:blizz_rod",
+  "count": 1,
+  "source": 1000,
+  "pedestalItems": [
+    {
+      "item": {
+        "item": "minecraft:snowball"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:snowball"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:snowball"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:snowball"
+      }
+    }
+  ]
+}

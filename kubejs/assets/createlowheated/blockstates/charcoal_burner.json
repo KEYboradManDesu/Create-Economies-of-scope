@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "createlowheated:block/charcoal_burner_off"
+    },
+    "lit=true": {
+      "model": "createlowheated:block/charcoal_burner"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+
+	"_": "->------------------------]  Game Elements  [------------------------<-",
+
+	"block.createlowheated.charcoal_burner": "木炭燃烧室",
+
+
+	"_": "->------------------------]  UI & Messages  [------------------------<-",
+
+	"create.recipe.heat_requirement.lowheated": "低温加热",
+
+
+	"_": "->------------------------]  Item Descriptions  [------------------------<-",
+
+	"block.createlowheated.charcoal_burner.tooltip": "木炭燃烧室",
+	"block.createlowheated.charcoal_burner.tooltip.summary": "为_工作盆配方_和_蒸汽引擎_提供_热量_。",
+	"block.createlowheated.charcoal_burner.tooltip.condition1": "需要木炭",
+	"block.createlowheated.charcoal_burner.tooltip.behaviour1": "手持_木炭_对其右键 或 使用_机械手/动力臂_。",
+	"block.createlowheated.charcoal_burner.tooltip.condition2": "需要打火石",
+	"block.createlowheated.charcoal_burner.tooltip.behaviour2": "需要手持_打火石_对其右键以生火。只要为其源源不断的提供木炭，火就不会灭。",
+
+	"_": "Thank you for translating Create Low-Heated!"
+
+}

@@ -1,0 +1,15 @@
+{
+  "item.immersiveengineering.ore_lead": "方铅石",
+  "block.immersiveengineering.ore_lead": "方铅石",
+  "item.immersiveengineering.deepslate_ore_lead": "硬化方铅石",
+  "block.immersiveengineering.deepslate_ore_lead": "硬化方铅石",
+  "item.immersiveengineering.raw_block_lead": "大块方铅石",
+  "block.immersiveengineering.raw_block_lead": "大块方铅石",
+
+  "item.immersiveengineering.ore_uranium": "脂铅铀",
+  "block.immersiveengineering.ore_uranium": "脂铅铀",
+  "item.immersiveengineering.deepslate_ore_uranium": "硬化脂铅铀",
+  "block.immersiveengineering.deepslate_ore_uranium": "硬化脂铅铀",
+  "item.immersiveengineering.raw_block_uranium": "大块脂铅铀",
+  "block.immersiveengineering.raw_block_uranium": "大块脂铅铀"
+}

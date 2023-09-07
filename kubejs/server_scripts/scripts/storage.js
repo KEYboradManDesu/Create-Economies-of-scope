@@ -1,7 +1,7 @@
 onEvent('recipes', event => {
 	tomsstorage(event)
 	drawersop(event)
-	functionalstorage(event)
+	//functionalstorage(event)
 })
 
 function tomsstorage(event) {
@@ -48,13 +48,14 @@ function drawersop(event) {
 			event.remove({ output: functionalstorage })
 			event.stonecutting(full, trim)
 			event.stonecutting(Item.of(half, 2), trim)
+			//event.stonecutting(functionalstorage, trim)
 			event.smithing('kubejs:osmium_drawersop', trim, MEK("ingot_osmium"))
-			event.stonecutting(functionalstorage, 'kubejs:osmium_drawersop')
+			//event.stonecutting(functionalstorage, 'kubejs:osmium_drawersop')
 		})
 	})
 
 }
 
-function functionalstorage(event) {
-switchCraft(event, 'functionalstorage:void_upgrade', 'storagedrawers:void_upgrade')
-}
+//function functionalstorage(event) {
+//switchCraft(event, 'functionalstorage:void_upgrade', 'storagedrawers:void_upgrade')
+//}

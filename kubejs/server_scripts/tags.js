@@ -43,7 +43,7 @@ event.get('forge:tools/knives').add('create:millstone')
 event.get('kubejs:certus_quartz_crystal').add('ae2:certus_quartz_crystal')
 
 event.get('kubejs:creosote').add('kubejs:creosote_ball')
-event.get('kubejs:creosote').add('kubejs:antiseptic_varnish')
+//event.get('kubejs:creosote').add('kubejs:antiseptic_varnish')
 
 event.get('kubejs:handmade').add('kubejs:handmade_kinetic_mechanism')
 event.get('kubejs:handmade').add('kubejs:handmade_sealed_mechanism')

@@ -5,6 +5,8 @@ const Crushed = (obj, event) => {
     obj.gem,
     obj.ore,
     obj.deepslateOre,
+    obj.netherOre,
+    obj.endOre,
     obj.rawOre,
     obj.rawOreBlock,
     event
@@ -17,6 +19,8 @@ const Crusheds = (
   gem,
   ore,
   deepslateOre,
+  netherOre,
+  endOre,
   rawOre,
   rawOreBlock,
   event
@@ -87,6 +91,7 @@ const Crusheds = (
       event.remove({ input: "#forge:ores/" + name, type: TE("pulverizer") })
 
       event.recipes.thermal.pulverizer([`2x ${crushed}`], deepslateOre).energy(3000)
+
       event.recipes.createCrushing(
         [
           `2x ${crushed}`,
@@ -107,6 +112,60 @@ const Crusheds = (
           Item.of(`minecraft:cobbled_deepslate`).withChance(0.125),
         ],
         deepslateOre
+      );
+    }
+  }
+
+  if (netherOre) {
+    if (crushed !== "") {
+      event.recipes.thermal.pulverizer([`2x ${crushed}`], netherOre).energy(3000)
+      event.recipes.createCrushing(
+        [
+          `2x ${crushed}`,
+          Item.of(crushed).withChance(0.25),
+          Item.of(`create:experience_nugget`).withChance(0.75),
+          Item.of(`minecraft:netherrack`).withChance(0.125),
+        ],
+        netherOre
+      );
+    }
+
+    if (gem !== "") {
+      event.recipes.createCrushing(
+        [
+          `2x ${gem}`,
+          Item.of(gem).withChance(0.25),
+          Item.of(`create:experience_nugget`).withChance(0.75),
+          Item.of(`minecraft:netherrack`).withChance(0.125),
+        ],
+        netherOre
+      );
+    }
+  }
+
+  if (endOre) {
+    if (crushed !== "") {
+      event.recipes.thermal.pulverizer([`2x ${crushed}`], endOre).energy(3000)
+      event.recipes.createCrushing(
+        [
+          `2x ${crushed}`,
+          Item.of(crushed).withChance(0.25),
+          Item.of(`create:experience_nugget`).withChance(0.75),
+          Item.of(`minecraft:end_stone`).withChance(0.125),
+        ],
+        endOre
+      );
+    }
+
+    if (gem !== "") {
+      event.recipes.createCrushing(
+        [
+          `2x ${gem}`,
+          Item.of(gem).withChance(0.25),
+          Item.of(`create:experience_nugget`).withChance(0.75),
+          Item.of(`minecraft:end_stone`).withChance(0.125),
+        ],
+        endOre
       );
     }
   }

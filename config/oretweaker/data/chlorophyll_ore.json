@@ -1,0 +1,42 @@
+{
+    "oreConfig": [
+      {
+        "ore": "tinkers_thinking:chlorophyll_ore",
+        "fillers": [
+          "minecraft:stone"
+        ],
+        "distribution": "UNIFORM",
+        "minY": -60,
+        "maxY": 0,
+        "maxVeinSize": 8,
+        "spawnRate": 4.0,
+        "discardChanceOnAirExposure": 0.0,
+        "biomeFilters": {
+          "biomeBlacklist": [],
+          "biomeWhitelist": [
+            "twilightforest:forest",
+            "twilightforest:dense_forest",
+            "twilightforest:firefly_forest",
+            "twilightforest:clearing",
+            "twilightforest:oak_savannah",
+            "twilightforest:stream",
+            "twilightforest:lake",
+            "twilightforest:mushroom_forest",
+            "twilightforest:dense_mushroom_forest",
+            "twilightforest:enchanted_forest",
+            "twilightforest:spooky_forest",
+            "twilightforest:swamp",
+            "twilightforest:fire_swamp",
+            "twilightforest:dark_forest",
+            "twilightforest:dark_forest_center",
+            "twilightforest:snowy_forest",
+            "twilightforest:glacier",
+            "twilightforest:highlands",
+            "twilightforest:thornlands",
+            "twilightforest:final_plateau"
+          ]
+        },
+        "replace": true
+      }
+    ]
+  }

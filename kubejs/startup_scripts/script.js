@@ -1,6 +1,6 @@
 // priority: 0
 
-console.info('Hello, World! (You will only see this line once in console, during startup)')
+console.info('Initializing CEOS Modified Recipes')
 
 onEvent('item.registry', event => {
 	// Register new items here
@@ -213,6 +213,20 @@ event.create('minus').texture("kubejs:item/math/minus").displayName('-').glow(tr
 event.create('multiply').texture("kubejs:item/math/multiply").displayName('×').glow(true).rarity(RARITY_UNCOMMON)
 event.create('divide').texture("kubejs:item/math/divide").displayName('÷').glow(true).rarity(RARITY_UNCOMMON)
 event.create('missingno').texture("kubejs:item/math/missingno").displayName('NaN').glow(true).rarity(RARITY_UNCOMMON)
+
+event.create('kubejs:incomplete_steel_facing').texture("kubejs:item/cans/steel_facing").displayName('钢牙套（未完成）')
+event.create('steel_facing').texture("kubejs:item/cans/steel_facing").displayName('钢牙套')
+
+////罐装食品
+event.create('iron_thin_plate').texture("kubejs:item/cans/iron_thin_plate").displayName('薄铁板')
+event.create('iron_thin_plate_with_tin').texture("kubejs:item/cans/iron_thin_plate_with_tin").displayName('镀锡薄铁板')
+event.create('can_empty').texture("kubejs:item/cans/can_empty").displayName('空罐头').maxStackSize(32)
+event.create('can_sealed').texture("kubejs:item/cans/can_sealed").displayName('封装罐头').maxStackSize(32)
+	.food((food) => {
+		food.hunger(2)
+		.meat(true)
+		.alwaysEdible(true)
+	})
 
 })
 

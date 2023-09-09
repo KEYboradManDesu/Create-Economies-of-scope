@@ -205,6 +205,10 @@ event.removeAllTagsFrom('immersiveengineering:raw_block_uranium')
 
 event.get('forge:raw_materials/manasteel').add('kubejs:raw_mana_steel')
 event.get('#create:crushed_raw_materials').add('kubejs:crushed_raw_mana_steel')
+
+//罐头
+event.get('#forge:cans_sealed').add('kubjs:can_sealed')
+
 })
 
 onEvent('fluid.tags', event => {

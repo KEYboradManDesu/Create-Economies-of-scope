@@ -2,6 +2,7 @@ onEvent('recipes', event => {
 	platesproduction(event)
 	canproduction(event)
 	canopentoeat(event)
+	steelfacing(event)
 })
 
 function platesproduction(event) {
@@ -38,4 +39,17 @@ function canopentoeat(event) {
 	onEvent('recipes', event => {
 		event.shapeless('kubejs:can_empty', ['kubejs:can_sealed', '#forge:wrenches'])
 	})
+}
+
+function steelfacing(event) {
+		event.recipes.createSequencedAssembly([
+			//成品：
+			Item.of('kubejs:steel_facing')],
+   			//输入物品：
+   			'#forge:bones', 
+   			[
+	 		event.recipes.createDeploying('kubejs:incomplete_steel_facing', ['kubejs:incomplete_steel_facing', 'create:sturdy_sheet']),//第一步
+			event.recipes.createDeploying('kubejs:incomplete_steel_facing', ['kubejs:incomplete_steel_facing', '#forge:string']),//第二步
+			event.recipes.createDeploying('kubejs:incomplete_steel_facing', ['kubejs:incomplete_steel_facing', 'create:sturdy_sheet']),//第三步
+		]).transitionalItem('kubejs:incomplete_steel_facing').loops(2)
 }

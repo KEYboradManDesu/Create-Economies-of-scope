@@ -214,7 +214,8 @@ event.create('multiply').texture("kubejs:item/math/multiply").displayName('×').
 event.create('divide').texture("kubejs:item/math/divide").displayName('÷').glow(true).rarity(RARITY_UNCOMMON)
 event.create('missingno').texture("kubejs:item/math/missingno").displayName('NaN').glow(true).rarity(RARITY_UNCOMMON)
 
-event.create('steel_facing').texture("kubejs:item/cans/iron_thin_plate").displayName('钢牙套')
+event.create('kubejs:incomplete_steel_facing').texture("kubejs:item/cans/steel_facing").displayName('钢牙套（未完成）')
+event.create('steel_facing').texture("kubejs:item/cans/steel_facing").displayName('钢牙套')
 
 ////罐装食品
 event.create('iron_thin_plate').texture("kubejs:item/cans/iron_thin_plate").displayName('薄铁板')

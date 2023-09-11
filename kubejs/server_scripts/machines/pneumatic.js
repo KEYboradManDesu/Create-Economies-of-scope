@@ -121,10 +121,10 @@ let se = 'create_sa:incomplete_steam_engine'
 	event.recipes.createSequencedAssembly([
 		'create_sa:steam_engine',
 	], CR('precision_mechanism'), [
+		event.recipes.createDeploying(se, [se, 'create_dd:integrated_circuit']),
 		event.recipes.createDeploying(se, [se, 'createindustry:engine_chamber']),
 		event.recipes.createDeploying(se, [se, 'createindustry:engine_chamber']),
-		event.recipes.createFilling(se, [se, Fluid.of("mekanism:steam", 500)]),
-		event.recipes.createDeploying(se, [se, 'create_dd:integrated_circuit'])
+		event.recipes.createFilling(se, [se, Fluid.of("mekanism:steam", 500)])
 	]).transitionalItem(se)
 		.loops(1)
 		.id('kubejs:steam_engine1')

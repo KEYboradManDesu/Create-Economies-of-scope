@@ -2,21 +2,6 @@
 global.cachedSeed = undefined
 global.cachedAlchemyData = {}
 
-// 添加反应物配方
-function catalyst_recipes(event){
-	//红石促成剂
-	event.recipes.createSequencedAssembly([
-		//成品：
-        Item.of('kubejs:steel_facing')],
-   		//输入物品：
-   		'#forge:bones', 
-   		[
-	 	    event.recipes.createDeploying('kubejs:incomplete_steel_facing', ['kubejs:incomplete_steel_facing', 'create:sturdy_sheet']),//第一步
-		    event.recipes.createDeploying('kubejs:incomplete_steel_facing', ['kubejs:incomplete_steel_facing', '#forge:wires/copper']),//第二步
-		    event.recipes.createDeploying('kubejs:incomplete_steel_facing', ['kubejs:incomplete_steel_facing', 'create:sturdy_sheet']),//第三步
-		]).transitionalItem('kubejs:incomplete_steel_facing').loops(2)
-}
-
 function colourMap(c) {
     switch (c) {
         case "white": return [255, 255, 255]

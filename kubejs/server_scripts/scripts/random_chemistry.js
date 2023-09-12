@@ -37,38 +37,38 @@ function shuffle(array, random) {
 }
 
 function attackNearby(world, x, y, z) {
-    let aabb = AABB.CUBE.contract(x - .5, y + .5, z - .5).func_72321_a(-3, -3, -3).func_72321_a(3, 3, 3)
-    let list = world.minecraftWorld.func_217394_a(null, aabb, e => true)
+    world.getEntitiesWithin(AABB.of(x-3.5,y-2.5,z-3.5,x+3,y+3.5,z+3)).forEach(entity => {
+    if (!entity.isLiving())
+            return
+        entity.attack("magic", 6)
+        }
+    )}
+    //let aabb = AABB.CUBE.contract(x - .5, y + .5, z - .5).func_72321_a(-3, -3, -3).func_72321_a(3, 3, 3)
+    //let list = world.minecraftWorld.func_217394_a(null, aabb, e => true)
 
-    list.forEach(e => {
+    /*list.forEach(e => {
         let entity = world.getEntity(e)
         if (!entity.isLiving())
             return
         entity.attack("magic", 6)
-    })
-}
+    })*/
 
-function getEntitiesInBox(x, y, z, face) {
-    //使用world.getEntities方法，传入一个选择器（selector）和一个过滤器（filter）
-    //过滤器是一个函数，表示要对获取的实体进行的条件判断，如e => true表示不做任何判断，返回所有实体
-    //world.getEntities方法返回一个实体列表（entity list）
-    let entityList = level.getEntity("@e", e => {
-      //对每个实体e进行过滤
-      //获取实体e的坐标（ex, ey, ez）
+
+function getEntitiesInBox(event, x, y, z, face) {
+    let entityList = event.server.getEntities("@e[dx=6,dy=1,dz=1]"/*, e => {
       let ex = e.getX();
       let ey = e.getY();
       let ez = e.getZ();
-      //判断实体e是否在边界框内，即是否满足以下条件：
-      //x <= ex <= x + 4 * face.x
-      //y <= ey <= y + 4 * face.y
-      //z <= ez <= z + 4 * face.z
-      //如果满足，返回true，否则返回false
       return (x <= ex && ex <= x + 4 * face.x) && (y <= ey && ey <= y + 4 * face.y) && (z <= ez && ez <= z + 4 * face.z);
-    });
-    //返回实体列表
+    }*/);
     return entityList;
   }
-  
+
+var i = 0
+var cat = 0
+var digit = 0
+var digit2 = 0
+
 function process(world, block, entity, face) {
 
     if (global.cachedSeed != world.getSeed()) {
@@ -199,7 +199,7 @@ function process(world, block, entity, face) {
             if (resultCount <= 0)
                 continue
 
-            let resultItemNBT = utils.newMap();
+            let resultItemNBT = Utils.newMap();
             resultItemNBT.put("Slot", i)
             resultItemNBT.put("id", resultItem)
             resultItemNBT.put("Count", Math.min(64, resultCount))
@@ -316,7 +316,7 @@ function process(world, block, entity, face) {
                     continue
             }
 
-            let resultItemNBT = utils.newMap();
+            let resultItemNBT = Utils.newMap();
             resultItemNBT.put("Slot", i)
             resultItemNBT.put("id", resultItems[itemIndex])
             resultItemNBT.put("Count", Math.min(64, resultCounts[itemIndex]))
@@ -480,10 +480,10 @@ function process(world, block, entity, face) {
         world.server.runCommandSilent(`/playsound minecraft:block.beacon.activate block @a ${entity.x} ${entity.y} ${entity.z} 0.95 1.5`)
     nbt.Items.clear()
 
-    let resultItemNBT = utils.newMap();
-    let resultItemTagNBT = utils.newMap();
-    let resultItemLoreNBT = utils.newMap();
-    let resultItemLoreList = utils.newList();
+    let resultItemNBT = Utils.newMap();
+    let resultItemTagNBT = Utils.newMap();
+    let resultItemLoreNBT = Utils.newMap();
+    let resultItemLoreList = Utils.newList();
 
     resultItemLoreList.add('{"text": "' + guessedString + '", "italic": false}')
     resultItemLoreNBT.put("Lore", resultItemLoreList.toNBT())
@@ -497,7 +497,7 @@ function process(world, block, entity, face) {
     nbt.Items.add(0, resultItemNBT.toNBT())
 
     if (retain != -1) {
-        resultItemNBT = utils.newMap();
+        resultItemNBT = Utils.newMap();
         resultItemNBT.put("Slot", 1)
         resultItemNBT.put("id", reagents[retain])
         resultItemNBT.put("Count", 1)
@@ -564,11 +564,8 @@ onEvent('block.left_click', event => {
         let z = laser.z
         //let aabb = AABB.CUBE.func_72317_d(x, y, z).func_72321_a(4 * face.x, 4 * face.y, 4 * face.z)
         //let list = world.minecraftWorld.func_217394_a(null, aabb, e => true)
-        getEntitiesInBox(x, y, z, face)
-        let list = entityList
-
-        list.forEach(e => {
-            let entity = world.getEntity(e)
+        //hurt entities in a around a area of where the command was run
+        world.getEntitiesWithin(AABB.of(x-4,y-0.5,z-4,x+4,y+0.5,z+4)).forEach(entity => {
             if (!entity.type.equals("minecraft:hopper_minecart")) {
                 if (!entity.type.equals("minecraft:item"))
                     entity.attack("magic", 6)
@@ -577,9 +574,22 @@ onEvent('block.left_click', event => {
             process(world, block, entity, face)
             entity.attack("magic", 1)
         })
+        //let list = getEntitiesInBox(event, x, y, z, face)
+
+        /*list.forEach(e => {
+            let entity = world.getEntity(e)
+            if (!entity.type.equals("minecraft:hopper_minecart")) {
+                if (!entity.type.equals("minecraft:item"))
+                    entity.attack("magic", 6)
+                return
+            }
+            process(world, block, entity, face)
+            entity.attack("magic", 1)
+        })*/
 
         sound = true
-        let rgb = colourMap(color)
+        let rgb = colourMap("white")
+        //let rgb = colourMap(color)
         for (i = 0; i < 22; i++) {
             let offset = (i / 20.0) * 4
             world.server.runCommandSilent(`/particle dust ${rgb[0] / 256} ${rgb[1] / 256} ${rgb[2] / 256} 1 ${x + .5 + face.x * offset} ${y + .5 + face.y * offset} ${z + .5 + face.z * offset} 0 0 0 .001 1`)

@@ -42,6 +42,7 @@ function canopentoeat(event) {
 }
 
 function steelfacing(event) {
+		//钢牙套
 		event.recipes.createSequencedAssembly([
 			//成品：
 			Item.of('kubejs:steel_facing')],
@@ -49,7 +50,7 @@ function steelfacing(event) {
    			'#forge:bones', 
    			[
 	 		event.recipes.createDeploying('kubejs:incomplete_steel_facing', ['kubejs:incomplete_steel_facing', 'create:sturdy_sheet']),//第一步
-			event.recipes.createDeploying('kubejs:incomplete_steel_facing', ['kubejs:incomplete_steel_facing', '#forge:string']),//第二步
+			event.recipes.createDeploying('kubejs:incomplete_steel_facing', ['kubejs:incomplete_steel_facing', '#forge:wires/copper']),//第二步
 			event.recipes.createDeploying('kubejs:incomplete_steel_facing', ['kubejs:incomplete_steel_facing', 'create:sturdy_sheet']),//第三步
 		]).transitionalItem('kubejs:incomplete_steel_facing').loops(2)
 }

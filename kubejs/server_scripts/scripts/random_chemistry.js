@@ -53,16 +53,16 @@ function attackNearby(world, x, y, z) {
         entity.attack("magic", 6)
     })*/
 
-
+/*
 function getEntitiesInBox(event, x, y, z, face) {
     let entityList = event.server.getEntities("@e[dx=6,dy=1,dz=1]"/*, e => {
       let ex = e.getX();
       let ey = e.getY();
       let ez = e.getZ();
       return (x <= ex && ex <= x + 4 * face.x) && (y <= ey && ey <= y + 4 * face.y) && (z <= ez && ez <= z + 4 * face.z);
-    }*/);
+    });
     return entityList;
-  }
+  }*/
 
 var i = 0
 var cat = 0
@@ -538,8 +538,10 @@ onEvent('block.left_click', event => {
         if (!te)
             return
         // 需要重置
-        /*let nbt = Utils.newMap().toNBT()
-        te.func_189516_d(nbt)
+        //let nbt = Utils.newMap().toNBT()
+        /*let nbt = te.fullNBT
+        console.log("TE: " + te)
+        console.log("NBT: " + nbt)
         let parts = nbt.getList("parts", 10)
         let valid = false
         let color = ""
@@ -554,18 +556,17 @@ onEvent('block.left_click', event => {
                 valid = true
                 color = part.id.replace("_inverted", "").replace("_cage_light", "").replace("projectred-illumination:", "")
             })
-        }*
+        }
 
         if (!valid)
-            return*/
+            return
+        */
 
         let x = laser.x
         let y = laser.y
         let z = laser.z
-        //let aabb = AABB.CUBE.func_72317_d(x, y, z).func_72321_a(4 * face.x, 4 * face.y, 4 * face.z)
-        //let list = world.minecraftWorld.func_217394_a(null, aabb, e => true)
-        //hurt entities in a around a area of where the command was run
-        world.getEntitiesWithin(AABB.of(x-4,y-0.5,z-4,x+4,y+0.5,z+4)).forEach(entity => {
+        let aabb = AABB.CUBE.move(x, y, z).inflate(4 * face.x, 4 * face.y, 4 * face.z)
+        world.getEntitiesWithin(aabb).forEach(entity => {
             if (!entity.type.equals("minecraft:hopper_minecart")) {
                 if (!entity.type.equals("minecraft:item"))
                     entity.attack("magic", 6)
@@ -574,7 +575,6 @@ onEvent('block.left_click', event => {
             process(world, block, entity, face)
             entity.attack("magic", 1)
         })
-        //let list = getEntitiesInBox(event, x, y, z, face)
 
         /*list.forEach(e => {
             let entity = world.getEntity(e)

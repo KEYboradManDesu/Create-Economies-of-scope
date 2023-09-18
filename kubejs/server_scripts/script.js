@@ -44,6 +44,7 @@ let switchCraft = (event, a, b) => {
 	], {
 		S: b
 	})
+	
 	event.shaped(b, [
 		'S'
 	], {
@@ -57,8 +58,6 @@ function unwantedRecipes(event) {  //不想要的配方
 	event.remove({ id: CR('cutting/andesite_alloy') })
 	event.remove({ mod: ('extendedgears') })
 	event.remove({ id: ('alloyed/mixing/steel_ingot') })
-	event.remove({ mod: ('creatania') })
-	event.remove({ mod: ('create_brass_coated') })
 	event.remove({ id: ('create:botanist/elven_trade/andesite_casing') })
 	event.remove({ id: ('create:botanist/elven_trade/copper_casing') })
 	event.remove({ id: ('create:botanist/elven_trade/brass_casing') })
@@ -106,7 +105,6 @@ function unwantedRecipes(event) {  //不想要的配方
 	event.remove({ output: 'createindustry:heavy_plate' })
 	event.remove({ id: "create:crushing/diamond/scarp_diamond" })
 	event.remove({ id: "create:crushing/netherite/scarp_netherite" })
-	event.remove({ output: 'twilightforest:uncrafting_table' })
 	event.remove({ output: 'twilightdelight:ironwood_knife' })
     event.remove({ id: /beyond_earth_giselle_addon:compat\/mekanism\/pigment_extracting.*/ })
 	event.remove({ output: 'create_dd:chromatic_compound' })
@@ -115,6 +113,8 @@ function unwantedRecipes(event) {  //不想要的配方
     event.remove({ id: CR('item_application/copper_casing_from_log') })
     event.remove({ id: CR('item_application/andesite_casing_from_wood') })//安山机壳
     event.remove({ id: CR('item_application/andesite_casing_from_log') })
+	event.remove({ mod: ('creatania') })
+	event.remove({ output: 'twilightforest:uncrafting_table' })
 }
 
 /*function avaritia(event) {

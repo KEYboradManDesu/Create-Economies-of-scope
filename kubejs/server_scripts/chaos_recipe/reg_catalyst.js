@@ -31,7 +31,6 @@ let OC = (id, x) => MOD("occultism", id, x)
 
 
 function alchemy(event) {
-/* 此处配方暂时无用
 	event.recipes.thermal.pyrolyzer([MC("charcoal", 2), Fluid.of(TE('creosote'), 50)], MC("#logs")).energy(1000)
 	event.recipes.thermal.pyrolyzer([TE("coal_coke"), Fluid.of(TE('creosote'), 50)], MC("charcoal")).energy(2000)
 	let t = KJ('incomplete_coke_chunk')
@@ -114,7 +113,7 @@ function alchemy(event) {
 	event.remove({ type: TE("sawmill") })
 	event.remove({ type: TE("centrifuge") })
 	event.remove({ output: AE2("silicon") })
-    */
+    
 
 	let alchemy_mix = (output, catalyst, r1, r2, amount) => {
 		event.recipes.createMixing([Item.of(KJ("substrate_" + output, amount ? amount : 1)), KJ("substrate_" + catalyst)], [KJ("substrate_" + catalyst), KJ("substrate_" + r1, 2), KJ("substrate_" + r2)]).heated()

@@ -170,7 +170,7 @@ function alchemy(event) {
 		let jsonOut = []
 		if (outputs[0] > 0)
 			jsonOut.push({
-				"item": "darkerdepths:ash",
+				"item": "supplementaries:ash",
 				"count": outputs[0]
 			})
 		if (outputs[1] > 0)

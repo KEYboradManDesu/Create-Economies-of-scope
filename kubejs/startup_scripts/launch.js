@@ -13,13 +13,9 @@ event.create('plus_cast').texture("kubejs:item/plus_cast").displayName('运算�
 event.create('minus_cast').texture("kubejs:item/minus_cast").displayName('运算符铸模 (－)').unstackable()
 event.create('multiply_cast').texture("kubejs:item/multiply_cast").displayName('运算符铸模 (x)').unstackable()
 event.create('divide_cast').texture("kubejs:item/divide_cast").displayName('运算符铸模 (÷)').unstackable()
-event.create('computation_matrix').parentModel("kubejs:item/computation_matrix").displayName('§d计算矩阵§r').unstackable()
+event.create('computation_matrix').parentModel("kubejs:item/computation_matrix").displayName('计算矩阵').unstackable().rarity(RARITY_EPIC)
 event.create('programming_matrix').parentModel("kubejs:item/programming_matrix").displayName('§c编程矩阵§r').maxStackSize(4)
-event.create('energy_matrix_c').parentModel("kubejs:item/energy_matrix_c").displayName('§6能量矩阵§r').maxStackSize(2)
-//event.create('energy_matrix_a').parentModel("kubejs:item/energy_matrix_a").displayName('§6能量矩阵 A型（2048MFE）§r').maxStackSize(2)
-//event.create('energy_matrix_b').parentModel("kubejs:item/energy_matrix_b").displayName('§6能量矩阵 B型（4096MFE）§r').maxStackSize(2)
-//event.create('energy_matrix_c').parentModel("kubejs:item/energy_matrix_c").displayName('§6能量矩阵 C型（8192MFE）§r').maxStackSize(2)
-//event.create('energy_matrix_tube').parentModel("kubejs:item/energy_matrix_tube").displayName('§6能量块（256MFE）§r').maxStackSize(8)
+event.create('energy_matrix').parentModel("kubejs:item/energy_matrix_c").displayName('§6能量矩阵§r').maxStackSize(2)
 
 event.create('growing_certus_seed', 'create:sequenced_assembly').texture("ae2:item/crystal_seed_certus").displayName('赛特斯石英种子')
 event.create('tiny_certus_crystal').texture("ae2:item/crystal_seed_certus2").displayName('微型赛特斯石英')
@@ -65,7 +61,7 @@ event.create('brass_dust').texture("kubejs:item/dust/brass_dust").displayName('�
 event.create('cobalt_dust').texture("kubejs:item/dust/cobalt_dust").displayName('钴粉')
 event.create('zinc_dust').texture("kubejs:item/dust/zinc_dust").displayName('锌粉')
 event.create('rune_dust').texture("kubejs:item/dust/rune_dust").displayName('符文粉')
-event.create('naga_dust').texture("kubejs:item/dust/naga_dust").displayName('娜迦鳞粉').rarity(RARITY_UNCOMMON)
+event.create('naga_dust').texture("kubejs:item/dust/naga_dust").displayName('娜迦鳞粉').rarity(RARITY_EPIC)
 event.create('mysterywood_sawdust').texture("kubejs:item/dust/mysterywood_sawdust").displayName('神秘木锯末')
 
 event.create('earth_slimy_fern_leaf').texture("kubejs:item/fern/leaf/earth_slimy_fern_leaf").displayName('大地黏性蕨叶')
@@ -75,16 +71,15 @@ event.create('earth_slimy_fern_paste').texture("kubejs:item/fern/paste/earth_sli
 event.create('ender_slimy_fern_paste').texture("kubejs:item/fern/paste/ender_slimy_fern_paste").displayName('末影黏性蕨粉末')
 event.create('sky_slimy_fern_paste').texture("kubejs:item/fern/paste/sky_slimy_fern_paste").displayName('碧空黏性蕨粉末')
 
-event.create('netherite_saw').parentModel("kubejs:item/netherite_saw").displayName('下界合金手锯').maxDamage(2653)
-event.create('chromatic_resonator').texture("kubejs:item/chromatic_resonator").displayName('异彩共鸣器').maxDamage(512).rarity(RARITY_UNCOMMON)
-event.create('calculator').texture("kubejs:item/calculator").displayName('计算器').maxDamage(256).rarity(RARITY_UNCOMMON)
-event.create('boot_medium').texture("kubejs:item/boot_medium").displayName('闪存盘').maxDamage(256).rarity(RARITY_UNCOMMON)
-event.create('thermal_grease').texture("kubejs:item/thermal_grease").displayName('散热硅脂').maxDamage(192).rarity(RARITY_UNCOMMON)
-event.create('hop_slime').texture("kubejs:item/hop_slime").displayName('高定向热解石莱姆').maxDamage(256).rarity(RARITY_UNCOMMON)
-event.create('metamorphic_lich_rod').texture("kubejs:item/metamorphic_lich_rod").displayName('巫妖腐化法杖').maxDamage(256).rarity(RARITY_UNCOMMON)
+event.create('netherite_saw').parentModel("kubejs:item/tool/netherite_saw").displayName('下界合金手锯').maxDamage(2653)
+event.create('chromatic_resonator').texture("kubejs:item/tool/chromatic_resonator").displayName('异彩共鸣器').maxDamage(512).rarity(RARITY_UNCOMMON)
+event.create('calculator').texture("kubejs:item/tool/calculator").displayName('计算器').maxDamage(256).rarity(RARITY_UNCOMMON)
+event.create('boot_medium').texture("kubejs:item/tool/boot_medium").displayName('闪存盘').maxDamage(256).rarity(RARITY_UNCOMMON)
+event.create('thermal_grease').texture("kubejs:item/tool/thermal_grease").displayName('散热硅脂').maxDamage(192).rarity(RARITY_UNCOMMON)
+event.create('hop_slime').texture("kubejs:item/tool/hop_slime").displayName('高定向热解石莱姆').maxDamage(256).rarity(RARITY_UNCOMMON)
+event.create('metamorphic_lich_rod').texture("kubejs:item/tool/metamorphic_lich_rod").displayName('巫妖腐化法杖').maxDamage(256).rarity(RARITY_EPIC)
 
 event.create('circuit_scrap').texture("kubejs:item/circuit_scrap").displayName('模板碎片')
-event.create('andesite_alloy_ingot').texture("kubejs:item/andesite_alloy_classic").displayName('安山合金锭')
 //event.create('integrated_cpu').texture("kubejs:item/integrated_circuit").displayName('集成CPU')
 event.create('incomplete_coke_chunk', 'create:sequenced_assembly').texture("kubejs:item/incomplete_coke_chunk").displayName('碎焦碳')
 event.create('coke_chunk').texture("kubejs:item/coke_chunk").displayName('焦碳块')
@@ -93,9 +88,6 @@ event.create('smoke_mote').texture("kubejs:item/smoke_mote").displayName('微小
 event.create('sand_ball').texture("kubejs:item/sand_ball").displayName('沙球').maxStackSize(4)
 event.create('rough_sand').texture("kubejs:item/rough_sand").displayName('沙块')
 event.create('purified_sand').texture("kubejs:item/purified_sand").displayName('高纯沙')
-event.create('silicon_compound').texture("kubejs:item/silicon_compound").displayName('硅混合物')
-event.create('nickel_compound').texture("kubejs:item/nickel_compound").displayName('铁镍混合物')
-event.create('invar_compound', 'create:sequenced_assembly').texture("kubejs:item/invar_compound").displayName('殷瓦钢胚')
 event.create('press_rod_die').texture("kubejs:item/press_rod_die").displayName('杆冲压模具').unstackable()
 event.create('motor').texture("kubejs:item/motor").displayName('电动马达')
 event.create('battery').texture("kubejs:item/battery").displayName('电池')
@@ -115,6 +107,7 @@ event.create('metamorphic_lich_core').texture("kubejs:item/metamorphic_lich_core
 event.create('life_gold_source').texture("kubejs:item/life_gold_source").displayName('金源机魂').rarity(RARITY_UNCOMMON)
 event.create('empty_tube').texture("kubejs:item/empty_tube").displayName('空玻璃管')
 event.create('rebar_bunch').texture("kubejs:item/rebar_bunch").displayName('钢筋捆')
+event.create('mana_crystal').texture("kubejs:item/mana_crystal").displayName('魔力结晶')
 
 event.create('incomplete_hemp_fabric', 'create:sequenced_assembly').texture("kubejs:item/incomplete_hemp_fabric").displayName('坚韧布料（未完成）')
 event.create('plate', 'create:sequenced_assembly').texture("kubejs:item/handmade_mechanism/plate").displayName('红石电路板（未完成）')
@@ -160,6 +153,21 @@ event.create('crushed_raw_mana_steel').texture("kubejs:item/ore/crushed_raw_mana
 
 event.create('raw_mana_steel').texture("kubejs:item/ore/raw_mana_steel").displayName('粗魔力钢')
 
+////混合物
+event.create('andesite_alloy_ingot').texture("kubejs:item/compound/andesite_alloy_classic").displayName('安山合金锭')
+event.create('silicon_compound').texture("kubejs:item/compound/silicon_compound").displayName('硅混合物')
+event.create('nickel_compound').texture("kubejs:item/compound/nickel_compound").displayName('铁镍混合物')
+event.create('invar_compound', 'create:sequenced_assembly').texture("kubejs:item/compound/invar_compound").displayName('殷瓦钢胚')
+event.create('steel_compound', 'create:sequenced_assembly').texture("kubejs:item/compound/steel_compound").displayName('钢胚')
+event.create('netherite_compound', 'create:sequenced_assembly').texture("kubejs:item/compound/netherite_compound").displayName('下界合金胚')
+event.create('brass_compound').texture("kubejs:item/compound/brass_compound").displayName('铜锌混合物')
+event.create('bronze_compound').texture("kubejs:item/compound/bronze_compound").displayName('铜锡混合物')
+event.create('constantan_compound').texture("kubejs:item/compound/constantan_compound").displayName('铜镍混合物')
+event.create('rose_gold_compound').texture("kubejs:item/compound/rose_gold_compound").displayName('铜金混合物')
+event.create('pigiron_compound').texture("kubejs:item/compound/pigiron_compound").displayName('生铁混合物')
+event.create('electrum_compound').texture("kubejs:item/compound/electrum_compound").displayName('金银混合物')
+event.create('manasteel_compound').texture("kubejs:item/compound/manasteel_compound").displayName('魔力钢混合物')
+event.create('steel_block_compound', 'create:sequenced_assembly').parentModel("kubejs:item/incomplete_steel_block").displayName('钢胚块')
 
 ////背包相关
 event.create('sewing_spool').texture("kubejs:item/backpack/sewing_spool").displayName('缝纫线轴').maxDamage(12)
@@ -214,7 +222,7 @@ event.create('multiply').texture("kubejs:item/math/multiply").displayName('×').
 event.create('divide').texture("kubejs:item/math/divide").displayName('÷').glow(true).rarity(RARITY_UNCOMMON)
 event.create('missingno').texture("kubejs:item/math/missingno").displayName('NaN').glow(true).rarity(RARITY_UNCOMMON)
 
-event.create('kubejs:incomplete_steel_facing').texture("kubejs:item/cans/steel_facing").displayName('钢牙套（未完成）')
+event.create('kubejs:incomplete_steel_facing', 'create:sequenced_assembly').texture("kubejs:item/cans/steel_facing").displayName('钢牙套（未完成）')
 event.create('steel_facing').texture("kubejs:item/cans/steel_facing").displayName('钢牙套')
 
 ////罐装食品
@@ -229,8 +237,6 @@ event.create('can_sealed').texture("kubejs:item/cans/can_sealed").displayName('�
 	})
 
 })
-
-
 
 onEvent('block.registry', event => {
 	// Register new blocks here
@@ -254,7 +260,7 @@ onEvent('block.registry', event => {
 	event.create('mana_casing').material('stone').hardness(2.0).displayName('魔力机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
 	event.create('mysterious_casing').material('stone').hardness(2.0).displayName('神秘机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
 
-	// 机器注册
+
 	let machine = (name, layer, material , display) => {
 	let id = name.toLowerCase()
 		event.create(id + '_machine')
@@ -292,164 +298,7 @@ onEvent('block.registry', event => {
 		}
 	
 		mechanism_block('Andesite', "lantern", "安山机器")
-*/	
-	
-	// 混沌炼金注册
-	// 原味CAB配方，熟悉的味道
-	var mad = 0;
-	for (mad = 0; mad < 15; mad++)
-		event.create(`failed_alchemy_${mad}`)
-			.material('glass')
-			.color(0, 0x394867)
-			.color(1, 0x14274E)
-			.hardness(0.1)
-			.box(.25, 0, .25, .75, 14.0 / 16.0, .75, false)
-			.model("kubejs:block/mundane_substrate")
-			.displayName(`凡品炼金混合物`)
-			.renderType("cutout")
-
-	global.substrates = []
-	global.substrate_mapping = {}
-	var current_category = []
-	var category_index = 0
-	var substrate_index = 0
-
-	let category = () => {
-		global.substrates.push(current_category)
-		current_category = []
-		category_index++
-		substrate_index = 0
-	}
-
-	let substrate_base = (c1, c2, id, name, model, ingredient, outputItem) => {
-		global.substrate_mapping[id] = {
-			category: category_index,
-			index: substrate_index,
-			name: name.replace("反应物", "").replace("催化剂", "")
-		}
-		current_category.push({
-			id: `kubejs:substrate_${id}`,
-			ingredient: ingredient,
-			outputItem: outputItem
-		})
-		event.create(`substrate_${id}`)
-			.material('glass')
-			.color(0, c1)
-			.color(1, c2)
-			.hardness(0.1)
-			.box(.25, 0, .25, .75, 14.0 / 16.0, .75, false)
-			.model("kubejs:block/" + model)
-			.displayName(name)
-			.renderType("cutout")
-			.item(e => e.rarity(model == "catalyst" ? RARITY_UNCOMMON : RARITY_COMMON))
-		substrate_index++
-	}
-
-	let reagent = (c1, c2, id, prefix, ingredient, outputItem) => substrate_base(c1, c2, id, `${prefix}反应物`, "substrate", ingredient, outputItem)
-	let catalyst = (c1, c2, id, prefix, ingredient) => substrate_base(c1, c2, id, `${prefix}催化剂`, "catalyst", ingredient)
-
-	reagent(0x5F5F5F, 0x8E8E8E, "andesite", "安山岩", "create:andesite_cobblestone")
-	reagent(0x7F7F7F, 0xD4D4D4, "diorite", "闪长岩", "create:diorite_cobblestone")
-	reagent(0x563A2F, 0x9A6C5B, "granite", "花岗岩", "create:granite_cobblestone")
-	reagent(0x585858, 0x646363, "cobblestone", "圆石", "minecraft:cobblestone")
-	reagent(0x32333D, 0x5C5C5C, "basalt", "玄武岩", "minecraft:basalt")
-	reagent(0x6B5D4F, 0x7D6B5A, "gabbro", "辉长岩", "create:gabbro_cobblestone")
-	category()
-	reagent(0xD30000, 0xB80F0A, "red", "绯红", ["minecraft:rose_bush", "minecraft:poppy", "minecraft:red_tulip"], "minecraft:red_dye")
-	reagent(0xFC6600, 0xb1560f, "orange", "橙色", ["minecraft:orange_tulip", "biomesoplenty:burning_blossom", "minecraft:pumpkin"], "minecraft:orange_dye")
-	reagent(0xFFF200, 0xdba520, "yellow", "黄色", ["biomesoplenty:goldenrod", "minecraft:sunflower", "minecraft:dandelion"], "minecraft:yellow_dye")
-	reagent(0x9dc183, 0x708238, "green", "绿色", ["minecraft:fern", "minecraft:cactus", "biomesoplenty:watergrass"], "minecraft:green_dye")
-	reagent(0x57a0d2, 0x0080fe, "blue", "蓝色", ["biomesoplenty:blue_hydrangea", "minecraft:cornflower", "minecraft:blue_orchid"], "minecraft:light_blue_dye")
-	reagent(0xb200ed, 0xff66cc, "magenta", "品红色", ["minecraft:lilac", "minecraft:allium", "minecraft:pink_tulip"], "minecraft:magenta_dye")
-	category()
-	reagent(0xAC3B00, 0xD5AC26, "blaze", "烈焰", "minecraft:blaze_powder")
-	reagent(0x4F7E48, 0x8AD480, "slime", "史莱姆", "minecraft:slime_ball")
-	reagent(0x5B151A, 0xBC3E49, "nether", "下界", "minecraft:nether_wart")
-	reagent(0x05030A, 0x36234C, "obsidian", "黑曜石", "create:powdered_obsidian")
-	reagent(0x535353, 0x717171, "gunpowder", "火药", "minecraft:gunpowder")
-	reagent(0x529680, 0xA2CFC0, "prismarine", "海晶", "minecraft:prismarine_shard")
-	category()
-	reagent(0x9E72BE, 0xB7C9D1, "arcane", "神秘", "forbidden_arcanus:arcane_crystal_dust")
-	reagent(0x27A9BB, 0x2CC7C9, "apatite", "磷灰石", "thermal:apatite_dust")
-	reagent(0xC7A94A, 0xEEF071, "sulfur", "硫磺", "thermal:sulfur_dust")
-	reagent(0x735A65, 0xB8AFAF, "niter", "硝石", "thermal:niter_dust")
-	reagent(0x91C5FC, 0xA7CBCF, "certus", "赛特斯石英", "appliedenergistics2:certus_quartz_dust")
-	reagent(0xB19E8F, 0xE7E2DB, "quartz", "下界石英", "appliedenergistics2:nether_quartz_dust")
-	category()
-	reagent(0x616A60, 0xD0D2C5, "zinc", "锌", "kubejs:zinc_dust")
-	reagent(0xDD7E5D, 0xFCEFBA, "copper", "铜", "thermal:copper_dust")
-	reagent(0xA6A6A6, 0xD5D5D5, "iron", "铁", "thermal:iron_dust")
-	reagent(0x977756, 0xE4D196, "nickel", "镍", "thermal:nickel_dust")
-	reagent(0x232456, 0x7C95A4, "lead", "铅", "thermal:lead_dust")
-	reagent(0xD99413, 0xFAF25E, "gold", "金", "thermal:gold_dust")
-	category()
-	reagent(0xFC7781, 0xFCCED0, "cinnabar", "朱砂", "thermal:cinnabar")
-	reagent(0x335DC1, 0x7395E7, "lapis", "青金石", "thermal:lapis_dust")
-	reagent(0x246BE9, 0x76C6FC, "sapphire", "蓝宝石", "thermal:sapphire_dust")
-	reagent(0x00A82B, 0xADFACB, "emerald", "绿宝石", "thermal:emerald_dust")
-	reagent(0x9D0A33, 0xFB7B71, "ruby", "红宝石", "thermal:ruby_dust")
-	reagent(0x20C3B3, 0xD2FCF3, "diamond", "钻石", "thermal:diamond_dust")
-	category()
-	catalyst(0x506D84, 0x889EAF, "igneous", "火成")
-	catalyst(0xB5CDA3, 0xC9E4C5, "herbal", "草本")
-	catalyst(0x9F5F80, 0xFF8474, "volatile", "不稳定")
-	catalyst(0xFFB037, 0xFFE268, "crystal", "晶化")
-	catalyst(0x232457, 0x7D97A6, "metal", "金属")
-	catalyst(0x3EDBF0, 0xC0FEFC, "gem", "宝石")
-	category()
-
-	event.create(`substrate_chaos`)
-		.material('glass')
-		.color(0, 0xb200ed)
-		.color(1, 0xff66cc)
-		.hardness(0.1)
-		.box(.25, 0, .25, .75, 14.0 / 16.0, .75, false)
-		.model("kubejs:block/chaos_catalyst")
-		.displayName("混沌催化剂")
-		.renderType("cutout")
-		.item(e => e.rarity(RARITY_RARE))
-	
-
-	event.create(`substrate_silicon`)
-		.material('glass')
-		.color(0, 0x474449)
-		.color(1, 0x967DA0)
-		.hardness(0.1)
-		.box(.25, 0, .25, .75, 14.0 / 16.0, .75, false)
-		.model("kubejs:block/substrate")
-		.displayName("硅反应物")
-		.renderType("cutout")
-		.item(e => e.rarity(RARITY_EPIC))
-
-
-	event.create(`substrate_silver`)
-		.material('glass')
-		.color(0, 0x9FADB4)
-		.color(1, 0xBECCD2)
-		.hardness(0.1)
-		.box(.25, 0, .25, .75, 14.0 / 16.0, .75, false)
-		.model("kubejs:block/substrate")
-		.displayName("银反应物")
-		.renderType("cutout")
-
-	event.create(`accellerator_glowstone`)
-		.material('glass')
-		.color(0, 0xFFBC5E)
-		.hardness(0.1)
-		.box(.125, 0, .125, .875, 10.0 / 16.0, .875, false)
-		.model("kubejs:block/accellerator")
-		.displayName("荧石促成剂")
-		.renderType("cutout")
-
-	event.create(`accellerator_redstone`)
-		.material('glass')
-		.color(0, 0xAA0F01)
-		.hardness(0.1)
-		.box(.125, 0, .125, .875, 10.0 / 16.0, .875, false)
-		.model("kubejs:block/accellerator")
-		.displayName("红石促成剂")
-		.renderType("cutout")
-
+*/
 })
 
 onEvent('fluid.registry', event => {
@@ -467,11 +316,6 @@ onEvent('fluid.registry', event => {
 
 	event.create("matter").displayName("熔融物质").bucketColor(0xF7F7F7).stillTexture('kubejs:fluid/matter_still').flowingTexture('kubejs:fluid/matter_flow')
 	event.create("matter_plastics").displayName("熔融物质塑料").bucketColor(0xD4D4D4).stillTexture('kubejs:fluid/matter_plastics_still').flowingTexture('kubejs:fluid/matter_plastics_flow')
-
-	event.create("tech_coin_a").displayName("安山科技币").bucketColor(0xC1CDCD).stillTexture('kubejs:fluid/coin/tech_coin_a_still').flowingTexture('kubejs:fluid/coin/tech_coin_a_flow')
-	event.create("tech_coin_b").displayName("黄铜科技币").bucketColor(0xB8860B).stillTexture('kubejs:fluid/coin/tech_coin_b_still').flowingTexture('kubejs:fluid/coin/tech_coin_b_flow')
-	event.create("tech_coin_c").displayName("信素科技币").bucketColor(0xCD3700).stillTexture('kubejs:fluid/coin/tech_coin_c_still').flowingTexture('kubejs:fluid/coin/tech_coin_c_flow')
-	event.create("tech_coin_d").displayName("谐振科技币").bucketColor(0x5F9EA0).stillTexture('kubejs:fluid/coin/tech_coin_d_still').flowingTexture('kubejs:fluid/coin/tech_coin_d_flow')
 
 	event.create("programming")
 	    .displayName("玻色-爱因斯坦凝聚态逻辑（编程）")

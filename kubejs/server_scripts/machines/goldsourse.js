@@ -1,6 +1,8 @@
 
 onEvent('recipes', event => {
     goldsourseMachine(event)
+	flowers(event)
+	manastuffs(event)
 })
 
 function goldsourseMachine(event) {
@@ -14,12 +16,13 @@ event.recipes.botania.petal_apothecary(FA("yellow_orchid"), [BO("yellow_petal"),
 //金兰花
 event.recipes.botania.petal_apothecary(FA("golden_orchid_seeds"), [FA("yellow_orchid"), 'occultism:datura_seeds', FA("arcane_gold_nugget"), FA("arcane_gold_nugget"), FA("arcane_gold_nugget"), FA("arcane_gold_nugget"), FA("arcane_gold_nugget")])
 
-event.recipes.createCompacting(Fluid.of('creatania:pure_mana', 250), ["kubejs:mana_petal"])
-
 //符文粉
 event.recipes.createMilling([KJ('rune_dust', 3)], FA('rune')).processingTime(700)
 event.recipes.createCrushing([KJ('rune_dust', 4), Item.of(KJ("rune_dust"), 2).withChance(0.75)], FA('rune')).processingTime(500)
 event.recipes.thermal.pulverizer([KJ('rune_dust', 8)], FA('rune')).energy(10000)
+//还原
+event.blasting(FA('rune'), KJ('rune_dust'))
+
 
 //娜迦鳞粉
 event.recipes.createMilling([KJ('naga_dust', 16)], 'twilightforest:naga_scale').processingTime(700)
@@ -91,7 +94,9 @@ gold_source_machine(BO('bellows'), 4)
 gold_source_machine(BO('open_crate'), 4)
 gold_source_machine(BO('mana_spreader'), 8, KJ('living_core'))
 gold_source_machine(BO('turntable'), 1, CR('turntable'))
+}
 
+function flowers(event) {
 //金源之魂
 event.recipes.botania.mana_infusion(KJ('life_gold_source', 2), KJ('gold_source_machine'), 8000)
 event.custom({
@@ -188,4 +193,56 @@ event.recipes.botania.petal_apothecary(BO('marimorphosis'), [
 	BO('#petals/red'),
 	BO('#petals/light_blue')])
 
+}
+
+function manastuffs(event) {
+//纯净魔力
+event.custom({
+	"type": "botania:pure_daisy",
+	"input": {
+	  "type": "block",
+	  "block": "creatania:mana/blocks/corrupt"
+	},
+	"time": 6,
+	"output": {
+	  "name": "creatania:pure_mana"
+	}
+})
+
+////魔力尘
+//魔力灌注
+event.recipes.botania.mana_infusion(BO('mana_powder'), KJ('rune_dust'), 1000)
+//磨粉
+event.recipes.createMilling([BO('mana_powder', 4)], BO('mana_pearl')).processingTime(150)
+//魔力结晶
+event.custom({
+	"type": "createdieselgenerators:basin_fermenting",
+	"ingredients": [
+		{
+			"amount": 1000,
+			"fluid": "creatania:pure_mana"
+		}
+	],
+	"results": [
+		{
+		  "item": "kubejs:mana_crystal"
+		}
+	],
+	"processingTime": 90,
+	"heatRequirement": "lowheated"
+})
+event.shaped(BO('mana_powder'), [
+	'RR',
+	'RR'
+], {
+	R: KJ('mana_crystal')
+})
+
+////魔力珍珠
+//魔力灌注
+event.recipes.botania.mana_infusion(BO('mana_pearl'), [MC('ender_pearl'), MC('ender_eye')], 4500)
+//动力搅拌
+event.recipes.createMixing([Item.of(BO('mana_pearl')), Item.of(KJ('rune_dust', 4))], [BO('mana_powder', 4), [MC('ender_pearl'), MC('ender_eye')]])
+event.recipes.createMixing([Item.of(BO('mana_pearl')), Item.of(KJ('rune_dust', 4))], [BO('mana_powder', 4), FA('ender_pearl_fragment', 3)])
+		
 }

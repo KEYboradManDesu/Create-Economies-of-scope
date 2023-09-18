@@ -160,10 +160,12 @@ event.custom({
   ]
 })
 
-function unifyMetal(
+function unifyAllTheMetal(
     name,
     ore,
     deepslateOre,
+    netherOre,
+    endOre,
     rawOre,
     rawOreBlock,
     block,
@@ -185,6 +187,8 @@ function unifyMetal(
       name: name,
       ore: ore,
       deepslateOre: deepslateOre,
+      netherOre: netherOre,
+      endOre: endOre,
       rawOre: rawOre,
       rawOreBlock: rawOreBlock,
       block: block,
@@ -402,12 +406,14 @@ function unifyMetal(
 	event.recipes.thermal.pulverizer(['9x ' + MC('glowstone_dust')], 'buddycards:luminis_crystal').energy(10000)
   event.recipes.mekanismEnriching('9x ' + MC('glowstone_dust'), 'buddycards:luminis_crystal');
 
-  unifyMetal(
+  unifyAllTheMetal(
     "aluminum",
-    "immersiveengineering:ore_aluminum",
-    "immersiveengineering:deepslate_ore_aluminum",
+    "alltheores:aluminum_ore",
+    "alltheores:aluminum_slate_ore",
+    "alltheores:aluminum_nether_ore",
+    "alltheores:aluminum_end_ore",
     "immersiveengineering:raw_aluminum",
-    "immersiveengineering:raw_block_aluminum",
+    "alltheores:raw_aluminum_block",
     "createindustry:aluminum_block",
     "createindustry:aluminum_ingot",
     "immersiveengineering:nugget_aluminum",
@@ -424,8 +430,10 @@ function unifyMetal(
     "tconstruct:molten_iron"
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "amethyst_bronze",
+    "",
+    "",
     "",
     "",
     "",
@@ -446,8 +454,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "brass",
+    "",
+    "",
     "",
     "",
     "",
@@ -468,20 +478,22 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "bronze",
     "",
     "",
     "",
     "",
-    "alloyed:bronze_block",
-    "alloyed:bronze_ingot",
+    "",
+    "",
+    "create_dd:bronze_block",
+    "create_dd:bronze_ingot",
     "thermal:bronze_nugget",
     "",
     "thermal:bronze_dust",
     "tconstruct:molten_bronze",
     "thermal:bronze_gear",
-    "alloyed:bronze_sheet",
+    "create_dd:bronze_sheet",
     "",
     "",
     "",
@@ -490,8 +502,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "constantan",
+    "",
+    "",
     "",
     "",
     "",
@@ -512,10 +526,12 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "copper",
     "minecraft:copper_ore",
     "minecraft:deepslate_copper_ore",
+    "",
+    "",
     "minecraft:raw_copper",
     "minecraft:raw_copper_block",
     "minecraft:copper_block",
@@ -534,10 +550,12 @@ function unifyMetal(
     "tconstruct:molten_gold"
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "diamond",
     "minecraft:diamond_ore",
     "minecraft:deepslate_diamond_ore",
+    "",
+    "",
     "",
     "",
     "minecraft:diamond_block",
@@ -556,8 +574,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "electrum",
+    "",
+    "",
     "",
     "",
     "",
@@ -578,10 +598,12 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "emerald",
     "minecraft:emerald_ore",
     "minecraft:deepslate_emerald_ore",
+    "",
+    "",
     "",
     "",
     "minecraft:emerald_block",
@@ -600,8 +622,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "enderium",
+    "",
+    "",
     "",
     "",
     "",
@@ -622,8 +646,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "signalum",
+    "",
+    "",
     "",
     "",
     "",
@@ -644,10 +670,12 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "gold",
     "minecraft:gold_ore",
     "minecraft:deepslate_gold_ore",
+    "",
+    "",
     "minecraft:raw_gold",
     "minecraft:raw_gold_block",
     "minecraft:gold_block",
@@ -666,8 +694,10 @@ function unifyMetal(
     "tconstruct:molten_zinc"
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "invar",
+    "",
+    "",
     "",
     "",
     "",
@@ -688,10 +718,12 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "iron",
     "minecraft:iron_ore",
     "minecraft:deepslate_iron_ore",
+    "",
+    "",
     "minecraft:raw_iron",
     "minecraft:raw_iron_block",
     "minecraft:iron_block",
@@ -710,8 +742,10 @@ function unifyMetal(
     "tconstruct:molten_nickel"
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "lapis",
+    "",
+    "",
     "",
     "",
     "",
@@ -732,12 +766,14 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "lead",
-    "thermal:lead_ore",
-    "thermal:deepslate_lead_ore",
+    "alltheores:lead_ore",
+    "alltheores:lead_slate_ore",
+    "alltheores:lead_nether_ore",
+    "alltheores:lead_end_ore",
     "thermal:raw_lead",
-    "thermal:raw_lead_block",
+    "alltheores:raw_lead_block",
     "thermal:lead_block",
     "thermal:lead_ingot",
     "thermal:lead_nugget",
@@ -754,8 +790,10 @@ function unifyMetal(
     "tconstruct:molten_iron"
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "lumium",
+    "",
+    "",
     "",
     "",
     "",
@@ -776,8 +814,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "manyullyn",
+    "",
+    "",
     "",
     "",
     "",
@@ -798,8 +838,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "netherite",
+    "",
+    "",
     "",
     "",
     "",
@@ -820,12 +862,14 @@ function unifyMetal(
     "materialis:molten_iesnium"
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "nickel",
-    "thermal:nickel_ore",
-    "thermal:deepslate_nickel_ore",
+    "alltheores:nickel_ore",
+    "alltheores:nickel_slate_ore",
+    "alltheores:nickel_nether_ore",
+    "alltheores:nickel_end_ore",
     "thermal:raw_nickel",
-    "thermal:raw_nickel_block",
+    "alltheores:raw_nickel_block",
     "thermal:nickel_block",
     "thermal:nickel_ingot",
     "thermal:nickel_nugget",
@@ -842,12 +886,14 @@ function unifyMetal(
     "tconstruct:molten_copper"
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "osmium",
-    "mekanism:osmium_ore",
-    "mekanism:deepslate_osmium_ore",
+    "alltheores:osmium_ore",
+    "alltheores:osmium_slate_ore",
+    "alltheores:osmium_nether_ore",
+    "alltheores:osmium_end_ore",
     "mekanism:raw_osmium",
-    "mekanism:block_raw_osmium",
+    "alltheores:raw_osmium_block",
     "mekanism:block_osmium",
     "mekanism:ingot_osmium",
     "mekanism:nugget_osmium",
@@ -864,8 +910,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "pig_iron",
+    "",
+    "",
     "",
     "",
     "",
@@ -886,8 +934,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "quartz",
+    "",
+    "",
     "",
     "",
     "",
@@ -908,8 +958,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "rose_gold",
+    "",
+    "",
     "",
     "",
     "",
@@ -930,12 +982,14 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "silver",
-    "thermal:silver_ore",
-    "thermal:deepslate_silver_ore",
+    "alltheores:silver_ore",
+    "alltheores:silver_slate_ore",
+    "alltheores:silver_nether_ore",
+    "alltheores:silver_end_ore",
     "thermal:raw_silver",
-    "thermal:raw_silver_block",
+    "alltheores:raw_silver_block",
     "thermal:silver_block",
     "thermal:silver_ingot",
     "thermal:silver_nugget",
@@ -952,20 +1006,22 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "steel",
     "",
     "",
     "",
     "",
-    "alloyed:steel_block",
-    "alloyed:steel_ingot",
-    "immersiveengineering:nugget_steel",
+    "",
+    "",
+    "create_dd:steel_block",
+    "create_dd:steel_ingot",
+    "create_dd:steel_nugget",
     "",
     "immersiveengineering:dust_steel",
     "tconstruct:molten_steel",
     "thermal:steel_gear",
-    "alloyed:steel_sheet",
+    "create_dd:steel_sheet",
     "createindustry:rebar",
     "",
     "",
@@ -974,12 +1030,14 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "tin",
-    "thermal:tin_ore",
-    "thermal:deepslate_tin_ore",
+    "alltheores:tin_ore",
+    "alltheores:tin_slate_ore",
+    "alltheores:tin_nether_ore",
+    "alltheores:tin_end_ore",
     "thermal:raw_tin",
-    "thermal:raw_tin_block",
+    "alltheores:raw_tin_block",
     "thermal:tin_block",
     "thermal:tin_ingot",
     "thermal:tin_nugget",
@@ -996,12 +1054,14 @@ function unifyMetal(
     "tconstruct:molten_copper"
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "uranium",
-    "mekanism:uranium_ore",
-    "mekanism:deepslate_uranium_ore",
-    "mekanism:block_raw_uranium",
-    "mekanism:block_raw_uranium",
+    "alltheores:uranium_ore",
+    "alltheores:uranium_slate_ore",
+    "alltheores:uranium_nether_ore",
+    "alltheores:uranium_end_ore",
+    "immersiveengineering:raw_uranium",
+    "alltheores:raw_uranium_block",
     "immersiveengineering:storage_uranium",
     "immersiveengineering:ingot_uranium",
     "immersiveengineering:nugget_uranium",
@@ -1018,10 +1078,12 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "zinc",
     "create:zinc_ore",
     "create:deepslate_zinc_ore",
+    "alltheores:zinc_nether_ore",
+    "alltheores:zinc_end_ore",
     "create:raw_zinc",
     "create:raw_zinc_block",
     "create:zinc_block",
@@ -1031,7 +1093,7 @@ function unifyMetal(
     "kubejs:zinc_dust",
     "tconstruct:molten_zinc",
     "",
-    "createaddition:zinc_sheet",
+    "create_dd:zinc_sheet",
     "",
     "create:crushed_raw_zinc",
     "",
@@ -1040,9 +1102,11 @@ function unifyMetal(
     "tconstruct:molten_lead"
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "cobalt",
     "tconstruct:cobalt_ore",
+    "",
+    "",
     "",
     "tconstruct:raw_cobalt",
     "tconstruct:raw_cobalt_block",
@@ -1062,8 +1126,10 @@ function unifyMetal(
     "tconstruct:molten_obsidian"
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "neptunium",
+    "",
+    "",
     "",
     "",
     "",
@@ -1084,8 +1150,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "manasteel",
+    "",
+    "",
     "",
     "",
     "kubejs:raw_mana_steel",
@@ -1106,8 +1174,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "cast_iron",
+    "",
+    "",
     "",
     "",
     "",
@@ -1128,8 +1198,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "arcane_gold",
+    "",
+    "",
     "",
     "",
     "",
@@ -1150,10 +1222,12 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "arcane_crystal",
     "forbidden_arcanus:arcane_crystal_ore",
     "forbidden_arcanus:deepslate_arcane_crystal_ore",
+    "",
+    "",
     "",
     "",
     "forbidden_arcanus:deepslate_arcane_crystal_ore",
@@ -1172,8 +1246,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "refined_radiance",
+    "",
+    "",
     "",
     "",
     "",
@@ -1194,8 +1270,10 @@ function unifyMetal(
     ""
   );
 
-  unifyMetal(
+  unifyAllTheMetal(
     "shadow_steel",
+    "",
+    "",
     "",
     "",
     "",

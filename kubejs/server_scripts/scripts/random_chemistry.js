@@ -538,7 +538,8 @@ onEvent('block.left_click', event => {
         if (!te)
             return
         // 需要重置
-        /*let nbt = Utils.newMap().toNBT()
+        /*
+        let nbt = Utils.newMap().toNBT()
         te.writeTileEntity(nbt) //tmd给我动啊，nnd为什么不动！！！
         console.log("TE: " + te)
         console.log("NBT: " + nbt)
@@ -557,11 +558,11 @@ onEvent('block.left_click', event => {
                 valid = true
                 color = part.id.replace("_inverted", "").replace("_cage_light", "").replace("projectred-illumination:", "")
             })
-        }
+        }*/
 
         if (!valid)
             return
-*/
+
 
         let x = laser.x
         let y = laser.y

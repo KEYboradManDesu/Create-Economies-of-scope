@@ -1,4 +1,3 @@
-
 onEvent('recipes', event => {
 	//log.push('Registering Recipes')
 	alchemy(event)
@@ -6,7 +5,8 @@ onEvent('recipes', event => {
 })
 
 function alchemy(event) {
-// 此处配方暂时无用
+// 已单独拆出
+/*
 	event.recipes.thermal.pyrolyzer([MC("charcoal", 2), Fluid.of(TE('creosote'), 50)], MC("#logs")).energy(1000)
 	event.recipes.thermal.pyrolyzer([TE("coal_coke"), Fluid.of(TE('creosote'), 50)], MC("charcoal")).energy(2000)
 	let t = KJ('incomplete_coke_chunk')
@@ -89,6 +89,8 @@ function alchemy(event) {
 	event.remove({ type: TE("sawmill") })
 	event.remove({ type: TE("centrifuge") })
 	event.remove({ output: AE2("silicon") })
+
+	*/
 
 	let alchemy_mix = (output, catalyst, r1, r2, amount) => {
 		event.recipes.createMixing([Item.of(KJ("substrate_" + output, amount ? amount : 1)), KJ("substrate_" + catalyst)], [KJ("substrate_" + catalyst), KJ("substrate_" + r1, 2), KJ("substrate_" + r2)]).heated()
@@ -201,26 +203,15 @@ function alchemy(event) {
 	recompact(TE("niter_dust"), TE("niter"))
 	recompact(TE("sapphire_dust"), TE("sapphire"))
 	recompact(TE("ruby_dust"), TE("ruby"))
-	recompact("forbidden_arcanus:arcane_crystal_dust", "forbidden_arcanus:arcane_crystal")*/
+	recompact("forbidden_arcanus:arcane_crystal_dust", "forbidden_arcanus:arcane_crystal")
+	*/
 
+// 已迁移
+/*
 	global.substrates.forEach(a => {
 		a.forEach(e => {
 			if (!e.ingredient)
 				return
-            if (e.ingredient == 'minecraft:air')
-                return
-            if (e.ingredient == 'minecraft:andesite')
-                return
-            if (e.ingredient == 'minecraft:diorite')
-                return
-            if (e.ingredient == 'minecraft:granite')
-                return
-            if (e.ingredient == 'create_dd:gabbro')
-                return
-            if (e.ingredient == 'ae2:certus_quartz_dust')
-                return
-            if (e.ingredient == 'ae2:nether_quartz_dust')
-                return
 			event.custom({
 				"type": "thermal:bottler",
 				"ingredients": [Ingredient.of(e.ingredient).toJson(), { "fluid": "tconstruct:molten_glass", "amount": 100 }],
@@ -234,6 +225,8 @@ function alchemy(event) {
 			})
 		})
 	})
+
+*/
 
 	event.custom({
 		"type": "thermal:sawmill",

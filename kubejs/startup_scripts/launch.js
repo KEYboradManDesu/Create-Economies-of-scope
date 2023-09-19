@@ -1,6 +1,6 @@
 // priority: 0
 
-console.info('Initializing CEOS Modified Recipes')
+console.info('Now starting to register CEOS properties')
 
 onEvent('item.registry', event => {
 	// Register new items here
@@ -229,11 +229,28 @@ event.create('steel_facing').texture("kubejs:item/cans/steel_facing").displayNam
 event.create('iron_thin_plate').texture("kubejs:item/cans/iron_thin_plate").displayName('薄铁板')
 event.create('iron_thin_plate_with_tin').texture("kubejs:item/cans/iron_thin_plate_with_tin").displayName('镀锡薄铁板')
 event.create('can_empty').texture("kubejs:item/cans/can_empty").displayName('空罐头').maxStackSize(32)
-event.create('can_sealed').texture("kubejs:item/cans/can_sealed").displayName('封装罐头').maxStackSize(32)
+event.create('can_sealed').texture("kubejs:item/cans/can_sealed").displayName('封装罐头')
 	.food((food) => {
 		food.hunger(2)
 		.meat(true)
 		.alwaysEdible(true)
+	})
+
+event.create('can_sealed_vegetable_soup').texture("kubejs:item/cans/can_sealed").displayName('封装蔬菜汤罐头')
+	.food((food) => {
+		food.hunger(2)
+		.meat(true)
+		.alwaysEdible(true)
+	})
+
+event.create('can_opened_vegetable_soup').texture("kubejs:item/cans/can_opened").displayName('蔬菜汤罐头')
+	.food((food) => {
+		food.hunger(14)
+		food.saturation(15)
+		.meat(false)
+		.alwaysEdible(true)
+		.fastToEat(true)
+		.effect('farmersdelight:comfort', 240, 1, 1)
 	})
 
 })

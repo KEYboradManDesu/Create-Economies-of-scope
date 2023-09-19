@@ -1,6 +1,8 @@
 let MysteriousItemConversionCategory = java('com.simibubi.create.compat.jei.category.MysteriousItemConversionCategory')
 let ConversionRecipe = java('com.simibubi.create.compat.jei.ConversionRecipe')
 
+console.info('Initializing CEOS Modified Recipes')
+
 onEvent('recipes', event => {
 	unwantedRecipes(event)
 	tweaks(event)

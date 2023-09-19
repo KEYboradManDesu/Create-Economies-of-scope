@@ -119,8 +119,8 @@ function process(world, block, entity, face) {
     let toProcess = undefined
     let processAmount = 0
     let magnet = 'thermal:flux_magnet'
-    let staff = 'appliedenergistics2:charged_staff'
-    let entropy = 'appliedenergistics2:entropy_manipulator'
+    let staff = 'ae2:charged_staff'
+    let entropy = 'ae2:entropy_manipulator'
 
     items.forEach(e => {
         if (!validForProcessing)
@@ -149,30 +149,30 @@ function process(world, block, entity, face) {
         if (validTool.id.startsWith(magnet)) {
             if (!toProcess.equals("minecraft:basalt"))
                 return
-            let energy = validTool.tag.func_74762_e("Energy") - 80 * processAmount
+            let energy = validTool.tag.getInt("Energy") - 80 * processAmount
             if (energy < 0)
                 return
-            validTool.tag.func_74768_a("Energy", energy)
+            validTool.tag.putInt("Energy", energy)
             resultItem = "thermal:basalz_rod"
             particle = "flame"
         }
         if (validTool.id.startsWith(staff)) {
             if (!toProcess.equals("kubejs:smoke_mote"))
                 return
-            let energy = validTool.tag.func_74769_h("internalCurrentPower") - 40 * processAmount
+            let energy = validTool.tag.getDouble("internalCurrentPower") - 40 * processAmount
             if (energy < 0)
                 return
-            validTool.tag.func_74780_a("internalCurrentPower", energy)
+            validTool.tag.putDouble("internalCurrentPower", energy)
             resultItem = "thermal:blitz_rod"
             particle = "firework"
         }
         if (validTool.id.startsWith(entropy)) {
             if (!toProcess.equals("minecraft:snowball"))
                 return
-            let energy = validTool.tag.func_74769_h("internalCurrentPower") - 80 * processAmount
+            let energy = validTool.tag.getDouble("internalCurrentPower") - 80 * processAmount
             if (energy < 0)
                 return
-            validTool.tag.func_74780_a("internalCurrentPower", energy)
+            validTool.tag.putDouble("internalCurrentPower", energy)
             resultItem = "thermal:blizz_rod"
             particle = "spit"
         }
@@ -538,10 +538,11 @@ onEvent('block.left_click', event => {
         if (!te)
             return
         // 需要重置
-        //let nbt = Utils.newMap().toNBT()
-        /*let nbt = te.fullNBT
+        /*let nbt = Utils.newMap().toNBT()
+        te.writeTileEntity(nbt) //tmd给我动啊，nnd为什么不动！！！
         console.log("TE: " + te)
         console.log("NBT: " + nbt)
+        //let nbt = te.fullNBT
         let parts = nbt.getList("parts", 10)
         let valid = false
         let color = ""
@@ -560,7 +561,7 @@ onEvent('block.left_click', event => {
 
         if (!valid)
             return
-        */
+*/
 
         let x = laser.x
         let y = laser.y

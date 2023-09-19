@@ -182,7 +182,10 @@ event.get('forge:raw_materials/manasteel').add('kubejs:raw_mana_steel')
 event.get('#create:crushed_raw_materials').add('kubejs:crushed_raw_mana_steel')
 
 //罐头
-event.get('#forge:cans_sealed').add('kubjs:can_sealed')
+event.get('kubejs:cans_sealed').add('kubejs:can_sealed')
+event.get('kubejs:cans_sealed').add('kubejs:can_sealed_vegetable_soup')
+
+event.get('kubejs:cans_opened').add('kubejs:can_opened_vegetable_soup')
 
 })
 

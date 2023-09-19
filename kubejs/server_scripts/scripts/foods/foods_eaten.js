@@ -14,5 +14,9 @@ onEvent('item.food_eaten', event => {
         if (event.player.getHealth() > 4 && !event.player.stages.has('steel_facing')){
             event.player.tell("§c你吃了一整个未开封的罐头！")
             event.player.attack(4)
+    //当有人吃完罐头，让罐头留下一个沾满油渍的空罐子
+    if (event.item.id == "forge:can_opened") {
+        event.player.giveInHand('kubejs:can_empty')
+    }
     }}
 })

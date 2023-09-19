@@ -209,17 +209,17 @@ function alchemy(event) {
 				return
             if (e.ingredient == 'minecraft:air')
                 return
-            if (e.ingredient == 'create:andesite_cobblestone')
+            if (e.ingredient == 'minecraft:andesite')
                 return
-            if (e.ingredient == 'create:diorite_cobblestone')
+            if (e.ingredient == 'minecraft:diorite')
                 return
-            if (e.ingredient == 'create:granite_cobblestone')
+            if (e.ingredient == 'minecraft:granite')
                 return
-            if (e.ingredient == 'create:gabbro_cobblestone')
+            if (e.ingredient == 'create_dd:gabbro')
                 return
-            if (e.ingredient == 'appliedenergistics2:certus_quartz_dust')
+            if (e.ingredient == 'ae2:certus_quartz_dust')
                 return
-            if (e.ingredient == 'appliedenergistics2:nether_quartz_dust')
+            if (e.ingredient == 'ae2:nether_quartz_dust')
                 return
 			event.custom({
 				"type": "thermal:bottler",

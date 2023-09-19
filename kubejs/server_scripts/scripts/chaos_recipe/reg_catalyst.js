@@ -5,33 +5,8 @@ onEvent('recipes', event => {
 	//log.push('Recipes Updated')
 })
 
-// Mod shortcuts
-let MOD = (domain, id, x) => (x ? `${x}x ` : "") + (id.startsWith('#') ? '#' : "") + domain + ":" + id.replace('#', '')
-let AE2 = (id, x) => MOD("appliedenergistics2", id, x)
-let TE = (id, x) => MOD("thermal", id, x)
-let AP = (id, x) => MOD("architects_palette", id, x)
-let LV = (id, x) => MOD("libvulpes", id, x)
-let CR = (id, x) => MOD("create", id, x)
-let TC = (id, x) => MOD("tconstruct", id, x)
-let MC = (id, x) => MOD("minecraft", id, x)
-let KJ = (id, x) => MOD("kubejs", id, x)
-let EG = (id, x) => MOD("endergetic", id, x)
-let FD = (id, x) => MOD("farmersdelight", id, x)
-let BOP = (id, x) => MOD("biomesoplenty", id, x)
-let PR_C = (id, x) => MOD("projectred-core", id, x)
-let PR_T = (id, x) => MOD("projectred-transmission", id, x)
-let PR_I = (id, x) => MOD("projectred-illumination", id, x)
-let RQ = (id, x) => MOD("xreliquary", id, x)
-let SD = (id, x) => MOD("storagedrawers", id, x)
-let SP = (id, x) => MOD("supplementaries", id, x)
-let F = (id, x) => MOD("forge", id, x)
-let AC = (id, x) => MOD("aquaculture", id, x)
-let PP = (id, x) => MOD("prettypipes", id, x)
-let OC = (id, x) => MOD("occultism", id, x)
-
-
 function alchemy(event) {
-/* 此处配方暂时无用
+// 此处配方暂时无用
 	event.recipes.thermal.pyrolyzer([MC("charcoal", 2), Fluid.of(TE('creosote'), 50)], MC("#logs")).energy(1000)
 	event.recipes.thermal.pyrolyzer([TE("coal_coke"), Fluid.of(TE('creosote'), 50)], MC("charcoal")).energy(2000)
 	let t = KJ('incomplete_coke_chunk')
@@ -114,7 +89,6 @@ function alchemy(event) {
 	event.remove({ type: TE("sawmill") })
 	event.remove({ type: TE("centrifuge") })
 	event.remove({ output: AE2("silicon") })
-    */
 
 	let alchemy_mix = (output, catalyst, r1, r2, amount) => {
 		event.recipes.createMixing([Item.of(KJ("substrate_" + output, amount ? amount : 1)), KJ("substrate_" + catalyst)], [KJ("substrate_" + catalyst), KJ("substrate_" + r1, 2), KJ("substrate_" + r2)]).heated()
@@ -212,7 +186,7 @@ function alchemy(event) {
 	mundane(i++, [0, 1, 3])
 	mundane(i++, [0, 2, 2])
 
-	let recompact = (id, id2) => {
+	/*let recompact = (id, id2) => {
 		event.recipes.createCompacting(id2, [id])
 	}
 
@@ -227,7 +201,7 @@ function alchemy(event) {
 	recompact(TE("niter_dust"), TE("niter"))
 	recompact(TE("sapphire_dust"), TE("sapphire"))
 	recompact(TE("ruby_dust"), TE("ruby"))
-	recompact("forbidden_arcanus:arcane_crystal_dust", "forbidden_arcanus:arcane_crystal")
+	recompact("forbidden_arcanus:arcane_crystal_dust", "forbidden_arcanus:arcane_crystal")*/
 
 	global.substrates.forEach(a => {
 		a.forEach(e => {
@@ -235,17 +209,17 @@ function alchemy(event) {
 				return
             if (e.ingredient == 'minecraft:air')
                 return
-            if (e.ingredient == 'create:andesite_cobblestone')
+            if (e.ingredient == 'minecraft:andesite')
                 return
-            if (e.ingredient == 'create:diorite_cobblestone')
+            if (e.ingredient == 'minecraft:diorite')
                 return
-            if (e.ingredient == 'create:granite_cobblestone')
+            if (e.ingredient == 'minecraft:granite')
                 return
-            if (e.ingredient == 'create:gabbro_cobblestone')
+            if (e.ingredient == 'create_dd:gabbro')
                 return
-            if (e.ingredient == 'appliedenergistics2:certus_quartz_dust')
+            if (e.ingredient == 'ae2:certus_quartz_dust')
                 return
-            if (e.ingredient == 'appliedenergistics2:nether_quartz_dust')
+            if (e.ingredient == 'ae2:nether_quartz_dust')
                 return
 			event.custom({
 				"type": "thermal:bottler",

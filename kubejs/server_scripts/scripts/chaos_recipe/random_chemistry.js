@@ -181,7 +181,7 @@ function process(world, block, entity, face) {
             return
 
         world.server.runCommandSilent(`/particle minecraft:flash ${entity.x} ${entity.y + .5} ${entity.z} 0 0 0 .01 1`)
-        world.server.runCommandSilent(`/particle appliedenergistics2:matter_cannon_fx ${entity.x} ${entity.y + .5} ${entity.z}`)
+        world.server.runCommandSilent(`/particle ae2:matter_cannon_fx ${entity.x} ${entity.y + .5} ${entity.z}`)
         world.server.runCommandSilent(`/particle minecraft:${particle} ${entity.x} ${entity.y + .5} ${entity.z} .65 .65 .65 0 10`)
         world.server.runCommandSilent(`/playsound minecraft:block.enchantment_table.use block @a ${entity.x} ${entity.y} ${entity.z} 0.95 1.5`)
         attackNearby(world, entity.x, entity.y, entity.z)
@@ -282,7 +282,7 @@ function process(world, block, entity, face) {
         let resultItems = [id1]//, id2]
 
         world.server.runCommandSilent(`/particle minecraft:flash ${entity.x} ${entity.y + .5} ${entity.z} 0 0 0 .01 1`)
-        world.server.runCommandSilent(`/particle appliedenergistics2:matter_cannon_fx ${entity.x} ${entity.y + .5} ${entity.z}`)
+        world.server.runCommandSilent(`/particle ae2:matter_cannon_fx ${entity.x} ${entity.y + .5} ${entity.z}`)
         world.server.runCommandSilent(`/particle minecraft:effect ${entity.x} ${entity.y + .5} ${entity.z} .75 .75 .75 .75 10`)
         world.server.runCommandSilent(`/playsound minecraft:block.enchantment_table.use block @a ${entity.x} ${entity.y} ${entity.z} 0.95 1.5`)
         attackNearby(world, entity.x, entity.y, entity.z)
@@ -472,7 +472,7 @@ function process(world, block, entity, face) {
     let success = errorId == -1
     let resultItem = success ? data.result : `kubejs:failed_alchemy_${errorId}`
     world.server.runCommandSilent(`/particle minecraft:flash ${entity.x} ${entity.y + .5} ${entity.z} 0 0 0 .01 1`)
-    world.server.runCommandSilent(`/particle appliedenergistics2:matter_cannon_fx ${entity.x} ${entity.y + .5} ${entity.z}`)
+    world.server.runCommandSilent(`/particle ae2:matter_cannon_fx ${entity.x} ${entity.y + .5} ${entity.z}`)
     world.server.runCommandSilent(`/particle minecraft:dust 0 1 1 1 ${entity.x} ${entity.y + .5} ${entity.z} .75 .75 .75 .75 ${success ? "80" : "6"}`)
     world.server.runCommandSilent(`/playsound minecraft:block.enchantment_table.use block @a ${entity.x} ${entity.y} ${entity.z} 0.95 ${success ? "2" : "1.25"}`)
     attackNearby(world, entity.x, entity.y, entity.z)

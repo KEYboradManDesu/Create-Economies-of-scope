@@ -177,6 +177,9 @@ function process(world, block, entity, face) {
             particle = "spit"
         }
 
+        if (!resultItem)
+            return
+
         world.server.runCommandSilent(`/particle minecraft:flash ${entity.x} ${entity.y + .5} ${entity.z} 0 0 0 .01 1`)
         world.server.runCommandSilent(`/particle appliedenergistics2:matter_cannon_fx ${entity.x} ${entity.y + .5} ${entity.z}`)
         world.server.runCommandSilent(`/particle minecraft:${particle} ${entity.x} ${entity.y + .5} ${entity.z} .65 .65 .65 0 10`)

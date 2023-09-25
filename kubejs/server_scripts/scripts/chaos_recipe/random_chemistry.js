@@ -603,15 +603,3 @@ onEvent('block.left_click', event => {
 
 
 })
-
-onEvent('item.pickup', event => {
-    let entity = event.getEntity()
-    if (event.getItem().id == 'kubejs:missingno') {
-        event.getLevel().getBlock(entity.x, entity.y, entity.z)
-            .createExplosion()
-            .causesFire(true)
-            .damagesTerrain(true)
-            .strength(20)
-            .explode()
-    }
-})

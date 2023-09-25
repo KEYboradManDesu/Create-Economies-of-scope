@@ -171,3 +171,15 @@ let types = ["three", "eight", "plus", "minus", "multiply", "divide"]
 	}
 
 }
+
+onEvent('item.pickup', event => {
+    let entity = event.getEntity()
+    if (event.getItem().id == 'kubejs:missingno') {
+        event.getLevel().getBlock(entity.x, entity.y, entity.z)
+            .createExplosion()
+            .causesFire(false)
+            .damagesTerrain(false)
+            .strength(5)
+            .explode()
+    }
+})

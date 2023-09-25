@@ -1,6 +1,6 @@
 // priority: 0
 
-console.info('Now starting to register CEOS properties')
+console.info('Initializing CEOS Modified Recipes')
 
 onEvent('item.registry', event => {
 	// Register new items here
@@ -108,6 +108,7 @@ event.create('life_gold_source').texture("kubejs:item/life_gold_source").display
 event.create('empty_tube').texture("kubejs:item/empty_tube").displayName('空玻璃管')
 event.create('rebar_bunch').texture("kubejs:item/rebar_bunch").displayName('钢筋捆')
 event.create('mana_crystal').texture("kubejs:item/mana_crystal").displayName('魔力结晶')
+event.create('andesite_alloy_gear').texture("kubejs:item/andesite_alloy_gear").displayName('安山合金齿轮')
 
 event.create('incomplete_hemp_fabric', 'create:sequenced_assembly').texture("kubejs:item/incomplete_hemp_fabric").displayName('坚韧布料（未完成）')
 event.create('plate', 'create:sequenced_assembly').texture("kubejs:item/handmade_mechanism/plate").displayName('红石电路板（未完成）')
@@ -220,7 +221,7 @@ event.create('plus').texture("kubejs:item/math/plus").displayName('+').glow(true
 event.create('minus').texture("kubejs:item/math/minus").displayName('-').glow(true).rarity(RARITY_UNCOMMON)
 event.create('multiply').texture("kubejs:item/math/multiply").displayName('×').glow(true).rarity(RARITY_UNCOMMON)
 event.create('divide').texture("kubejs:item/math/divide").displayName('÷').glow(true).rarity(RARITY_UNCOMMON)
-event.create('missingno').texture("kubejs:item/math/missingno").displayName('NaN').glow(true).rarity(RARITY_UNCOMMON)
+event.create('missingno').texture("kubejs:item/math/missingno").displayName('#DIV/0').glow(true).rarity(RARITY_UNCOMMON)
 
 event.create('kubejs:incomplete_steel_facing', 'create:sequenced_assembly').texture("kubejs:item/cans/steel_facing").displayName('钢牙套（未完成）')
 event.create('steel_facing').texture("kubejs:item/cans/steel_facing").displayName('钢牙套')

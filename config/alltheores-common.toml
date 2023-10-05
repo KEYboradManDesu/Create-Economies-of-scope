@@ -11,7 +11,7 @@
 		#Enable Nickel Worldgen(Overworld)
 		nickel = true
 		#Enable Osmium Worldgen(Overworld)
-		osmium = true
+		osmium = false
 		#Enable Platinum Worldgen(Overworld)
 		platinum = false
 		#Enable Silver Worldgen(Overworld)
@@ -53,7 +53,7 @@
 
 	[spawncontrol.end]
 		#Enable Aluminum Worldgen(The End)
-		aluminum_end = false
+		aluminum_end = true
 		#Enable Iridium Worldgen(The End)
 		iridium_end = false
 		#Enable Lead Worldgen(The End)

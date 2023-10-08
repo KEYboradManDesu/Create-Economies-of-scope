@@ -293,6 +293,8 @@ onEvent('block.registry', event => {
 	}
 
 	machine('Andesite', "translucent", "lantern", "安山机器")
+	machine('Inductive', "translucent", "lantern", "物流机器")
+	
 	machine('Brass', "translucent", "lantern", "黄铜机器")
 	machine('Copper', "cutout", "lantern", "铜机器")
 	machine('Zinc', "cutout", "lantern", "锌机器")

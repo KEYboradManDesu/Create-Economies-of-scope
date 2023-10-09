@@ -7,8 +7,8 @@ tooltip.add(['kubejs:missingno'], '§7它没有意义。。。')
 tooltip.add(['kubejs:missingno'], '§c§l注意⚠！拾取该物品会对生物造成模因攻击！')
 tooltip.add(['kubejs:missingno'], '§7§kmissingnomissingnomissingnomissingno')
 
-tooltip.add(Item.of('ftbquests:lootcrate', '{CustomModelData:12,type:"aa"}'), [`§7经典锭造型，含金属量11%！`]);
-tooltip.add(Item.of('ftbquests:lootcrate', '{CustomModelData:12,type:"aa"}'), [`§7使用时按照黄金比例砸开！`]);
+//tooltip.add(Item.of('ftbquests:lootcrate', '{CustomModelData:12,type:"aa"}'), [`§7经典锭造型，含金属量11%！`]);
+//tooltip.add(Item.of('ftbquests:lootcrate', '{CustomModelData:12,type:"aa"}'), [`§7使用时按照黄金比例砸开！`]);
 tooltip.add("upgrade_aquatic:polar_kelp", [`§7只能通过魔法合成，可种植`]);
 tooltip.add("twilightforest:uncrafting_table", [`§a被彻底的Ban了，不要想着获取它`]);
 tooltip.add("cookingforblockheads:sink", [`§a小时候家里的水槽忘了关，现在村里成亚特兰蒂斯了`]);

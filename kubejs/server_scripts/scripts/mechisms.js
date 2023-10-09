@@ -154,8 +154,6 @@ function kinetic(event){
    ]).transitionalItem(trans_item)
 
     // 终级合成，100%成功率，共1个配方
-    var success_chance = 80.0
-    var fail_chance = 20.0
     var input_item = 'tconstruct:pattern' //此处修改输入
     var cons_item = 'kubejs:andesite_alloy_gear'
 

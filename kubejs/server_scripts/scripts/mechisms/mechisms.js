@@ -1,5 +1,4 @@
 // 此文件未完成
-/*
 onEvent('recipes', event => {
     kinetic(event) //动力
     seal(event) //密封
@@ -17,12 +16,12 @@ onEvent('recipes', event => {
 function kinetic(event){
     var output_item = 'kubejs:kinetic_mechanism' //此处修改输出
     var trans_item = 'kubejs:incomplete_kinetic_mechanism'
-    // 初级合成，40%成功率，共一个配方
+    // 初级合成，40%成功率，共一个配方 
     var success_chance = 40.0
     var fail_chance = 60.0
-    var input_item = '#minecraft:wooden_slabs' //此处修改输入
+    var input_item = 'kubejs:pen_regis_01' //此处修改输入
     var cons_item = 'create:andesite_alloy'
-    var rand_item = ''
+    var rand_item = 'kubejs:missingno'
 
     event.recipes.createSequencedAssembly([
         //成品：
@@ -42,8 +41,8 @@ function kinetic(event){
     // 中级合成，60%成功率，共3个配方
     var success_chance = 60.0
     var fail_chance = 40.0
-    var input_item = '#minecraft:wooden_slabs' //此处修改输入
-    var rand_item = ''
+    var input_item = 'kubejs:pen_regis_02' //此处修改输入
+    var rand_item = 'kubejs:missingno'
     var cons_item = 'kubejs:andesite_alloy_gear'
 
     // 安山齿轮
@@ -63,6 +62,7 @@ function kinetic(event){
    ]).transitionalItem(trans_item)
 
    // 机械手锯
+    var input_item = 'kubejs:pen_regis_03'
     var cons_item = 'create:andesite_alloy'
     event.recipes.createSequencedAssembly([
         //成品：
@@ -100,7 +100,7 @@ function kinetic(event){
     var success_chance = 80.0
     var fail_chance = 20.0
     var input_item = 'tconstruct:pattern' //此处修改输入
-    var rand_item = ''
+    var rand_item = 'kubejs:missingno'
     var cons_item = 'kubejs:andesite_alloy_gear'
 
     // 模板+齿轮
@@ -171,4 +171,3 @@ function kinetic(event){
         event.recipes.createDeploying(trans_item, [trans_item, F('#saws')])//第三步
    ]).transitionalItem(trans_item)
 }
-*/

@@ -116,6 +116,11 @@
 		{"predicate":{"custom_model_data":8},"model":"ftbquests:item/mystery_item_pack_farm"},
 		{"predicate":{"custom_model_data":9},"model":"ftbquests:item/mystery_item_pack_fish"},
 		{"predicate":{"custom_model_data":10},"model":"ftbquests:item/mystery_item_pack_magic"},
-		{"predicate":{"custom_model_data":11},"model":"ftbquests:item/buddy_bank_card"}
+
+		{"predicate":{"custom_model_data":11},"model":"ftbquests:item/buddy_bank_card"},
+		{"predicate":{"custom_model_data":12},"model":"ftbquests:item/andesite_alloy_classic"},
+
+		{"predicate":{"custom_model_data":13},"model":"ftbquests:item/kinetic_mechanism"},
+		{"predicate":{"custom_model_data":14},"model":"ftbquests:item/kinetic_mechanism2"}	
 	]
 }

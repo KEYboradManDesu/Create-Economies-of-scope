@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:item/generated",
 	"textures": {
-		"layer0": "ftbquests:item/lootcrate/buddy_bank_card"
+		"layer0": "ftbquests:item/lootcrate/kinetic_mechanism/kinetic_mechanism"
 	},
 	"display": {
 		"thirdperson_righthand": {

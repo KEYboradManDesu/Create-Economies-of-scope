@@ -110,6 +110,8 @@ event.create('rebar_bunch').texture("kubejs:item/rebar_bunch").displayName('钢�
 event.create('mana_crystal').texture("kubejs:item/mana_crystal").displayName('魔力结晶')
 event.create('andesite_alloy_gear').texture("kubejs:item/andesite_alloy_gear").displayName('安山合金齿轮')
 
+
+// 构件
 event.create('incomplete_hemp_fabric', 'create:sequenced_assembly').texture("kubejs:item/incomplete_hemp_fabric").displayName('坚韧布料（未完成）')
 event.create('plate', 'create:sequenced_assembly').texture("kubejs:item/handmade_mechanism/plate").displayName('红石电路板（未完成）')
 event.create('handmade_kinetic_mechanism').texture("kubejs:item/handmade_mechanism/kinetic_mechanism").displayName('动力构件（粗制）')
@@ -144,6 +146,14 @@ event.create('gold_source_mechanism').texture("kubejs:item/mechanism/gold_source
 event.create('incomplete_gold_source_mechanism', 'create:sequenced_assembly').texture("kubejs:item/mechanism/incomplete_gold_source_mechanism").displayName('金源构件（未完成）')
 event.create('metamorphic_mechanism').texture("kubejs:item/mechanism/metamorphic_mechanism").displayName('异构构件')
 event.create('incomplete_metamorphic_mechanism', 'create:sequenced_assembly').texture("kubejs:item/mechanism/incomplete_metamorphic_mechanism").displayName('异构构件（未完成）')
+
+// 钢笔
+event.create('golden_pen').texture("kubejs:item/pens/pen").displayName('金质钢笔')
+
+//钢笔中间物品
+event.create('kubejs:pen_regis_01').texture("kubejs:item/unused/bank_card").displayName('标记1号配方的木板')
+event.create('kubejs:pen_regis_02').texture("kubejs:item/unused/bank_card").displayName('标记2号配方的木板')
+event.create('kubejs:pen_regis_03').texture("kubejs:item/unused/bank_card").displayName('标记3号配方的木板')
 
 //抽屉
 event.create('osmium_drawersop').parentModel("kubejs:item/drawersop_casing").displayName('锇加固抽屉')

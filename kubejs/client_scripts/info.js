@@ -1,15 +1,3 @@
-
-
-onEvent('item.tooltip', tooltip => {
-
-tooltip.add("kubejs:andesite_alloy_ingot", [`§7经典的1.7.10着色方式，含金属量11%！`]);
-tooltip.add("upgrade_aquatic:polar_kelp", [`§7只能通过魔法合成，可种植`]);
-tooltip.add("twilightforest:uncrafting_table", [`§a被彻底的Ban了，不要想着获取它`]);
-tooltip.add("cookingforblockheads:sink", [`§a小时候家里的水槽忘了关，现在村里成亚特兰蒂斯了`]);
-
-})
-
-
 onEvent('rei.information', (event) => {
 	
 	/*event.addItem('kubejs:mana_petal',

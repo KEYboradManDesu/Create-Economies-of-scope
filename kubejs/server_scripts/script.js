@@ -40,6 +40,11 @@ let donutCraft = (event, output, center, ring) => {
 	})
 }
 
+let switchCutting = (event, output, input) => {
+	event.stonecutting(output, input)
+    event.stonecutting(input, output)
+}
+
 let switchCraft = (event, a, b) => {
 	event.shaped(a, [
 		'S'
@@ -1169,6 +1174,7 @@ let tweak_casing = (output, input1, input2) => {
 //科技线
 tweak_casing(CR('andesite_casing'), 'create:andesite_alloy', '#forge:stripped_wood')
 tweak_casing(CR('andesite_casing'), 'create:andesite_alloy', '#forge:stripped_logs')
+tweak_casing('create_dd:reinforcement_plating', 'create_dd:industrial_iron_sheet', 'create_dd:bronze_casing')
 tweak_casing(CR('copper_casing'), 'minecraft:copper_ingot', 'createindustry:waterproof_planks')
 tweak_casing(CR('copper_casing'), 'createaddition:copper_rod', 'kubejs:treated_kelp_block')
 tweak_casing(CR('brass_casing'), 'create:brass_ingot', '#forge:treated_wood')
@@ -1262,6 +1268,8 @@ donutCraft(event, '8x labels:label', "#forge:dyes/black", MC("paper"))
 donutCraft(event, MC("weeping_vines"), "forbidden_arcanus:rune", MC("twisting_vines"))
 donutCraft(event, MC("twisting_vines"), "forbidden_arcanus:rune", MC("weeping_vines"))
 
+//黄铜/金钢笔
+event.shapeless(KJ("golden_pen"), [CR("golden_sheet"), MC("ink_sac"), F("#feathers")])
 
 //下界合金锯
 event.smithing(KJ("netherite_saw"), ('cb_microblock:diamond_saw'), MC("netherite_ingot"))

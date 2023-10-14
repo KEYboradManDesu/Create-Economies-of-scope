@@ -15,41 +15,21 @@ event.remove({ id: "createindustry:compacting/sawdust_block" })
 event.recipes.createCompacting(TC("pattern"), [F("#sawdust"), F("#sawdust"), F("#sawdust")])
 event.recipes.createCompacting('createindustry:sawdust_block', [F("#sawdust"), F("#sawdust"), F("#sawdust"), F("#sawdust"), F("#sawdust"), F("#sawdust")])
 
+//安山合金齿轮
+event.stonecutting('kubejs:andesite_alloy_gear', 'create_dd:andesite_sheet')
+
+event.recipes.thermalPress('kubejs:andesite_alloy_gear', [
+	'create:andesite_alloy',
+	"thermal:press_gear_die",
+]);
+
+event.recipes.immersiveengineeringMetalPress('kubejs:andesite_alloy_gear',
+    'create:andesite_alloy',
+	"immersiveengineering:mold_gear"
+);
+
+
 event.recipes.createCompacting(MC("dripstone_block"), [MC("calcite"), MC("calcite"), MC("calcite")])
-
-/*let transitionalA = 'kubejs:incomplete_kinetic_mechanism'//85%动力构件
-	event.recipes.createSequencedAssembly([
-		Item.of(KJ("kinetic_mechanism")).withChance(0.85),
-		Item.of(KJ("handmade_kinetic_mechanism")).withChance(0.15),
-	], '#minecraft:wooden_slabs', [
-		event.recipes.createDeploying(transitionalA, [transitionalA, CR('andesite_alloy')]),
-		event.recipes.createDeploying(transitionalA, [transitionalA, CR('andesite_alloy')]),
-		event.recipes.createDeploying(transitionalA, [transitionalA, F('#saws')])
-	]).transitionalItem(transitionalA)
-		.loops(1)
-		.id('kubejs:kinetic_mechanism')
-
-let transitionalB = 'kubejs:incomplete_kinetic_mechanism'//动力构件
-	event.recipes.createSequencedAssembly([
-		Item.of(KJ("kinetic_mechanism"))
-	], 'tconstruct:pattern', [
-		event.recipes.createDeploying(transitionalB, [transitionalB, CR('andesite_alloy')]),
-		event.recipes.createDeploying(transitionalB, [transitionalB, CR('andesite_alloy')]),
-		event.recipes.createDeploying(transitionalB, [transitionalB, F('#saws')])
-	]).transitionalItem(transitionalB)
-		.loops(1)
-		.id('kubejs:kinetic_mechanism_2')
-
-let transitionalc = 'kubejs:incomplete_kinetic_mechanism'//200%动力构件
-	event.recipes.createSequencedAssembly([
-		Item.of(KJ("kinetic_mechanism", 2)).withChance(0.45),
-		Item.of(KJ("handmade_kinetic_mechanism")).withChance(0.55),
-	], 'tconstruct:pattern', [
-		event.recipes.createDeploying(transitionalc, [transitionalc, KJ('andesite_alloy_ingot')]),
-		event.recipes.createDeploying(transitionalc, [transitionalc, F('#saws')])
-	]).transitionalItem(transitionalc)
-		.loops(1)
-		.id('kubejs:kinetic_mechanism_3')*/
 
 event.custom({
 	type: 'thermal:press',
@@ -129,6 +109,12 @@ event.custom({
 			P: CR('iron_sheet'),
 			L: TE('lead_ingot')
 		})	
+
+	event.remove({ output: 'create_dd:bronze_saw' })	
+    event.smithing('create_dd:bronze_saw', 'create:mechanical_saw', 'create_dd:reinforcement_plating')
+	event.remove({ output: 'create_dd:bronze_drill' })	
+    event.smithing('create_dd:bronze_drill', 'create:mechanical_drill', 'create_dd:reinforcement_plating')
+
 }
 
 function inductiveMachine(event) {

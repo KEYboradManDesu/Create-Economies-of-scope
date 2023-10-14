@@ -1,20 +1,10 @@
 
 onEvent('recipes', event => {
 	andesiteMachine(event)
+	inductiveMachine(event)
 })
 
 function andesiteMachine(event) {
-
-//event.shapeless(KJ("copper_mechanism"), [TC('pattern'), TE('copper_gear')])
-
-/*//安山机壳简化配方
-event.shaped(Item.of(CR('andesite_casing'), 6), [
-	'AS',
-	'SS'
-], {
-	A: 'kubejs:andesite_mechanism',
-	S: '#minecraft:planks'
-})*/
 
 event.shapeless(KJ('kinetic_mechanism'), [F('#saws'), CR('cogwheel'), CR('andesite_alloy'), '#minecraft:logs']).id("kubejs:kinetic_mechanism_manual_only")
 .damageIngredient(Item.of(KJ('stone_saw'))).damageIngredient(Item.of(KJ('iron_saw'))).damageIngredient(Item.of(KJ('diamond_saw'))).damageIngredient(Item.of(KJ('netherite_saw')))
@@ -22,12 +12,12 @@ event.shapeless(KJ('kinetic_mechanism'), [F('#saws'), CR('cogwheel'), CR('andesi
 //木屑处理
 event.remove({ id: "createindustry:crafting/sawdust_from_block" })
 event.remove({ id: "createindustry:compacting/sawdust_block" })
-event.recipes.createCompacting(TC("pattern"), [F("#sawdust"), F("#sawdust")])
+event.recipes.createCompacting(TC("pattern"), [F("#sawdust"), F("#sawdust"), F("#sawdust")])
 event.recipes.createCompacting('createindustry:sawdust_block', [F("#sawdust"), F("#sawdust"), F("#sawdust"), F("#sawdust"), F("#sawdust"), F("#sawdust")])
 
 event.recipes.createCompacting(MC("dripstone_block"), [MC("calcite"), MC("calcite"), MC("calcite")])
 
-let transitionalA = 'kubejs:incomplete_kinetic_mechanism'//85%动力构件
+/*let transitionalA = 'kubejs:incomplete_kinetic_mechanism'//85%动力构件
 	event.recipes.createSequencedAssembly([
 		Item.of(KJ("kinetic_mechanism")).withChance(0.85),
 		Item.of(KJ("handmade_kinetic_mechanism")).withChance(0.15),
@@ -59,9 +49,7 @@ let transitionalc = 'kubejs:incomplete_kinetic_mechanism'//200%动力构件
 		event.recipes.createDeploying(transitionalc, [transitionalc, F('#saws')])
 	]).transitionalItem(transitionalc)
 		.loops(1)
-		.id('kubejs:kinetic_mechanism_3')
-
-event.recipes.createMilling([CR('andesite_alloy', 2), TE('sawdust')], KJ("handmade_kinetic_mechanism"))//残次品回收
+		.id('kubejs:kinetic_mechanism_3')*/
 
 event.custom({
 	type: 'thermal:press',
@@ -120,7 +108,6 @@ event.custom({
 	andesite_machine('create:rope_pulley', 1, SP('#ropes'))
 
 
-
 	event.remove({ output: TE('drill_head') })
 	event.shaped(TE('drill_head'), [
 			'NN ',
@@ -142,4 +129,64 @@ event.custom({
 			P: CR('iron_sheet'),
 			L: TE('lead_ingot')
 		})	
+}
+
+function inductiveMachine(event) {
+//移除物流构件
+event.remove({ output: 'create_dd:inductive_mechanism' })	
+event.remove({ output: 'create_dd:crafting_inductive_mechanism1' })	
+event.remove({ output: 'create_dd:crafting_inductive_mechanism2' })	
+event.remove({ input: 'create_dd:inductive_mechanism' })
+
+let im = 'create_dd:incomplete_inductive_mechanism'
+	event.recipes.createSequencedAssembly([
+		Item.of('create_dd:inductive_mechanism')
+	], 'create_dd:andesite_sheet', [
+		event.recipes.createDeploying(im, [im, KJ('kinetic_mechanism')]),
+		event.recipes.createDeploying(im, [im, KJ('zinc_wire')]),
+		event.recipes.createDeploying(im, [im, F('#prospector_tool')])
+	]).transitionalItem(im)
+		.loops(1)
+		.id('kubejs:inductive_mechanism')
+
+event.shapeless('create_dd:inductive_mechanism', [F('#prospector_tool'), 'create_dd:andesite_sheet', KJ('kinetic_mechanism'), KJ('zinc_wire')]).id("kubejs:inductive_mechanism_manual_only")
+.damageIngredient(Item.of(F('#prospector_tool')))
+
+
+event.shaped(KJ('inductive_machine'), [
+	'SBS',
+	'BCB',
+	'SBS'
+	], {
+		C: CR('andesite_casing'),
+		S: KJ('kinetic_mechanism'),
+		B: 'create_dd:inductive_mechanism',
+	})
+event.shaped(KJ('inductive_machine'), [
+	'SBS',
+	'BCB',
+	'SBS'
+	], {
+		C: CR('andesite_casing'),
+		B: KJ('kinetic_mechanism'),
+		S: 'create_dd:inductive_mechanism',
+	})
+
+event.remove({ output: 'create_dd:kinetic_motor' })
+
+let inductive_machine = (id, amount, other_ingredient) => {
+			//event.remove({ output: id })
+			if (other_ingredient) {
+				event.smithing(Item.of(id, amount), 'kubejs:inductive_machine', other_ingredient)
+				event.recipes.createMechanicalCrafting(Item.of(id, amount), "AB", { A: 'kubejs:inductive_machine', B: other_ingredient })
+			}
+			else
+				event.stonecutting(Item.of(id, amount), 'kubejs:inductive_machine')
+		}
+
+inductive_machine('create:encased_chain_drive', 4)
+inductive_machine('create:gearbox', 6)
+inductive_machine('create:vertical_gearbox', 6)
+inductive_machine('create_dd:kinetic_motor', 1)
+inductive_machine('create_dd:deforester_saw', 1, CR('mechanical_saw'))
 }

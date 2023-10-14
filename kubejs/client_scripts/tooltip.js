@@ -16,7 +16,8 @@ tooltip.add("cookingforblockheads:sink", [`§a小时候家里的水槽忘了关�
 let holds = (id, slots) => tooltip.add("metalbarrels:" + id + "_barrel", [`§7${slots} 格`])
     let main_assembly = (id, stage) => tooltip.add(id, [`§7主目标: ${stage == "4" ? "§6最终章" : "§6章节 " + stage}`, '§8思考一下如何自动化制作此物品'])
 	let bonus_assembly = (id, stage) => tooltip.add(id, [`§7附加目标: §6章节 ${stage}`])
-	let not_consumed = (id, stage) => tooltip.add(id, [`§7在§7装配线§7中不消耗，仅消耗耐久`])
+    let pen_regis = (id, namber, sub) => tooltip.add(id, [`§7标记配方: §2${namber}`, `§7目标: §6${sub}`])
+	let not_consumed = (id) => tooltip.add(id, [`§7在§7装配线§7中不消耗，仅消耗耐久`])
 	let ammo = (id, stage) => tooltip.add(id, [`§7弹药类型: §r ${stage}`])
 	
 	holds('copper', 5 * 9)
@@ -24,6 +25,17 @@ let holds = (id, slots) => tooltip.add("metalbarrels:" + id + "_barrel", [`§7${
 	holds('silver', 8 * 9)
 	holds('obsidian', 12 * 9)
 	holds('diamond', 12 * 9)
+//
+
+pen_regis('kubejs:pen_regis_00', "0号", "等待切石机切割")
+pen_regis('kubejs:pen_regis_01', "1号", "动力构件")
+pen_regis('kubejs:pen_regis_02', "2号", "动力构件")
+pen_regis('kubejs:pen_regis_03', "3号", "动力构件")
+
+pen_regis('kubejs:pen_regis_10', "0号", "等待切石机切割")
+pen_regis('kubejs:pen_regis_11', "1号", "动力构件")
+pen_regis('kubejs:pen_regis_12', "2号", "动力构件")
+pen_regis('kubejs:pen_regis_13', "3号", "动力构件")
 
 //第一章
 main_assembly('kubejs:kinetic_mechanism', "1")

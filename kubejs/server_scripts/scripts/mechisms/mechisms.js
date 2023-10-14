@@ -30,7 +30,7 @@ function kinetic(event){
     fail_chance = 60.0
     input_item = 'kubejs:pen_regis_01' //此处修改输入
     cons_item = 'create:andesite_alloy'
-    rand_item = 'kubejs:missingno'
+    rand_item = Item.of('ftbquests:lootcrate', '{CustomModelData:13,type:"km"}')
 
     event.recipes.createSequencedAssembly([
         //成品：
@@ -51,7 +51,7 @@ function kinetic(event){
     success_chance = 60.0
     fail_chance = 40.0
     input_item = 'kubejs:pen_regis_02' //此处修改输入
-    rand_item = 'kubejs:missingno'
+    rand_item = Item.of('ftbquests:lootcrate', '{CustomModelData:14,type:"km"}')
     cons_item = 'kubejs:andesite_alloy_gear'
 
     // 安山齿轮
@@ -89,7 +89,7 @@ function kinetic(event){
    ]).transitionalItem(trans_item)
 
    // 模板装配
-    input_item = 'tconstruct:pattern'
+    input_item = 'kubejs:pen_regis_11'
     event.recipes.createSequencedAssembly([
         //成品：
         Item.of(output_item).withChance(success_chance),
@@ -108,8 +108,8 @@ function kinetic(event){
     // 高级合成，80%成功率，共3个配方
     success_chance = 80.0
     fail_chance = 20.0
-    input_item = 'tconstruct:pattern' //此处修改输入
-    rand_item = 'kubejs:missingno'
+    input_item = 'kubejs:pen_regis_12' //此处修改输入
+    rand_item = Item.of('ftbquests:lootcrate', '{CustomModelData:14,type:"km"}')
     cons_item = 'kubejs:andesite_alloy_gear'
 
     // 模板+齿轮
@@ -146,7 +146,7 @@ function kinetic(event){
    ]).transitionalItem(trans_item)
 
    // 齿轮+手锯
-    input_item = '#minecraft:wooden_slabs'
+    input_item = 'kubejs:pen_regis_04'
     event.recipes.createSequencedAssembly([
         //成品：
         Item.of(output_item).withChance(success_chance),
@@ -163,7 +163,7 @@ function kinetic(event){
    ]).transitionalItem(trans_item)
 
     // 终级合成，100%成功率，共1个配方
-    input_item = 'tconstruct:pattern' //此处修改输入
+    input_item = 'kubejs:pen_regis_13' //此处修改输入
     cons_item = 'kubejs:andesite_alloy_gear'
 
     // 模板+齿轮+手锯

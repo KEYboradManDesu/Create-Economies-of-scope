@@ -109,6 +109,7 @@ event.create('empty_tube').texture("kubejs:item/empty_tube").displayName('空玻
 event.create('rebar_bunch').texture("kubejs:item/rebar_bunch").displayName('钢筋捆')
 event.create('mana_crystal').texture("kubejs:item/mana_crystal").displayName('魔力结晶')
 event.create('andesite_alloy_gear').texture("kubejs:item/andesite_alloy_gear").displayName('安山合金齿轮')
+event.create('zinc_wire').texture("kubejs:item/zinc_wire").displayName('锌线')
 
 
 // 构件
@@ -151,9 +152,17 @@ event.create('incomplete_metamorphic_mechanism', 'create:sequenced_assembly').te
 event.create('golden_pen').texture("kubejs:item/pens/pen").displayName('金质钢笔')
 
 //钢笔中间物品
-event.create('kubejs:pen_regis_01').texture("kubejs:item/unused/bank_card").displayName('标记1号配方的木板')
-event.create('kubejs:pen_regis_02').texture("kubejs:item/unused/bank_card").displayName('标记2号配方的木板')
-event.create('kubejs:pen_regis_03').texture("kubejs:item/unused/bank_card").displayName('标记3号配方的木板')
+event.create('kubejs:pen_regis_00').parentModel("kubejs:item/pen_regis/marked_slab").texture("2", "kubejs:block/namber/0").displayName('标记木板（等待切割）')
+event.create('kubejs:pen_regis_01').parentModel("kubejs:item/pen_regis/marked_slab").texture("2", "kubejs:block/namber/1").displayName('标记木板')
+event.create('kubejs:pen_regis_02').parentModel("kubejs:item/pen_regis/marked_slab").texture("2", "kubejs:block/namber/2").displayName('标记木板')
+event.create('kubejs:pen_regis_03').parentModel("kubejs:item/pen_regis/marked_slab").texture("2", "kubejs:block/namber/3").displayName('标记木板')
+event.create('kubejs:pen_regis_04').parentModel("kubejs:item/pen_regis/marked_slab").texture("2", "kubejs:block/namber/4").displayName('标记木板')
+
+event.create('kubejs:pen_regis_10').parentModel("kubejs:item/pen_regis/pattern").texture("1", "kubejs:block/namber/0").displayName('标记模具（等待切割）')
+event.create('kubejs:pen_regis_11').parentModel("kubejs:item/pen_regis/pattern").texture("1", "kubejs:block/namber/1").displayName('标记模具')
+event.create('kubejs:pen_regis_12').parentModel("kubejs:item/pen_regis/pattern").texture("1", "kubejs:block/namber/2").displayName('标记模具')
+event.create('kubejs:pen_regis_13').parentModel("kubejs:item/pen_regis/pattern").texture("1", "kubejs:block/namber/3").displayName('标记模具')
+event.create('kubejs:pen_regis_14').parentModel("kubejs:item/pen_regis/pattern").texture("1", "kubejs:block/namber/4").displayName('标记模具')
 
 //抽屉
 event.create('osmium_drawersop').parentModel("kubejs:item/drawersop_casing").displayName('锇加固抽屉')

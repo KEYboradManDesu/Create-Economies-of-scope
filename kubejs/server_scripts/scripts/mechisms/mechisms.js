@@ -19,6 +19,7 @@ var fail_chance
 var input_item
 var cons_item
 var rand_item
+var round
 
 // 以下配方可直接复制替换
 // 开始注册动力构件
@@ -165,6 +166,7 @@ function kinetic(event){
     // 终级合成，100%成功率，共1个配方
     input_item = 'kubejs:pen_regis_13' //此处修改输入
     cons_item = 'kubejs:andesite_alloy_gear'
+    round = 1
 
     // 模板+齿轮+手锯
     event.recipes.createSequencedAssembly([
@@ -178,5 +180,5 @@ function kinetic(event){
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第一步
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
         event.recipes.createDeploying(trans_item, [trans_item, F('#saws')])//第三步
-   ]).transitionalItem(trans_item)
+   ]).transitionalItem(trans_item).loops(round)
 }

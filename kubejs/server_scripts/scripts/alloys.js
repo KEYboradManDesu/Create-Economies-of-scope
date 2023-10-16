@@ -2,7 +2,7 @@ onEvent('recipes', event => {
 	Recipes(event)
 	stone_alloys(event)
 	steel(event)//钢
-	ManaSteel(event)//魔力钢
+	ManaAlloys(event)//魔力合金
 	alloys(event)
 })
 
@@ -285,7 +285,32 @@ let stb = KJ('steel_block_compound')
 		.id('kubejs:steelblock')
 }
 
-function ManaSteel(event) {
+function ManaAlloys(event) {
+////神秘金
+//流体搅拌
+event.recipes.createMixing(Fluid.of('materialis:molten_arcane_gold', 100), [Fluid.of(TC('molten_gold'), 100), 'minecraft:honey_block']).processingTime(100)
+event.custom({
+	"type": "create:mixing",
+	"ingredients": [
+	  {
+		"fluid": "tconstruct:molten_gold",
+		"amount": 100
+	  },
+	  {
+		"fluidTag": "forge:honey",
+		"amount": 100
+	  }
+	],
+	"results": [
+	  {
+		"fluid": "materialis:molten_arcane_gold",
+		"amount": 100
+	  }
+	]
+})
+//合金窑
+event.recipes.immersiveengineering.alloy(FA('arcane_gold_ingot'), MC('gold_ingot'), MC('honey_block'))
+
 ////魔力钢
 //流体搅拌
 event.recipes.createMixing(Fluid.of('materialis:molten_manasteel', 110), [Fluid.of(TC('molten_iron'), 90), BO('mana_pearl')]).processingTime(110)
@@ -360,8 +385,8 @@ event.recipes.thermal.smelter(TE("electrum_ingot", 2), [TE("silver_ingot"), MC("
 //流体搅拌
 event.recipes.createMixing(Fluid.of(TC('molten_netherite'), 10), [Fluid.of(TC('molten_debris'), 10), Fluid.of(TC('molten_gold'), 9)]).processingTime(2)
 //混合物
-event.recipes.createMixing(Item.of(KJ('netherite_compound')), [[MC('netherite_scrap', 4), ('raw_netherite:crushed_debris', 4)], MC('gold_ingot', 3)]).superheated()
-event.recipes.immersiveengineering.alloy('kubejs:netherite_compound', ['4x minecraft:netherite_scrap', '4x raw_netherite:crushed_debris'], '4x minecraft:gold_ingot')
+event.recipes.createMixing(Item.of('kubejs:netherite_compound'), [MC('netherite_scrap', 4), MC('gold_ingot', 3)]).superheated()
+event.recipes.immersiveengineering.alloy('kubejs:netherite_compound', '4x minecraft:netherite_scrap', '4x minecraft:gold_ingot')
 //还原
 let nc = KJ('netherite_compound')
 	event.recipes.createSequencedAssembly([
@@ -372,6 +397,7 @@ let nc = KJ('netherite_compound')
 	]).transitionalItem(nc)
 		.loops(8)
 		.id('kubejs:netherite')
+
 event.custom({
     "type": "architects_palette:warping",
     "ingredient": [

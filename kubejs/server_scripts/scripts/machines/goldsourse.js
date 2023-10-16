@@ -8,7 +8,7 @@ onEvent('recipes', event => {
 function goldsourseMachine(event) {
 event.remove({ id: BO('pure_daisy/livingwood') })
 
-event.recipes.botania.mana_infusion(FA("arcane_gold_ingot"), MC('gold_ingot'), 6000)//神秘金锭
+//event.recipes.botania.mana_infusion(FA("arcane_gold_ingot"), MC('gold_ingot'), 6000)//神秘金锭
 event.recipes.botania.mana_infusion('upgrade_aquatic:polar_kelp', MC('kelp'), 100000)//极光海带
 
 //黄兰花
@@ -22,7 +22,6 @@ event.recipes.createCrushing([KJ('rune_dust', 4), Item.of(KJ("rune_dust"), 2).wi
 event.recipes.thermal.pulverizer([KJ('rune_dust', 8)], FA('rune')).energy(10000)
 //还原
 event.blasting(FA('rune'), KJ('rune_dust'))
-
 
 //娜迦鳞粉
 event.recipes.createMilling([KJ('naga_dust', 16)], 'twilightforest:naga_scale').processingTime(700)

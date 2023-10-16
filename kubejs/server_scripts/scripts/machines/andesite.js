@@ -127,17 +127,15 @@ event.remove({ input: 'create_dd:inductive_mechanism' })
 let im = 'create_dd:incomplete_inductive_mechanism'
 	event.recipes.createSequencedAssembly([
 		Item.of('create_dd:inductive_mechanism')
-	], 'create_dd:andesite_sheet', [
-		event.recipes.createDeploying(im, [im, KJ('kinetic_mechanism')]),
-		event.recipes.createDeploying(im, [im, KJ('zinc_wire')]),
-		event.recipes.createDeploying(im, [im, F('#prospector_tool')])
+	], KJ('kinetic_mechanism'), [
+		event.recipes.createDeploying(im, [im, 'createaddition:copper_rod']),
+		event.recipes.createDeploying(im, [im, KJ('zinc_wire')])
 	]).transitionalItem(im)
 		.loops(1)
 		.id('kubejs:inductive_mechanism')
 
-event.shapeless('create_dd:inductive_mechanism', [F('#prospector_tool'), 'create_dd:andesite_sheet', KJ('kinetic_mechanism'), KJ('zinc_wire')]).id("kubejs:inductive_mechanism_manual_only")
-.damageIngredient(Item.of(F('#prospector_tool')))
-
+event.shapeless('create_dd:inductive_mechanism', ['#immersiveengineering:tools/wirecutters', KJ('kinetic_mechanism'), KJ('zinc_wire'), 'createaddition:copper_rod']).id("kubejs:inductive_mechanism_manual_only")
+.damageIngredient(Item.of(IM('#tools/wirecutters')))
 
 event.shaped(KJ('inductive_machine'), [
 	'SBS',
@@ -170,9 +168,9 @@ let inductive_machine = (id, amount, other_ingredient) => {
 				event.stonecutting(Item.of(id, amount), 'kubejs:inductive_machine')
 		}
 
-inductive_machine('create:encased_chain_drive', 4)
-inductive_machine('create:gearbox', 6)
-inductive_machine('create:vertical_gearbox', 6)
-inductive_machine('create_dd:kinetic_motor', 1)
+inductive_machine('create:encased_chain_drive', 6)
+inductive_machine('create:gearbox', 8)
+inductive_machine('create:vertical_gearbox', 8)
+inductive_machine('create_dd:kinetic_motor', 2)
 inductive_machine('create_dd:deforester_saw', 1, CR('mechanical_saw'))
 }

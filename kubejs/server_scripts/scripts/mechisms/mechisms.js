@@ -26,6 +26,8 @@ var round
 function kinetic(event){
     output_item = 'kubejs:kinetic_mechanism' //此处修改输出
     trans_item = 'kubejs:incomplete_kinetic_mechanism'
+    round = 1
+
     // 初级合成，40%成功率，共一个配方 
     success_chance = 40.0
     fail_chance = 60.0
@@ -46,7 +48,7 @@ function kinetic(event){
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第一步
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
         event.recipes.createCutting(trans_item, trans_item).processingTime(10)//第三步
-   ]).transitionalItem(trans_item)
+   ]).transitionalItem(trans_item).loops(round)
 
     // 中级合成，60%成功率，共3个配方
     success_chance = 60.0
@@ -69,7 +71,7 @@ function kinetic(event){
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第一步
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
         event.recipes.createCutting(trans_item, trans_item).processingTime(10)//第三步
-   ]).transitionalItem(trans_item)
+   ]).transitionalItem(trans_item).loops(round)
 
    // 机械手锯
     input_item = 'kubejs:pen_regis_03'
@@ -87,7 +89,7 @@ function kinetic(event){
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第一步
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
         event.recipes.createDeploying(trans_item, [trans_item, F('#saws')])//第三步
-   ]).transitionalItem(trans_item)
+   ]).transitionalItem(trans_item).loops(round)
 
    // 模板装配
     input_item = 'kubejs:pen_regis_11'
@@ -104,7 +106,7 @@ function kinetic(event){
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第一步
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
         event.recipes.createCutting(trans_item, trans_item).processingTime(10)//第三步
-   ]).transitionalItem(trans_item)
+   ]).transitionalItem(trans_item).loops(round)
 
     // 高级合成，80%成功率，共3个配方
     success_chance = 80.0
@@ -127,9 +129,10 @@ function kinetic(event){
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第一步
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
         event.recipes.createCutting(trans_item, trans_item).processingTime(10)//第三步
-   ]).transitionalItem(trans_item)
+   ]).transitionalItem(trans_item).loops(round)
 
    // 模板+机械手锯
+    input_item = 'kubejs:pen_regis_13' //此处修改输入
     cons_item = 'create:andesite_alloy'
     event.recipes.createSequencedAssembly([
         //成品：
@@ -144,7 +147,7 @@ function kinetic(event){
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第一步
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
         event.recipes.createDeploying(trans_item, [trans_item, F('#saws')])//第三步
-   ]).transitionalItem(trans_item)
+   ]).transitionalItem(trans_item).loops(round)
 
    // 齿轮+手锯
     input_item = 'kubejs:pen_regis_04'
@@ -161,12 +164,11 @@ function kinetic(event){
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第一步
         event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
         event.recipes.createDeploying(trans_item, [trans_item, F('#saws')])//第三步
-   ]).transitionalItem(trans_item)
+   ]).transitionalItem(trans_item).loops(round)
 
     // 终级合成，100%成功率，共1个配方
-    input_item = 'kubejs:pen_regis_13' //此处修改输入
+    input_item = 'kubejs:pen_regis_14' //此处修改输入
     cons_item = 'kubejs:andesite_alloy_gear'
-    round = 1
 
     // 模板+齿轮+手锯
     event.recipes.createSequencedAssembly([

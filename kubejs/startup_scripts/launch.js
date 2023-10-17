@@ -185,6 +185,15 @@ event.create('kubejs:pen_regis_23', 'create:sequenced_assembly')
 event.create('kubejs:pen_regis_24', 'create:sequenced_assembly')
 .textureJson({layer0: "kubejs:item/mechanism/kinetic_mechanism", layer1: "kubejs:item/namber/4"}).displayName('动力构件')
 
+event.create('kubejs:pen_regis_31', 'create:sequenced_assembly')
+.textureJson({layer0: "create_dd:item/inductive_mechanism", layer1: "kubejs:item/namber/1"}).displayName('物流构件')
+event.create('kubejs:pen_regis_32', 'create:sequenced_assembly')
+.textureJson({layer0: "create_dd:item/inductive_mechanism", layer1: "kubejs:item/namber/2"}).displayName('物流构件')
+event.create('kubejs:pen_regis_33', 'create:sequenced_assembly')
+.textureJson({layer0: "create_dd:item/inductive_mechanism", layer1: "kubejs:item/namber/3"}).displayName('物流构件')
+event.create('kubejs:pen_regis_34', 'create:sequenced_assembly')
+.textureJson({layer0: "create_dd:item/inductive_mechanism", layer1: "kubejs:item/namber/4"}).displayName('物流构件')
+
 //抽屉
 event.create('osmium_drawersop').parentModel("kubejs:item/drawersop_casing").displayName('锇加固抽屉')
 

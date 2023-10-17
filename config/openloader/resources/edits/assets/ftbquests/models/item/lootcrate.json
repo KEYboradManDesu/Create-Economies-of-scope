@@ -121,6 +121,8 @@
 		{"predicate":{"custom_model_data":12},"model":"ftbquests:item/andesite_alloy_classic"},
 
 		{"predicate":{"custom_model_data":13},"model":"ftbquests:item/kinetic_mechanism"},
-		{"predicate":{"custom_model_data":14},"model":"ftbquests:item/kinetic_mechanism2"}	
+		{"predicate":{"custom_model_data":14},"model":"ftbquests:item/kinetic_mechanism2"},
+
+		{"predicate":{"custom_model_data":15},"model":"ftbquests:item/sealed_mechanism"}
 	]
 }

@@ -27,20 +27,14 @@ event.shaped(Item.of(KJ('treated_kelp'), 8), [
 	B: [IM('creosote_bucket')]
 })
 
-event.shaped(KJ('creosote_pellet', 12), [
-	'S'
-], {
-	S: KJ('creosote_ball')
-})
-
 event.remove({ id: CR('crafting/kinetics/belt_connector') })
-event.shaped(CR('belt_connector', 16), [
+event.shaped(CR('belt_connector', 3), [
 	'SSS',
 	'SSS'
 ], {
 	S: TE('cured_rubber')
 })//橡胶合成传动带
-event.shaped(CR('belt_connector', 3), [
+event.shaped(CR('belt_connector', 1), [
 	'SSS',
 	'SSS'
 ], {
@@ -78,7 +72,6 @@ event.recipes.createCompacting('1x ' + TE("rubber"), [Fluid.of(MC('water'), 250)
 event.recipes.createCompacting('1x ' + TE("rubber"), [Fluid.of(TE('resin'), 250)])//橡胶
 
 event.recipes.createCompacting(KJ("creosote_ball"), [Fluid.of(IM('creosote'), 120)])//杂酚油球合成
-event.recipes.createCompacting(KJ("creosote_pellet"), [Fluid.of(IM('creosote'), 10)])//杂酚油滴
 event.shapeless(KJ("creosote_ball"), [IM('creosote_bucket')])
 event.custom({
 	"type": "thermal:chiller",
@@ -98,22 +91,6 @@ event.custom({
 	  }
 	],
 	"energy": 1000
-});
-event.custom({
-	"type": "thermal:chiller",
-	"ingredients": [
-	  {
-		"fluid": "immersiveengineering:creosote",
-		"amount": 10
-	  }
-	],
-	"result": [
-	  {
-		"item": "kubejs:creosote_pellet",
-		"count": 1
-	  }
-	],
-	"energy": 200
 });
 
 
@@ -148,73 +125,10 @@ event.custom({
 	energy: 1000
 })
 
-let t = KJ('incomplete_sealed_mechanism')//75%密封构件
-event.recipes.createSequencedAssembly([
- Item.of(KJ("sealed_mechanism")).withChance(0.75),
- Item.of(KJ("handmade_sealed_mechanism")).withChance(0.25),
-], CR('copper_sheet'), [
-event.recipes.createDeploying(t, [t, KJ('treated_kelp')]),
-event.recipes.createDeploying(t, [t, CR('andesite_alloy')]),
-event.recipes.createDeploying(t, [t, ['#forge:water_insulation', KJ('creosote_pellet')]])
-]).transitionalItem(t)
-.loops(2)
-.id('kubejs:sealed_mechanism1')
-
-let t2 = KJ('incomplete_sealed_mechanism2')//100%密封构件
-event.recipes.createSequencedAssembly([
- Item.of(KJ("sealed_mechanism")),
-], KJ('kinetic_mechanism'), [
-event.recipes.createDeploying(t2, [t2, TE('cured_rubber')]),
-event.recipes.createDeploying(t2, [t2, TE('cured_rubber')]),
-event.recipes.createDeploying(t2, [t2, '#forge:water_insulation'])
-]).transitionalItem(t2)
-.loops(1)
-.id('kubejs:sealed_mechanism2')
-
-let t4 = KJ('incomplete_sealed_mechanism2')//双倍密封构件
-event.recipes.createSequencedAssembly([
-Item.of(KJ("sealed_mechanism", 2))
-], KJ('kinetic_mechanism'), [
-event.recipes.createFilling(t4, [t4, Fluid.of(IM("creosote"), 250)]),
-event.recipes.createDeploying(t4, [t4, TE('cured_rubber')]),
-]).transitionalItem(t4)
-.loops(4)
-.id('kubejs:sealed_mechanism3')
-
-event.remove({ output: 'create_sa:hydraulic_engine' })
-event.replaceInput("create_sa:hydraulic_engine",Ingredient.of(Item.of('kubejs:sealed_mechanism')).toJson())
-/*
-let t3 = 'create_sa:incomplete_hydraulic_engine'
-event.recipes.createSequencedAssembly([
-	'create_sa:hydraulic_engine',
-], CR('copper_sheet'), [
-	event.recipes.createDeploying(t3, [t3, TE("copper_gear")]),
-	event.recipes.createFilling(t3, [t3, Fluid.of(MC("water"), 1000)]),
-	event.recipes.createFilling(t3, [t3, Fluid.of(MC("water"), 1000)]),
-]).transitionalItem(t3)
-	.loops(2)
-	.id('kubejs:hydraulic_engine')
-*/
-
 //治炼炉核心
 event.remove({ id: TC("smeltery/casting/seared/smeltery_controller") })
 event.remove({ id: TC("smeltery/melting/copper/smeltery_controller") })
-event.custom({
-	"type": "tconstruct:casting_basin",
-	"cast": {
-		"item": "kubejs:copper_machine"
-	},
-	"cast_consumed": true,
-	"fluid": {
-		"name": "tconstruct:seared_stone",
-		"amount": 3000
-	},
-	"result": "tconstruct:smeltery_controller",
-	"cooling_time": 300
-})
-//event.stonecutting(Item.of('tconstruct:smeltery_controller', '{texture:"tconstruct:seared_stone"}'), 'tconstruct:smeltery_controller')
-//event.stonecutting(Item.of('tconstruct:smeltery_controller', '{texture:"tconstruct:seared_cracked_bricks"}'), 'tconstruct:smeltery_controller')
-//event.stonecutting(Item.of('tconstruct:smeltery_controller', '{texture:"tconstruct:seared_cracked_bricks"}'), 'tconstruct:smeltery_controller')
+donutCraft(event, TC('smeltery_controller'), TC('seared_bricks'), KJ('sealed_mechanism'))
 
 let copper_machine = (id, amount, other_ingredient) => {
 	event.remove({ output: id })

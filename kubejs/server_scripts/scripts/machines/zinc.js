@@ -17,21 +17,7 @@ event.recipes.createMixing(Fluid.of(TC("liquid_soul"), 500), [MC('twisting_vines
 event.recipes.createEmptying([FA("arcane_crystal_dust_speck"), Fluid.of(TC("liquid_soul"), 50)], FA("soul"))
 
 //焦黑炉核心
-event.remove({ id: TC("smeltery/casting/seared/smeltery_controller") })
-event.remove({ id: TC("smeltery/melting/copper/smeltery_controller") })
-event.custom({
-	"type": "tconstruct:casting_basin",
-	"cast": {
-		"item": "kubejs:zinc_machine"
-	},
-	"cast_consumed": true,
-	"fluid": {
-		"name": "tconstruct:scorched_stone",
-		"amount": 3000
-	},
-	"result": "tconstruct:foundry_controller",
-	"cooling_time": 300
-})
+donutCraft(event, TC('foundry_controller'), TC('scorched_bricks'), KJ('infernal_mechanism'))
 
 event.remove({ output: 'create_sa:heat_engine' })
 event.replaceInput("create_sa:heat_engine",Ingredient.of(Item.of('kubejs:infernal_mechanism')).toJson())

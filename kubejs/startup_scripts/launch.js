@@ -153,15 +153,15 @@ event.create('golden_pen').texture("kubejs:item/pens/pen").displayName('金质�
 
 //钢笔中间物品
 event.create('kubejs:pen_regis_00')
-.parentModel("minecraft:block/oak_planks").textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:block/namber/0"}).displayName('标记木板（等待切割）')
+.parentModel("kubejs:item/pen_regis/marked_slab").textureJson({layer0: "minecraft:block/oak_planks", layer1: "kubejs:block/namber/0"}).displayName('标记木板（等待切割）')
 event.create('kubejs:pen_regis_01', 'create:sequenced_assembly')
-.parentModel("minecraft:block/oak_planks").textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:block/namber/1"}).displayName('标记木板')
+.parentModel("kubejs:item/pen_regis/marked_slab").textureJson({layer0: "minecraft:block/oak_planks", layer1: "kubejs:block/namber/1"}).displayName('标记木板')
 event.create('kubejs:pen_regis_02', 'create:sequenced_assembly')
-.parentModel("minecraft:block/oak_planks").textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:block/namber/2"}).displayName('标记木板')
+.parentModel("kubejs:item/pen_regis/marked_slab").textureJson({layer0: "minecraft:block/oak_planks", layer1: "kubejs:block/namber/2"}).displayName('标记木板')
 event.create('kubejs:pen_regis_03', 'create:sequenced_assembly')
-.parentModel("minecraft:block/oak_planks").textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:block/namber/3"}).displayName('标记木板')
+.parentModel("kubejs:item/pen_regis/marked_slab").textureJson({layer0: "minecraft:block/oak_planks", layer1: "kubejs:block/namber/3"}).displayName('标记木板')
 event.create('kubejs:pen_regis_04', 'create:sequenced_assembly')
-.parentModel("minecraft:block/oak_planks").textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:block/namber/4"}).displayName('标记木板')
+.parentModel("kubejs:item/pen_regis/marked_slab").textureJson({layer0: "minecraft:block/oak_planks", layer1: "kubejs:block/namber/4"}).displayName('标记木板')
 
 event.create('kubejs:pen_regis_10')
 .textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:item/namber/0"}).displayName('标记模具（等待切割）')

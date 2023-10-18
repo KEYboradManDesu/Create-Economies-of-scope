@@ -90,7 +90,7 @@ event.remove({ type: MC("crafting_shapeless"), output: TE('invar_dust') })
 function stone_alloys(event) {
 event.smelting(AP('algal_brick'), AP('algal_blend')).xp(0).cookingTime(120)
 //安山合金复杂合成
-event.shaped(Item.of(KJ('andesite_alloy_ingot')), [
+event.shaped(Item.of('ftbquests:lootcrate', '{CustomModelData:12,type:"andesite_alloy_ingot"}'), [
 	'SSS',
 	'SAB',
 	'BBB',
@@ -99,7 +99,7 @@ event.shaped(Item.of(KJ('andesite_alloy_ingot')), [
 	B: 'minecraft:andesite',
 	A: ['minecraft:iron_ingot', 'create:zinc_ingot', 'thermal:nickel_ingot']
 })
-event.shaped(Item.of(KJ('andesite_alloy_ingot')), [
+event.shaped(Item.of('ftbquests:lootcrate', '{CustomModelData:12,type:"andesite_alloy_ingot"}'), [
 	'BBB',
 	'BAS',
 	'SSS',
@@ -108,9 +108,7 @@ event.shaped(Item.of(KJ('andesite_alloy_ingot')), [
 	B: 'minecraft:andesite',
 	A: ['minecraft:iron_ingot', 'create:zinc_ingot', 'thermal:nickel_ingot']
 })
-event.shapeless(CR('andesite_alloy', 2), [F('#saws'), KJ('andesite_alloy_ingot')]).id("kubejs:andesite_alloy_manual_only")
-.damageIngredient(Item.of(KJ('stone_saw'))).damageIngredient(Item.of(KJ('iron_saw'))).damageIngredient(Item.of(KJ('diamond_saw'))).damageIngredient(Item.of(KJ('netherite_saw')))
-event.recipes.createCutting(CR('andesite_alloy', 2), KJ('andesite_alloy_ingot')).processingTime(150)
+event.stonecutting(CR('andesite_alloy', 2), Item.of('ftbquests:lootcrate', '{CustomModelData:12,type:"andesite_alloy_ingot"}'))
 
 ////安山合金
 event.shaped(Item.of(AP('algal_blend'), 4), [
@@ -144,7 +142,6 @@ event.shaped(Item.of(AP('algal_blend'), 8), [
 })
 event.recipes.immersiveengineering.alloy('create:andesite_alloy', 'architects_palette:algal_brick', '2x minecraft:andesite')
 event.recipes.immersiveengineering.alloy('create:andesite_alloy', 'architects_palette:algal_blend', '2x minecraft:andesite')
-event.recipes.immersiveengineering.alloy('kubejs:andesite_alloy_ingot', 'create:andesite_alloy', 'create:andesite_alloy')
 
 event.recipes.createMixing(Item.of(AP('algal_blend'), 2), ['minecraft:clay_ball', ['minecraft:kelp', 'minecraft:seagrass', 'aquaculture:algae']])
 event.recipes.createMixing(Item.of(AP('algal_blend'), 8), ['minecraft:clay_ball', 'upgrade_aquatic:polar_kelp'])
@@ -188,6 +185,25 @@ event.shaped(Item.of(KJ('diorite_alloy'), 2), [
 event.recipes.createMixing(Item.of(KJ('diorite_alloy'), 2), ['minecraft:diorite', SP('ash_brick')])
 //event.recipes.createMixing(Item.of(SP('ash'), 6), ('#minecraft:logs_that_burn')).heated()
 //event.recipes.createMixing(Item.of(SP('ash'), 2), ('#minecraft:planks')).heated()
+
+//青金合金
+event.remove({ id: 'create_dd:crafting/lapis_alloy' })
+event.shaped(Item.of('create_dd:lapis_alloy', 2), [
+	'SS',
+	'AA'
+], {
+	A: 'minecraft:lapis_lazuli',
+	S: 'thermal:tin_nugget'
+})
+event.shaped(Item.of('create_dd:lapis_alloy', 2), [
+	'AA',
+	'SS'
+], {
+	A: 'minecraft:lapis_lazuli',
+	S: 'thermal:tin_nugget'
+})
+
+event.recipes.createMixing(Item.of('create_dd:lapis_alloy', 2), ['minecraft:lapis_lazuli', 'thermal:tin_nugget'])
 }
 
 function steel(event) {
@@ -432,6 +448,8 @@ let s = KJ('invar_compound')
 		.id('kubejs:invar')
 
 ////工业铁锭/铸铁
+event.remove({ output: 'createbigcannons:cast_iron_block' })
+event.remove({ output: 'createindustry:cast_iron_block' })
 //2合1
 event.custom({
   "type": "create:compacting",
@@ -452,7 +470,7 @@ event.custom({
 event.recipes.thermal.smelter('create_dd:industrial_iron_ingot', [CR('iron_sheet'), CR('iron_sheet')]).energy(6000)
 //2合2
 event.recipes.immersiveengineering.alloy('2x create_dd:industrial_iron_ingot', 'thermal:iron_dust', 'thermal:iron_dust')
-event.recipes.createCompacting(['2x create_dd:industrial_iron_ingot'], [MC('iron_ingot'), MC('iron_ingot'), TE('rosin')]).heated()
+event.recipes.createCompacting(['create_dd:industrial_iron_ingot'], [MC('iron_ingot')]).heated()
 event.recipes.thermal.smelter('2x create_dd:industrial_iron_ingot', ["minecraft:iron_ingot", "minecraft:iron_ingot", [IM("slag_gravel"), TE('rosin')]]).energy(8000)
 event.recipes.immersiveengineering.blast_furnace('create_dd:industrial_iron_ingot', MC('iron_ingot'), TE('slag')).time(180)
 event.recipes.immersiveengineering.blast_furnace('create:industrial_iron_block', MC('iron_block'), TE('slag_block')).time(1340)

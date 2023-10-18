@@ -5,7 +5,6 @@ onEvent('recipes', event => {
 
 function electronTube(event) {
 event.recipes.createFilling(CR("electron_tube"), [CR('polished_rose_quartz'), Fluid.of(TC('molten_iron'), 20)])
-event.recipes.createFilling(KJ("empty_tube"), [TE('nickel_nugget'), Fluid.of(TC('molten_glass'), 20)])
 
 let redstone = MC('redstone')
 event.shapeless('create:rose_quartz', [[MC('quartz'), KJ('purified_nether_quartz_crystal') , AE2('certus_quartz_crystal'), AE2('charged_certus_quartz_crystal')], redstone, redstone, redstone, redstone])
@@ -35,33 +34,112 @@ event.recipes.createMixing(CR('polished_rose_quartz'), [[AE2('certus_quartz_crys
 event.recipes.createMixing([AE2('certus_quartz_crystal'), Fluid.of(TE('redstone'), 250)], [AE2('charged_certus_quartz_crystal'), Fluid.of(KJ('sky_stone'), 250)])
 event.recipes.createMixing([AE2('certus_quartz_crystal'), Fluid.of(TE('glowstone'), 500)], [AE2('charged_certus_quartz_crystal'), MC('glowstone_dust'), Fluid.of(KJ('sky_stone'), 500)])
 
-let electronTube = 'kubejs:empty_tube'//双倍电子管
+//真空管半成品
+event.remove({ id: IM('blueprint/electron_tube') })
+let electronTube = 'kubejs:incomplete_tube'
 	event.recipes.createSequencedAssembly([
-		Item.of(CR('electron_tube', 2)),
-	], KJ('empty_tube'), [
-		event.recipes.createDeploying(electronTube, [electronTube, CR('polished_rose_quartz')]),
+		KJ('incomplete_electron_tube'),
+	], CR('electron_tube'), [
+		event.recipes.createFilling(electronTube, [electronTube, Fluid.of(TC('molten_brass'), 20)]),
+		event.recipes.createDeploying(electronTube, [electronTube, KJ('nickel_wire')]),
 	]).transitionalItem(electronTube)
 		.loops(1)
-		.id('kubejs:electronTube');
-
-let electronTube2 = 'kubejs:empty_tube'//真空管
+		.id('kubejs:electron_tube');
+let electronTube2 = 'kubejs:incomplete_tube'
 	event.recipes.createSequencedAssembly([
-		Item.of(IM('electron_tube', 2)),
-	], KJ('empty_tube'), [
-		event.recipes.createDeploying(electronTube2, [electronTube2, 'supercircuitmaker:tiny_redstone']),
-		event.recipes.createDeploying(electronTube2, [electronTube2, F('#wires/copper')]),
+		KJ('incomplete_electron_tube'),
+	], CR('electron_tube'), [
+		event.recipes.createFilling(electronTube2, [electronTube2, Fluid.of(TC('molten_bronze'), 20)]),
+		event.recipes.createDeploying(electronTube2, [electronTube2, KJ('nickel_wire')]),
 	]).transitionalItem(electronTube2)
 		.loops(1)
-		.id('kubejs:electronTube2');
+		.id('kubejs:electron_tube2');
 
-let light_bulb = 'kubejs:empty_tube'//电灯泡
+//电灯泡半成品
+event.remove({ id: IM('blueprint/light_bulb') })
+let light_bulb = 'kubejs:incomplete_tube'
 	event.recipes.createSequencedAssembly([
-		Item.of(IM('light_bulb', 3)),
-	], KJ('empty_tube'), [
+		KJ('incomplete_light_bulb'),
+	], CR('electron_tube'), [
+		event.recipes.createFilling(light_bulb, [light_bulb, Fluid.of(TC('molten_brass'), 20)]),
 		event.recipes.createDeploying(light_bulb, [light_bulb, [MC('paper'), MC('bamboo')]]),
 	]).transitionalItem(light_bulb)
-		.loops(3)
+		.loops(1)
 		.id('kubejs:light_bulb');
+let light_bulb2 = 'kubejs:incomplete_tube'
+	event.recipes.createSequencedAssembly([
+		KJ('incomplete_light_bulb'),
+	], CR('electron_tube'), [
+		event.recipes.createFilling(light_bulb2, [light_bulb2, Fluid.of(TC('molten_bronze'), 20)]),
+		event.recipes.createDeploying(light_bulb2, [light_bulb2, [MC('paper'), MC('bamboo')]]),
+	]).transitionalItem(light_bulb2)
+		.loops(1)
+		.id('kubejs:light_bulb2');
+
+///抽真空
+//工作盆
+event.custom({//真空管
+	"type": "createdieselgenerators:basin_fermenting",
+	"ingredients": [
+		{
+			"item": "kubejs:incomplete_electron_tube"
+		}
+	],
+	"results": [
+		{
+			"item": "immersiveengineering:electron_tube",
+			"chance": 0.25
+		}
+	],
+	"processingTime": 250,
+	"heatRequirement": "heated"
+})
+event.custom({//灯泡
+	"type": "createdieselgenerators:basin_fermenting",
+	"ingredients": [
+		{
+			"item": "kubejs:incomplete_light_bulb"
+		}
+	],
+	"results": [
+		{
+			"item": "immersiveengineering:light_bulb",
+			"chance": 0.25
+		}
+	],
+	"processingTime": 250,
+	"heatRequirement": "heated"
+})
+//压力室
+event.custom({//真空管
+	"type": "pneumaticcraft:pressure_chamber",
+	"inputs": [
+	  {
+		"item": "kubejs:incomplete_electron_tube"
+	  }
+	],
+	"pressure": -0.25,
+	"results": [
+	  {
+		"item": "immersiveengineering:electron_tube"
+	  }
+	]
+})
+event.custom({//灯泡
+	"type": "pneumaticcraft:pressure_chamber",
+	"inputs": [
+	  {
+		"item": "kubejs:incomplete_light_bulb"
+	  }
+	],
+	"pressure": -0.25,
+	"results": [
+	  {
+		"item": "immersiveengineering:light_bulb"
+	  }
+	]
+})
+
 }
 
 function seed_growing(event) {	

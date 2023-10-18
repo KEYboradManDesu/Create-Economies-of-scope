@@ -14,16 +14,16 @@ event.remove({ id: TE("machines/smelter/smelter_alloy_enderium") })
 //event.recipes.thermal.smelter(TE("enderium_ingot", 8), [F("#ingots/silver", 4), F("#ingots/lead", 4), AP("oracle_jelly", 1)]).energy(10000)
 //event.recipes.thermal.smelter(AP("oracle_jelly", 4), [MC("sugar", 4), 'moreminecarts:levitation_powder']).energy(8000)
 
-//天蓝冰淇淋
+/*//天蓝冰淇淋
 event.recipes.createMixing(Fluid.of(KJ("zure_berry_ice_cream"), 500), [Fluid.of('minecraft:milk', 250), "neapolitan:ice_cubes", "minecraft:sugar", "enlightened_end:zure_berry"])
 event.recipes.thermal.chiller("exquisito:zure_berry_ice_cream_block", [Fluid.of(KJ("zure_berry_ice_cream"), 250)]).energy(1000)
-event.recipes.createFilling('exquisito:zure_berry_ice_cream', ['minecraft:bowl', Fluid.of(KJ("zure_berry_ice_cream"), 500)])
+event.recipes.createFilling('exquisito:zure_berry_ice_cream', ['minecraft:bowl', Fluid.of(KJ("zure_berry_ice_cream"), 500)])*/
 
-event.recipes.thermal.insolator(['enlightened_end:cerulean_vine_tip'], 'enlightened_end:zure_berry').water(1000)
-event.recipes.thermal.insolator(['tconstruct:ender_slime_ball', '3x enlightened_end:zure_berry'], 'enlightened_end:cerulean_vine_tip').water(1000)
+//event.recipes.thermal.insolator(['enlightened_end:cerulean_vine_tip'], 'enlightened_end:zure_berry').water(1000)
+//event.recipes.thermal.insolator(['tconstruct:ender_slime_ball', '3x enlightened_end:zure_berry'], 'enlightened_end:cerulean_vine_tip').water(1000)
 
-event.recipes.thermal.smelter(TE("enderium_ingot"), [TE("silver_ingot"), ["enlightened_end:zure_berry", "exquisito:zure_berry_ice_cream_block"], MC("ender_pearl")]).energy(10000)
-event.recipes.thermal.smelter(TE("enderium_ingot"), [TE("silver_ingot"), ["enlightened_end:zure_berry", "exquisito:zure_berry_ice_cream_block"], AE2("ender_dust", 4)]).energy(10000)
+//event.recipes.thermal.smelter(TE("enderium_ingot"), [TE("silver_ingot"), ["enlightened_end:zure_berry", "exquisito:zure_berry_ice_cream_block"], MC("ender_pearl")]).energy(10000)
+//event.recipes.thermal.smelter(TE("enderium_ingot"), [TE("silver_ingot"), ["enlightened_end:zure_berry", "exquisito:zure_berry_ice_cream_block"], AE2("ender_dust", 4)]).energy(10000)
 
 event.custom({
 	"type": "thermal:smelter",

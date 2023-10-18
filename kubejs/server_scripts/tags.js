@@ -13,6 +13,16 @@ global.professions.forEach(element => {
 		event.get('forge:profession_cards').add(`kubejs:profession_card_${element}`)
 	});
 
+//钢笔标记物品
+event.get('minecraft:wooden_slabs')
+.add('kubejs:pen_regis_00')
+.add('kubejs:pen_regis_01')
+.add('kubejs:pen_regis_02')
+.add('kubejs:pen_regis_03')
+.add('kubejs:pen_regis_04')
+
+
+
 //为高贵的石磨献上手磨的美
 event.get('forge:tools/knives').add('create:millstone')
 
@@ -62,6 +72,9 @@ event.get('tconstruct:anvil_metal').add(CR('zinc_block'))
 event.get('forge:dusts/brass').add(KJ('brass_dust'))
 event.get('forge:dusts/zinc').add(KJ('zinc_dust'))
 event.get('forge:dusts/cobalt').add(KJ('cobalt_dust'))
+event.get('forge:wires/zinc').add('kubejs:zinc_wire')
+
+event.get('forge:wires/nickel').add('kubejs:nickel_wire')
 
 event.get('forge:rods/refined_radiance').add('kubejs:radiant_rod')
 //event.get('forge:wires/refined_radiance').add('kubejs:radiant_wire')
@@ -178,14 +191,16 @@ event.removeAllTagsFrom('immersiveengineering:ore_uranium')
 event.removeAllTagsFrom('immersiveengineering:deepslate_ore_uranium')
 event.removeAllTagsFrom('immersiveengineering:raw_block_uranium')
 
+event.get('forge:gears').add('kubejs:andesite_alloy_gear')
+
+
 event.get('forge:raw_materials/manasteel').add('kubejs:raw_mana_steel')
-event.get('#create:crushed_raw_materials').add('kubejs:crushed_raw_mana_steel')
+event.get('create:crushed_raw_materials').add('kubejs:crushed_raw_mana_steel')
+
+event.get('immersive_weathering:wax').add('immersivepetroleum:paraffin_wax')
 
 //罐头
-event.get('kubejs:cans_sealed').add('kubejs:can_sealed')
-event.get('kubejs:cans_sealed').add('kubejs:can_sealed_vegetable_soup')
-
-event.get('kubejs:cans_opened').add('kubejs:can_opened_vegetable_soup')
+event.get('#forge:cans_sealed').add('kubjs:can_sealed')
 
 })
 

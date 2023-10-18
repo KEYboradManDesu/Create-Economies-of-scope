@@ -212,7 +212,7 @@ function seal(event){
     fail_chance = 30.0
     input_item = 'kubejs:pen_regis_21' //此处修改输入
     cons_item = 'kubejs:treated_kelp'
-    cons_item2 = 'minecraft:honeycomb'
+    cons_item2 = '#immersive_weathering:wax'
     rand_item = Item.of('ftbquests:lootcrate', '{CustomModelData:15,type:"sm"}')
 
     event.recipes.createSequencedAssembly([

@@ -109,17 +109,6 @@ event.recipes.createSequencedAssembly([
 	.loops(1)
 	.id('kubejs:precision_mechanism2')
 
-let p3 = KJ('incomplete_precision_mechanism')//200%精密构件
-event.recipes.createSequencedAssembly([
-	Item.of(CR("precision_mechanism", 2)),
-], KJ('kinetic_mechanism'), [
-	event.recipes.createFilling(p3, [p3, Fluid.of('tinkers_thinking:molten_tinkers_bronze', 15)]),
-	event.recipes.createDeploying(p3, [p3, [CR('electron_tube'), IM('electron_tube')]]),
-	event.recipes.createDeploying(p3, [p3, '#forge:screwdrivers'])
-]).transitionalItem(p3)
-	.loops(3)
-	.id('kubejs:precision_mechanism3')
-
 let p4 = KJ('incomplete_precision_mechanism')//200%精密构件
 event.recipes.createSequencedAssembly([
 	Item.of(CR("precision_mechanism", 2)),
@@ -177,13 +166,15 @@ brass_machine(PP('pressurizer'), 1, CR('propeller'))
 brass_machine('create:brass_funnel', 4)
 brass_machine('create:brass_tunnel', 4)
 brass_machine('kubejs:pipe_module_tier_1', 4)
-brass_machine('compressedcreativity:rotational_compressor', 1, PC('pressure_tube'))
 brass_machine('createaddition:tesla_coil', 2, IM('coil_mv'))
 //brass_machine('createaddition:accumulator', 1, KJ('battery'))
 brass_machine('createaddition:modular_accumulator', 3, 'createaddition:capacitor')
 brass_machine('createaddition:portable_energy_interface', 4, IM('coil_lv'))
 brass_machine('createaddition:alternator', 1, IM('dynamo'))
 brass_machine('createaddition:electric_motor', 1, 'createaddition:connector')
+brass_machine('create:elevator_pulley', 1, SP('#ropes'))
+//气动
+brass_machine('compressedcreativity:rotational_compressor', 1, PC('air_canister'))
 
 event.stonecutting(Item.of('create:brass_funnel'), 'create:brass_tunnel')
 event.stonecutting(Item.of('create:brass_tunnel'), 'create:brass_funnel')

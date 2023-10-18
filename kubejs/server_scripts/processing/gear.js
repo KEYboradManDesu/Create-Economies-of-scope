@@ -118,7 +118,7 @@ const minecraftGear = (name, ingot, gem, gear, event) => {
     event
       .shaped("4x " + gear, [" N ", "NIN", " N "], {
         N: `#forge:ingots/${name}`,
-        I: `#forge:nuggets/iron`,
+        I: [`minecraft:iron_nugget`, `create:zinc_nugget`, `thermal:nickel_nugget`, `thermal:tin_nugget`],
       })
       .id(`unify:minecraft/gear/${name}`);
   }
@@ -127,7 +127,7 @@ const minecraftGear = (name, ingot, gem, gear, event) => {
     event
       .shaped("4x " + gear, [" N ", "NIN", " N "], {
         N: `#forge:gems/${name}`,
-        I: `#forge:nuggets/iron`,
+        I: [`minecraft:iron_nugget`, `create:zinc_nugget`, `thermal:nickel_nugget`, `thermal:tin_nugget`],
       })
       .id(`unify:minecraft/gear/${name}`);
   }

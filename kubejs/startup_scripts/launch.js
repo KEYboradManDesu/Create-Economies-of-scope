@@ -52,8 +52,6 @@ event.create('diorite_alloy').texture("kubejs:item/diorite_alloy").displayName('
 event.create('granite_alloy').texture("kubejs:item/granite_alloy").displayName('花岗合金')
 event.create('metamorphic_alloy').texture("kubejs:item/metamorphic_alloy").displayName('异构合金')
 
-event.create('mana_petal').texture("kubejs:item/mana_petal").displayName('魔力花瓣')
-
 event.create('treated_kelp').texture("kubejs:item/treated_kelp").displayName('防腐海带')
 event.create('creosote_ball').texture("kubejs:item/creosote_ball").displayName('杂酚油球')
 
@@ -99,17 +97,19 @@ event.create('matter_plastics').texture("kubejs:item/matter_plastics").displayNa
 event.create('dye_entangled_singularity').texture("kubejs:item/dye_entangled_singularity").displayName('异彩奇点').rarity(RARITY_UNCOMMON)
 event.create('incomplete_component_electronic', 'create:sequenced_assembly').texture("kubejs:item/incomplete_component_electronic").displayName('电子元件（未完成）')
 event.create('incomplete_component_electronic_adv', 'create:sequenced_assembly').texture("kubejs:item/incomplete_component_electronic_adv").displayName('高级电子元件（未完成）')
-event.create('blank_tier_installer').texture("kubejs:item/blank_tier_installer").displayName('空白工厂安装器')
+//event.create('blank_tier_installer').texture("kubejs:item/blank_tier_installer").displayName('空白工厂安装器')
 event.create('gold_matter').texture("kubejs:item/gold_matter").displayName('金物质').rarity(RARITY_UNCOMMON).unstackable()
 event.create('arcane_golden_sheet').texture("kubejs:item/arcane_golden_sheet").displayName('神秘金板')
 event.create('living_core').texture("kubejs:item/living_core").displayName('活力核心')
 event.create('metamorphic_lich_core').texture("kubejs:item/metamorphic_lich_core").displayName('腐化核心').rarity(RARITY_UNCOMMON)
 event.create('life_gold_source').texture("kubejs:item/life_gold_source").displayName('金源机魂').rarity(RARITY_UNCOMMON)
-event.create('empty_tube').texture("kubejs:item/empty_tube").displayName('空玻璃管')
-event.create('rebar_bunch').texture("kubejs:item/rebar_bunch").displayName('钢筋捆')
 event.create('mana_crystal').texture("kubejs:item/mana_crystal").displayName('魔力结晶')
 event.create('andesite_alloy_gear').texture("kubejs:item/andesite_alloy_gear").displayName('安山合金齿轮')
 event.create('zinc_wire').texture("kubejs:item/zinc_wire").displayName('锌线')
+event.create('nickel_wire').texture("kubejs:item/nickel_wire").displayName('镍线')
+event.create('incomplete_tube', 'create:sequenced_assembly').texture("kubejs:item/incomplete_tube").displayName('黄铜电子管（未完成）')
+event.create('incomplete_electron_tube').texture("kubejs:item/imcomplete_electron_tube").displayName('真空管（待抽真空）')
+event.create('incomplete_light_bulb').texture("kubejs:item/imcomplete_light_bulb").displayName('白炽灯泡（待抽真空）')
 
 
 // 构件
@@ -349,7 +349,7 @@ onEvent('block.registry', event => {
 	machine('Zinc', "cutout", "lantern", "锌机器")
 	machine('Enderium', "cutout", "lantern", "谐振机器")
 	machine('Obsidian', "translucent", "lantern", "坚实机器")
-	machine('Pneumatic', "translucent", "lantern", "气动机器")
+	//machine('Pneumatic', "translucent", "lantern", "气动机器")
 	machine('Redstone', "solid", "stone", "红石机器")
 	machine('Steel', "translucent", "lantern", "钢机器")
 

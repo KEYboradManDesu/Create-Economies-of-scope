@@ -91,8 +91,8 @@ woodcutting("ars_nouveau", "purple_archwood_log", "archwood_planks", "archwood_s
 woodcutting("ars_nouveau", "green_archwood_log", "archwood_planks", "archwood_slab", 'farmersdelight:tree_bark', TE("sawdust"))
 woodcutting("ars_nouveau", "red_archwood_log", "archwood_planks", "archwood_slab", 'farmersdelight:tree_bark', TE("sawdust"))
 woodcutting("botania", "livingwood_log", "livingwood_planks", "livingwood_planks_slab", 'immersive_weathering:botania/livingwood_bark', TE("sawdust"))
-woodcutting("enlightened_end", "congealed_stem", "congealed_planks", "congealed_slab", 'immersive_weathering:enlightened_end/congealed_bark', TE("sawdust"))
-woodcutting("enlightened_end", "congealed_stem", "congealed_planks", "congealed_slab", 'immersive_weathering:enlightened_end/congealed_bark', TE("sawdust"))
+//woodcutting("enlightened_end", "congealed_stem", "congealed_planks", "congealed_slab", 'immersive_weathering:enlightened_end/congealed_bark', TE("sawdust"))
+//woodcutting("enlightened_end", "congealed_stem", "congealed_planks", "congealed_slab", 'immersive_weathering:enlightened_end/congealed_bark', TE("sawdust"))
 
 
 let wood_types = [
@@ -881,7 +881,7 @@ function unifyAllTheMetal(
     "immersiveposts:stick_nickel",
     "create:crushed_raw_nickel",
     "",
-    "",
+    "kubejs:nickel_wire",
     "create:copper_nugget",
     "tconstruct:molten_copper"
   );
@@ -1097,7 +1097,7 @@ function unifyAllTheMetal(
     "",
     "create:crushed_raw_zinc",
     "",
-    "",
+    "kubejs:zinc_wire",
     "thermal:lead_nugget",
     "tconstruct:molten_lead"
   );

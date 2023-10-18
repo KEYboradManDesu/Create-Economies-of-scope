@@ -20,7 +20,7 @@ function silicon(event) {
 		.id('kubejs:coke_cutting')
 
 	event.recipes.createSplashing([
-		Item.of(KJ("sand_ball")).withChance(0.125)
+		Item.of(KJ("sand_ball")).withChance(0.25)
 	], 'minecraft:sandstone')
 	event.recipes.thermal.bottler(KJ("sand_ball"), [Fluid.of(MC("water"), 50), F("#sand/colorless")]).energy(1000)
 	event.recipes.thermal.chiller(KJ("creosote_pellet"), [Fluid.of(TE("creosote"), 50)]).energy(1000)

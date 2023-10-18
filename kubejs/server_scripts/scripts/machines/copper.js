@@ -1,10 +1,15 @@
 
 onEvent('recipes', event => {
 	rubber(event)
+	waterproof(event)
 	copperMachine(event)
 })
 
 function rubber(event) {
+event.remove({ id: 'thermal:rubber_3' })
+event.remove({ id: 'thermal:rubber_from_dandelion' })
+event.remove({ id: 'thermal:rubber_from_vine' })
+
 let overrideTreeOutput = (id, trunk, leaf, fluid) => {
 	event.remove({ id: id })
 	event.custom({
@@ -50,45 +55,52 @@ event.recipes.createCompacting('1x ' + TE("rubber"), [Fluid.of(MC('water'), 250)
 event.recipes.createCompacting('1x ' + TE("rubber"), [Fluid.of(TE('resin'), 250)])//橡胶
 }
 
-function copperMachine(event) {
-	event.shaped(Item.of(KJ('treated_kelp_block'), 1), [
-		'AAA',
-		'AAA',
-		'AAA'
-	], {
-		A: [KJ('treated_kelp')]
-	})
-	event.shaped(Item.of(KJ('treated_kelp'), 9), [
-		'A'
-	], {
-		A: [KJ('treated_kelp_block')]
-	})
+function waterproof(event) {
 
-/*event.shapeless(KJ("treated_kelp_block"), [MC('dried_kelp_block'), IM('creosote_bucket')]).id("kubejs:treated_kelp_block_manual_only")
-event.shaped(Item.of(KJ('treated_kelp'), 8), [
+//防腐木板
+event.replaceOutput( {id: "createaddition:filling/treated_wood_planks" },IM('treated_wood_horizontal'), 'createindustry:waterproof_planks')
+event.replaceOutput( {id: "tconstruct:compat/immersiveengineering/treated_wood" },IM('treated_wood_horizontal'), 'createindustry:waterproof_planks')
+event.replaceOutput( {id: "immersiveengineering:crafting/treated_wood_horizontal" },IM('treated_wood_horizontal'), 'createindustry:waterproof_planks')
+event.smoking(IM('treated_wood_horizontal'), 'createindustry:waterproof_planks').xp(0.25)
+//熬煮
+event.custom({
+	"type": "createdieselgenerators:basin_fermenting",
+	"ingredients": [
+		{
+			"amount": 125,
+			"fluid": "immersiveengineering:creosote"
+		},
+		{
+			"tag": "minecraft:planks"
+		}
+	],
+	"results": [
+		{
+			"item": "createindustry:waterproof_planks"
+		}
+	],
+	"processingTime": 50
+})
+
+
+//防腐海带
+event.recipes.createFilling(KJ("treated_kelp"), [MC('dried_kelp'), Fluid.of(IM('creosote'), 25)])
+event.recipes.createFilling(KJ("treated_kelp_block"), [MC('dried_kelp_block'), Fluid.of(IM('creosote'), 125)])
+event.recipes.createFilling(IM('treated_wood_horizontal'), ['create_dd:smoked_planks', Fluid.of(IM('creosote'), 125)])
+event.shaped(Item.of(KJ('treated_kelp_block'), 1), [
 	'AAA',
-	'ABA',
+	'AAA',
 	'AAA'
 ], {
-	A: [MC('dried_kelp')],
-	B: [IM('creosote_bucket')]
-})*/
-
-event.remove({ id: CR('crafting/kinetics/belt_connector') })
-event.shaped(CR('belt_connector', 3), [
-	'SSS',
-	'SSS'
+	A: [KJ('treated_kelp')]
+})
+event.shaped(Item.of(KJ('treated_kelp'), 9), [
+		'A'
 ], {
-	S: TE('cured_rubber')
-})//橡胶合成传动带
-event.shaped(CR('belt_connector', 1), [
-	'SSS',
-	'SSS'
-], {
-	S: KJ('treated_kelp')
-})//防腐海带合成传动带
+	A: [KJ('treated_kelp_block')]
+})
 
-event.recipes.createCompacting(KJ("creosote_ball"), [Fluid.of(IM('creosote'), 120)])//杂酚油球合成
+/*event.recipes.createCompacting(KJ("creosote_ball"), [Fluid.of(IM('creosote'), 120)])//杂酚油球合成
 event.shapeless(KJ("creosote_ball"), [IM('creosote_bucket')])
 event.custom({
 	"type": "thermal:chiller",
@@ -108,19 +120,29 @@ event.custom({
 	  }
 	],
 	"energy": 1000
-});
+});*/
+}
 
-
-event.remove({ id: 'thermal:rubber_3' })
-event.remove({ id: 'thermal:rubber_from_dandelion' })
-event.remove({ id: 'thermal:rubber_from_vine' })
-
-event.recipes.createFilling(KJ("treated_kelp_block"), [MC('dried_kelp_block'), Fluid.of(IM('creosote'), 125)])
-event.recipes.createFilling(KJ("treated_kelp"), [MC('dried_kelp'), Fluid.of(IM('creosote'), 10)])
-event.recipes.createFilling(IM("treated_wood_horizontal"), ['createindustry:waterproof_planks', Fluid.of(IM('creosote'), 25)])
+function copperMachine(event) {
+event.remove({ id: CR('crafting/kinetics/belt_connector') })
+event.shaped(CR('belt_connector', 3), [
+	'SSS',
+	'SSS'
+], {
+	S: TE('cured_rubber')
+})//橡胶合成传动带
+event.shaped(CR('belt_connector', 1), [
+	'SSS',
+	'SSS'
+], {
+	S: KJ('treated_kelp')
+})//防腐海带合成传动带
 
 event.shapeless(KJ('sealed_mechanism'), [TE('cured_rubber'), KJ('kinetic_mechanism'), TE('cured_rubber'), Item.of('createindustry:water_insulation').ignoreNBT()
 ]).id("kubejs:sealed_mechanism_manual_only").damageIngredient(Item.of('createindustry:water_insulation').ignoreNBT())
+
+event.shapeless(KJ('sealed_mechanism'), [TE('cured_rubber'), KJ('kinetic_mechanism'), TE('cured_rubber'), '#immersive_weathering:wax'
+]).id("kubejs:sealed_mechanism_manual_only")
 
 event.shaped(KJ('copper_machine'), [
 	'SSS',
@@ -170,9 +192,11 @@ copper_machine('create_enchantment_industry:disenchanter', 1, CR('#sandpaper'))
 copper_machine('create_enchantment_industry:printer', 1, F('#plates/iron'))
 copper_machine('create:steam_engine', 1, MC('piston'))
 copper_machine('create:steam_whistle', 1, F('#plates/gold'))
+copper_machine('cookingforblockheads:sink', 1, BO('rune_water'))
+copper_machine('create_dd:hydraulic_press', 1, 'create_dd:reinforcement_plating')
+//气动
 copper_machine('compressedcreativity:compressed_air_engine', 1, ('compressedcreativity:engine_rotor'))
 copper_machine('compressedcreativity:air_blower', 1, PC('pressure_tube'))
-copper_machine('cookingforblockheads:sink', 1, BO('rune_water'))
-copper_machine('create_dd:hydraulic_press', 1, F('#storage_blocks/bronze'))
+copper_machine(PC('manual_compressor'), 1, PC('ingot_iron_compressed'))
 
 }

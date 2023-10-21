@@ -8,9 +8,8 @@ onEvent('recipes', event => {
 	tweaks(event)
 	//avaritia(event)
 
-	immersiveengineering(event)
-	//mekanism(event)
-	pneumaticcraft(event)
+	pneumaticcraft(event)//气动工艺
+	immersiveengineering(event)//沉浸工程
 
 	magic(event)
 })
@@ -122,6 +121,394 @@ function unwantedRecipes(event) {  //不想要的配方
     event.remove({ id: CR('item_application/andesite_casing_from_log') })
 	event.remove({ mod: ('creatania') })
 	event.remove({ output: 'twilightforest:uncrafting_table' })
+	event.remove({ id: 'beyond_earth:iron_stick' })
+	event.remove({ id: IM('crafting/stick_iron') })
+}
+
+function pneumaticcraft(event) {
+
+// 简化气动工艺配方
+
+event.remove({ id: 'compressedcreativity:item_application/compressed_iron_casing_from_wood' })
+event.remove({ id: 'compressedcreativity:item_application/compressed_iron_casing_from_log' })
+event.replaceInput({ id: PC("reinforced_chest") }, MC('gold_nugget'), CR('brass_nugget'))
+
+//刨花板
+event.custom({
+	"type": "create:mixing",
+	"ingredients": [
+	  {
+		"item": "createindustry:sawdust_block"
+	  },
+	  {
+		"fluidTag": "tconstruct:tooltips/slime",
+		"amount": 50
+	  }
+	],
+	"results": [
+	  {
+		"item": "createindustry:chipwood"
+	  }
+	]
+})
+
+//岩浆膏
+event.replaceInput({ id: "create_sa:magma_cream_recipe" }, 'minecraft:slime_ball', '#forge:slimeballs')
+
+//炮管
+event.remove({ id: PC("cannon_barrel") })
+event.shaped(PC("cannon_barrel"), [
+	'A A',
+	'A A',
+	'ASA',
+], {
+	A: ['kubejs:iron_compressed_sheet', 'create_dd:industrial_iron_sheet'],
+	S: 'pneumaticcraft:pressure_tube'
+})
+
+//充气站
+event.remove({ id: PC("charging_station") })
+event.shaped(PC("charging_station"), [
+	'  D',
+	'ASA',
+], {
+	A: 'kubejs:sealed_mechanism',
+	S: 'pneumaticcraft:reinforced_stone',
+	D: 'pneumaticcraft:pressure_tube'
+})
+
+////压力管道
+//初级
+event.remove({ id: PC("pressure_tube") })
+event.shaped(PC('pressure_tube', 8), [
+	' B ',
+	'SCS',
+	' B ',
+], {
+	B: ['thermal:cured_rubber', 'kubejs:treated_kelp'],
+	C: PC('compressed_iron_gear'),
+	S: 'create_dd:industrial_iron_sheet'
+})
+event.shaped(PC('pressure_tube', 16), [
+	' B ',
+	'SCS',
+	' B ',
+], {
+	B: ['thermal:cured_rubber', 'kubejs:treated_kelp'],
+	C: PC('compressed_iron_gear'),
+	S: KJ('iron_compressed_sheet')
+})
+//压力表管道模块
+event.remove({ id: PC("pressure_gauge_module") })
+event.shapeless(PC("pressure_gauge_module"), [PC('pressure_tube'), PC('pressure_gauge')])
+//流量检测管道模块
+event.remove({ id: PC("flow_detector_module") })
+event.shapeless(PC("flow_detector_module"), [PC('pressure_tube'), MC('redstone')])
+//安全管道模块
+event.remove({ id: PC("safety_tube_module") })
+event.shapeless(PC("safety_tube_module"), [PC('pressure_tube'), MC('lever')])
+//空气栅管道模块
+event.remove({ id: PC("air_grate_module") })
+event.shapeless(PC("air_grate_module"), [PC('pressure_tube'), MC('iron_bars')])
+//物流模块
+event.remove({ id: PC("logistics_module") })
+event.shapeless(PC("logistics_module"), [PC('pressure_tube'), PC('logistics_core')])
+//红石模块
+event.remove({ id: PC("redstone_module") })
+event.shapeless(PC("redstone_module"), [PC('pressure_tube'), MC('repeater')])
+//充气模块
+event.remove({ id: PC("charging_module") })
+event.shapeless(PC("charging_module"), [PC('pressure_tube'), PC('charging_station')])
+//调节器管道模块
+event.remove({ id: PC("regulator_tube_module") })
+event.shapeless(PC("regulator_tube_module"), [PC('pressure_tube'), PC('safety_tube_module')])
+//vacuum管道模块
+event.remove({ id: PC("vacuum_module") })
+event.shapeless(PC("vacuum_module"), [PC('pressure_tube'), PC('vacuum_pump')])
+//真空泵
+event.remove({ id: PC("vacuum_pump") })
+event.shapeless(PC("vacuum_pump"), [PC('pressure_tube'), PC('pressure_gauge'), PC('turbine_rotor'), PC('reinforced_stone'), PC('reinforced_stone')])
+//管道跨接点
+event.remove({ id: PC("tube_junction") })
+event.shapeless(PC("tube_junction"), [PC('pressure_tube'), PC('pressure_tube'), PC('pressure_tube'), PC('pressure_tube')])
+
+////物流核心
+event.replaceInput({ id: PC("logistics_core") }, MC('redstone'), CR('electron_tube'))
+//物流框架
+let logistics_core = (id, amount) => {
+	event.remove({ id: id })
+	event.stonecutting(Item.of(id, amount), "pneumaticcraft:logistics_core")
+}
+logistics_core('pneumaticcraft:logistics_frame_requester', 8)
+logistics_core('pneumaticcraft:logistics_frame_storage', 8)
+logistics_core('pneumaticcraft:logistics_frame_default_storage', 8)
+logistics_core('pneumaticcraft:logistics_frame_passive_provider', 8)
+logistics_core('pneumaticcraft:logistics_frame_active_provider', 8)
+
+//太阳能单元
+let ss = PC('solar_wafer')
+	event.recipes.createSequencedAssembly([
+		PC('solar_cell'),
+	], PC('solar_wafer'), [
+		event.recipes.createPressing(ss, ss)
+	]).transitionalItem(ss)
+		.loops(8)
+		.id('kubejs:solar_cell')
+
+//钻头
+let db = PC('unassembled_netherite_drill_bit')
+	event.recipes.createSequencedAssembly([
+		PC('drill_bit_netherite'),
+	], PC('unassembled_netherite_drill_bit'), [
+		event.recipes.createPressing(db, db)
+	]).transitionalItem(db)
+		.loops(16)
+		.id('kubejs:unassembled_netherite_drill_bit')
+
+//隔热板
+event.remove({ id: PC('thermal_lagging') })
+event.shaped(PC('thermal_lagging', 8), [
+	'SCS',
+], {
+	C: F('#glass'),
+	S: TE('#rockwool')
+})
+
+//石棉
+event.remove({ id: TE('rockwool/white_rockwool_from_blasting') })
+event.remove({ id: TE('rockwool/white_rockwool_from_smelting') })
+event.recipes.createCompacting(TE("white_rockwool"), [F("#slag")]).heated()
+event.recipes.createCompacting(TE("white_rockwool", 2), [TE("rich_slag")]).heated()
+
+//散热板
+event.remove({ id: PC('heat_sink') })
+event.shaped(PC('heat_sink'), [
+	'SSS',
+	'BCB',
+], {
+	C: ['createindustry:aluminum_ingot', 'minecraft:gold_ingot', 'thermal:silver_ingot'],
+	S: 'minecraft:iron_bars',
+	B: 'pneumaticcraft:ingot_iron_compressed'
+})
+
+//导热管
+event.remove({ id: PC('heat_pipe') })
+donutCraft(event, PC('heat_pipe', 8), PC('compressed_iron_block'), TE("#rockwool"))
+
+//轮机扇叶
+event.remove({ id: 'pneumaticcraft:pressure_chamber/turbine_blade' })
+//密封合成
+event.custom({
+	"type": "createdieselgenerators:basin_fermenting",
+	"ingredients": [
+		{
+			"item": "create_dd:industrial_iron_sheet",
+			"count": 2
+		},
+		{
+			"item": "minecraft:redstone"
+		},
+		{
+			"item": "minecraft:redstone"
+		}
+	],
+	"results": [
+		{
+			"item": "pneumaticcraft:turbine_blade",
+			"chance": 0.85
+		}
+	],
+	"processingTime": 250,
+	"heatRequirement": "heated"
+})
+//压力室
+event.custom({
+	"type": "pneumaticcraft:pressure_chamber",
+	"inputs": [
+	  {
+		"item": "create_dd:industrial_iron_sheet"
+	  },
+	  {
+		"type": "pneumaticcraft:stacked_item",
+		"tag": "forge:dusts/redstone",
+		"count": 2
+	  }
+	],
+	"pressure": 1.0,
+	"results": [
+	  {
+		"item": "pneumaticcraft:turbine_blade"
+	  }
+	]
+})
+
+//空气罐
+event.remove({ id: 'pneumaticcraft:air_canister' })
+event.shaped('pneumaticcraft:air_canister', [
+	' S ',
+	'A A',
+	' A ',
+], {
+	A: 'kubejs:iron_compressed_sheet',
+	S: 'pneumaticcraft:pressure_tube'
+})
+
+//装配台
+//机械臂
+event.remove({ id: PC('assembly_io_unit_import') })
+event.remove({ id: PC('assembly_io_unit_export') })
+event.shaped(PC('assembly_io_unit_import'), [
+	'AD ',
+	'BCB',
+], {
+	A: 'mekanism:basic_control_circuit',
+	D: 'create:mechanical_arm',
+	C: 'pneumaticcraft:pneumatic_cylinder',
+	B: 'pneumaticcraft:ingot_iron_compressed'
+})
+event.shaped(PC('assembly_io_unit_export'), [
+	' DA',
+	'BCB',
+], {
+	A: 'mekanism:basic_control_circuit',
+	D: 'create:mechanical_arm',
+	C: 'pneumaticcraft:pneumatic_cylinder',
+	B: 'pneumaticcraft:ingot_iron_compressed'
+})
+//装配钻头
+event.remove({ id: PC("assembly_laser") })
+event.remove({ id: PC("assembly_drill") })
+event.smithing(PC('assembly_laser'), PC('assembly_io_unit_export'), CR("electron_tube"))
+event.smithing(PC('assembly_drill'), PC('assembly_io_unit_export'), TE("drill_head"))
+event.smithing(PC('assembly_laser'), PC('assembly_io_unit_import'), CR("electron_tube"))
+event.smithing(PC('assembly_drill'), PC('assembly_io_unit_import'), TE("drill_head"))
+event.recipes.createMechanicalCrafting(PC('assembly_laser'), "AB", { A: [PC('assembly_io_unit_import'), PC('assembly_io_unit_export')], B: CR("electron_tube") })
+event.recipes.createMechanicalCrafting(PC('assembly_drill'), "AB", { A: [PC('assembly_io_unit_import'), PC('assembly_io_unit_export')], B: TE("drill_head") })
+event.shaped(PC('assembly_io_unit_import'), [
+	'S',
+], {
+	S: PC('assembly_io_unit_export')
+})
+event.shaped(PC('assembly_io_unit_export'), [
+	'S',
+], {
+	S: PC('assembly_io_unit_import')
+})
+
+//创口贴
+event.remove({ id: PC("bandage") })
+event.shapeless(PC("bandage"), [PC('glycerol'), ['immersiveengineering:hemp_fabric', 'forbidden_arcanus:cloth']])
+event.shapeless(PC("bandage"), [PC('glycerol'), '#mekanism:colorable/carpets', '#mekanism:colorable/carpets'])
+
+//气缸
+event.remove({ id: PC("pneumatic_cylinder") })
+event.shaped('2x pneumaticcraft:pneumatic_cylinder', [
+	'ASA',
+	'ABA',
+	'ABA',
+], {
+	A: 'create_dd:lapis_alloy',
+	S: 'pneumaticcraft:pressure_tube',
+	B: 'pneumaticcraft:ingot_iron_compressed'
+})
+
+//气动盔甲
+event.remove({ id: PC("pneumatic_helmet") })
+event.recipes.createMechanicalCrafting(PC("pneumatic_helmet"), [
+	'SBS',
+	'SCS',
+	'SSS'
+], {
+	C: PC('compressed_iron_helmet'),
+	B: MEK("basic_control_circuit"),
+	S: PC('air_canister')
+})
+event.remove({ id: PC("pneumatic_chestplate") })
+event.recipes.createMechanicalCrafting(PC("pneumatic_chestplate"), [
+	'SBS',
+	'SCS',
+	'SSS'
+], {
+	C: PC('compressed_iron_chestplate'),
+	B: MEK("basic_control_circuit"),
+	S: PC('air_canister')
+})
+event.remove({ id: PC("pneumatic_leggings") })
+event.recipes.createMechanicalCrafting(PC("pneumatic_leggings"), [
+	'SBS',
+	'SCS',
+	'D D'
+], {
+	C: PC('compressed_iron_leggings'),
+	B: MEK("basic_control_circuit"),
+	S: PC('air_canister'),
+	D: KJ("iron_compressed_sheet"),
+})
+event.remove({ id: PC("pneumatic_boots") })
+event.recipes.createMechanicalCrafting(PC("pneumatic_boots"), [
+	'BCB',
+	'BSB'
+], {
+	C: PC('compressed_iron_boots'),
+	S: MEK("basic_control_circuit"),
+	B: PC('air_canister')
+})
+
+
+//无人机升级
+event.remove({ id: PC("drone_upgrade") })
+event.shapeless(PC('drone'), [MEK("basic_control_circuit"),[PC('logistics_drone'), PC('harvesting_drone'), PC('guard_drone'), PC('collector_drone')]])
+
+//记忆棒
+event.remove({ id: PC("memory_stick") })
+event.shaped(PC("memory_stick"), [
+	'CSB',
+], {
+	C: 'create_sa:heap_of_experience',
+	S: MC('soul_sand'),
+	B: ['create_dd:industrial_iron_ingot', 'pneumaticcraft:ingot_iron_compressed'],
+})
+
+//流体储罐
+event.remove({ id: PC("small_tank") })//一级
+event.shaped(PC("small_tank"), [
+	'C',
+	'S',
+	'C',
+], {
+	C: KJ('iron_compressed_sheet'),
+	S: CR('fluid_tank'),
+})
+event.remove({ id: PC("medium_tank") })//二级
+event.shaped(PC("medium_tank"), [
+	'B',
+	'S',
+	'C',
+], {
+	C: TE('gold_gear'),
+	S: PC("small_tank"),
+	B: PC("pressure_tube"),
+})
+event.remove({ id: PC("large_tank") })//三级
+event.shaped(PC("large_tank"), [
+	'B',
+	'S',
+	'C',
+], {
+	C: TE('diamond_gear'),
+	S: PC("medium_tank"),
+	B: PC("advanced_pressure_tube"),
+})
+event.remove({ id: PC("huge_tank") })//四级
+event.shaped(PC("huge_tank"), [
+	'B',
+	'S',
+	'C',
+], {
+	C: TE('netherite_gear'),
+	S: PC("large_tank"),
+	B: PC("reinforced_air_canister"),
+})
 }
 
 /*function avaritia(event) {
@@ -934,404 +1321,6 @@ arcane_core('ars_nouveau:mycelial_sourcelink', 1, FA('fungyss_hyphae'))
 		FA('xpetrified_orb'), 
 		FA('stellarite_piece')
 	], 5000)
-}
-
-function pneumaticcraft(event) {
-
-// 简化气动工艺配方
-
-event.remove({ id: 'compressedcreativity:item_application/compressed_iron_casing_from_wood' })
-event.remove({ id: 'compressedcreativity:item_application/compressed_iron_casing_from_log' })
-event.remove({ id: PC('pressure_chamber/capacitor') })
-event.replaceInput({ id: PC("network_io_port") }, PC('capacitor'), 'createaddition:capacitor')
-event.replaceInput({ id: PC("reinforced_chest") }, MC('gold_nugget'), CR('brass_nugget'))
-
-//刨花板
-event.custom({
-	"type": "create:mixing",
-	"ingredients": [
-	  {
-		"item": "createindustry:sawdust_block"
-	  },
-	  {
-		"fluidTag": "tconstruct:tooltips/slime",
-		"amount": 50
-	  }
-	],
-	"results": [
-	  {
-		"item": "createindustry:chipwood"
-	  }
-	]
-})
-
-//岩浆膏
-event.replaceInput({ id: "create_sa:magma_cream_recipe" }, 'minecraft:slime_ball', '#forge:slimeballs')
-
-//炮管
-event.remove({ id: PC("cannon_barrel") })
-event.shaped(PC("cannon_barrel"), [
-	'A A',
-	'A A',
-	'ASA',
-], {
-	A: ['kubejs:iron_compressed_sheet', 'create_dd:industrial_iron_sheet'],
-	S: 'pneumaticcraft:pressure_tube'
-})
-
-//充气站
-event.remove({ id: PC("charging_station") })
-event.shaped(PC("charging_station"), [
-	'  D',
-	'ASA',
-], {
-	A: 'kubejs:sealed_mechanism',
-	S: 'pneumaticcraft:reinforced_stone',
-	D: 'pneumaticcraft:pressure_tube'
-})
-
-////压力管道
-//初级
-event.remove({ id: PC("pressure_tube") })
-event.shaped(PC('pressure_tube', 8), [
-	' B ',
-	'SCS',
-	' B ',
-], {
-	B: ['thermal:cured_rubber', 'kubejs:treated_kelp'],
-	C: PC('compressed_iron_gear'),
-	S: 'create_dd:industrial_iron_sheet'
-})
-event.shaped(PC('pressure_tube', 16), [
-	' B ',
-	'SCS',
-	' B ',
-], {
-	B: ['thermal:cured_rubber', 'kubejs:treated_kelp'],
-	C: PC('compressed_iron_gear'),
-	S: KJ('iron_compressed_sheet')
-})
-//压力表管道模块
-event.remove({ id: PC("pressure_gauge_module") })
-event.shapeless(PC("pressure_gauge_module"), [PC('pressure_tube'), PC('pressure_gauge')])
-//流量检测管道模块
-event.remove({ id: PC("flow_detector_module") })
-event.shapeless(PC("flow_detector_module"), [PC('pressure_tube'), MC('redstone')])
-//安全管道模块
-event.remove({ id: PC("safety_tube_module") })
-event.shapeless(PC("safety_tube_module"), [PC('pressure_tube'), MC('lever')])
-//空气栅管道模块
-event.remove({ id: PC("air_grate_module") })
-event.shapeless(PC("air_grate_module"), [PC('pressure_tube'), MC('iron_bars')])
-//物流模块
-event.remove({ id: PC("logistics_module") })
-event.shapeless(PC("logistics_module"), [PC('pressure_tube'), PC('logistics_core')])
-//红石模块
-event.remove({ id: PC("redstone_module") })
-event.shapeless(PC("redstone_module"), [PC('pressure_tube'), MC('repeater')])
-//充气模块
-event.remove({ id: PC("charging_module") })
-event.shapeless(PC("charging_module"), [PC('pressure_tube'), PC('charging_station')])
-//调节器管道模块
-event.remove({ id: PC("regulator_tube_module") })
-event.shapeless(PC("regulator_tube_module"), [PC('pressure_tube'), PC('safety_tube_module')])
-//vacuum管道模块
-event.remove({ id: PC("vacuum_module") })
-event.shapeless(PC("vacuum_module"), [PC('pressure_tube'), PC('vacuum_pump')])
-//真空泵
-event.remove({ id: PC("vacuum_pump") })
-event.shapeless(PC("vacuum_pump"), [PC('pressure_tube'), PC('pressure_gauge'), PC('turbine_rotor'), PC('reinforced_stone'), PC('reinforced_stone')])
-//管道跨接点
-event.remove({ id: PC("tube_junction") })
-event.shapeless(PC("tube_junction"), [PC('pressure_tube'), PC('pressure_tube'), PC('pressure_tube'), PC('pressure_tube')])
-
-////物流核心
-event.replaceInput({ id: PC("logistics_core") }, MC('redstone'), CR('electron_tube'))
-//物流框架
-let logistics_core = (id, amount) => {
-	event.remove({ id: id })
-	event.stonecutting(Item.of(id, amount), "pneumaticcraft:logistics_core")
-}
-logistics_core('pneumaticcraft:logistics_frame_requester', 8)
-logistics_core('pneumaticcraft:logistics_frame_storage', 8)
-logistics_core('pneumaticcraft:logistics_frame_default_storage', 8)
-logistics_core('pneumaticcraft:logistics_frame_passive_provider', 8)
-logistics_core('pneumaticcraft:logistics_frame_active_provider', 8)
-
-//太阳能单元
-let ss = PC('solar_wafer')
-	event.recipes.createSequencedAssembly([
-		PC('solar_cell'),
-	], PC('solar_wafer'), [
-		event.recipes.createPressing(ss, ss)
-	]).transitionalItem(ss)
-		.loops(8)
-		.id('kubejs:solar_cell')
-
-//钻头
-let db = PC('unassembled_netherite_drill_bit')
-	event.recipes.createSequencedAssembly([
-		PC('drill_bit_netherite'),
-	], PC('unassembled_netherite_drill_bit'), [
-		event.recipes.createPressing(db, db)
-	]).transitionalItem(db)
-		.loops(16)
-		.id('kubejs:unassembled_netherite_drill_bit')
-
-//隔热板
-event.remove({ id: PC('thermal_lagging') })
-event.shaped(PC('thermal_lagging', 8), [
-	'SCS',
-], {
-	C: F('#glass'),
-	S: TE('#rockwool')
-})
-
-//石棉
-event.remove({ id: TE('rockwool/white_rockwool_from_blasting') })
-event.remove({ id: TE('rockwool/white_rockwool_from_smelting') })
-event.recipes.createCompacting(TE("white_rockwool"), [F("#slag")]).heated()
-event.recipes.createCompacting(TE("white_rockwool", 2), [TE("rich_slag")]).heated()
-
-//散热板
-event.remove({ id: PC('heat_sink') })
-event.shaped(PC('heat_sink'), [
-	'SSS',
-	'BCB',
-], {
-	C: ['createindustry:aluminum_ingot', 'minecraft:gold_ingot', 'thermal:silver_ingot'],
-	S: 'minecraft:iron_bars',
-	B: 'pneumaticcraft:ingot_iron_compressed'
-})
-
-//导热管
-event.remove({ id: PC('heat_pipe') })
-donutCraft(event, PC('heat_pipe', 8), PC('compressed_iron_block'), TE("#rockwool"))
-
-//轮机扇叶
-event.remove({ id: 'pneumaticcraft:pressure_chamber/turbine_blade' })
-//密封合成
-event.custom({
-	"type": "createdieselgenerators:basin_fermenting",
-	"ingredients": [
-		{
-			"item": "create_dd:industrial_iron_sheet",
-			"count": 2
-		},
-		{
-			"item": "minecraft:redstone"
-		},
-		{
-			"item": "minecraft:redstone"
-		}
-	],
-	"results": [
-		{
-			"item": "pneumaticcraft:turbine_blade",
-			"chance": 0.85
-		}
-	],
-	"processingTime": 250,
-	"heatRequirement": "heated"
-})
-//压力室
-event.custom({
-	"type": "pneumaticcraft:pressure_chamber",
-	"inputs": [
-	  {
-		"item": "create_dd:industrial_iron_sheet"
-	  },
-	  {
-		"type": "pneumaticcraft:stacked_item",
-		"tag": "forge:dusts/redstone",
-		"count": 2
-	  }
-	],
-	"pressure": 1.0,
-	"results": [
-	  {
-		"item": "pneumaticcraft:turbine_blade"
-	  }
-	]
-})
-
-//空气罐
-event.remove({ id: 'pneumaticcraft:air_canister' })
-event.shaped('pneumaticcraft:air_canister', [
-	' S ',
-	'A A',
-	' A ',
-], {
-	A: 'kubejs:iron_compressed_sheet',
-	S: 'pneumaticcraft:pressure_tube'
-})
-
-//装配台
-//机械臂
-event.remove({ id: PC('assembly_io_unit_import') })
-event.remove({ id: PC('assembly_io_unit_export') })
-event.shaped(PC('assembly_io_unit_import'), [
-	'AD ',
-	'BCB',
-], {
-	A: 'mekanism:basic_control_circuit',
-	D: 'create:mechanical_arm',
-	C: 'pneumaticcraft:pneumatic_cylinder',
-	B: 'pneumaticcraft:ingot_iron_compressed'
-})
-event.shaped(PC('assembly_io_unit_export'), [
-	' DA',
-	'BCB',
-], {
-	A: 'mekanism:basic_control_circuit',
-	D: 'create:mechanical_arm',
-	C: 'pneumaticcraft:pneumatic_cylinder',
-	B: 'pneumaticcraft:ingot_iron_compressed'
-})
-//装配钻头
-event.remove({ id: PC("assembly_laser") })
-event.remove({ id: PC("assembly_drill") })
-event.smithing(PC('assembly_laser'), PC('assembly_io_unit_export'), CR("electron_tube"))
-event.smithing(PC('assembly_drill'), PC('assembly_io_unit_export'), TE("drill_head"))
-event.smithing(PC('assembly_laser'), PC('assembly_io_unit_import'), CR("electron_tube"))
-event.smithing(PC('assembly_drill'), PC('assembly_io_unit_import'), TE("drill_head"))
-event.recipes.createMechanicalCrafting(PC('assembly_laser'), "AB", { A: [PC('assembly_io_unit_import'), PC('assembly_io_unit_export')], B: CR("electron_tube") })
-event.recipes.createMechanicalCrafting(PC('assembly_drill'), "AB", { A: [PC('assembly_io_unit_import'), PC('assembly_io_unit_export')], B: TE("drill_head") })
-event.shaped(PC('assembly_io_unit_import'), [
-	'S',
-], {
-	S: PC('assembly_io_unit_export')
-})
-event.shaped(PC('assembly_io_unit_export'), [
-	'S',
-], {
-	S: PC('assembly_io_unit_import')
-})
-
-//创口贴
-event.remove({ id: PC("bandage") })
-event.shapeless(PC("bandage"), [PC('glycerol'), ['immersiveengineering:hemp_fabric', 'forbidden_arcanus:cloth']])
-event.shapeless(PC("bandage"), [PC('glycerol'), '#mekanism:colorable/carpets', '#mekanism:colorable/carpets'])
-
-/*
-//气缸
-event.remove({ id: PC("pneumatic_cylinder") })
-let pc = PC('cannon_barrel')
-	event.recipes.createSequencedAssembly([
-		PC('pneumatic_cylinder'),
-	], PC('cannon_barrel'), [
-		event.recipes.createDeploying(pc, [pc, TE('lapis_gear')]),
-		event.recipes.createDeploying(pc, [pc, PC('plastic')]),
-		event.recipes.createDeploying(pc, [pc, PC('plastic')]),
-		event.recipes.createPressing(pc, pc)
-	]).transitionalItem(pc)
-		.loops(2)
-		.id('kubejs:pneumatic_cylinder')
-*/
-
-/*
-//液态蒸汽
-event.recipes.createMixing(Fluid.of('mekanism:steam', 4), [Fluid.of(IM('creosote'), 2)]).heated().processingTime(1)
-//event.recipes.createCompacting(Fluid.of(IM('creosote'), 100), [Fluid.of('mekanism:steam', 200)])
-*/
-
-//气动盔甲
-event.remove({ id: PC("pneumatic_helmet") })
-event.recipes.createMechanicalCrafting(PC("pneumatic_helmet"), [
-	'SBS',
-	'SCS',
-	'SSS'
-], {
-	C: PC('compressed_iron_helmet'),
-	B: MEK("basic_control_circuit"),
-	S: PC('air_canister')
-})
-event.remove({ id: PC("pneumatic_chestplate") })
-event.recipes.createMechanicalCrafting(PC("pneumatic_chestplate"), [
-	'SBS',
-	'SCS',
-	'SSS'
-], {
-	C: PC('compressed_iron_chestplate'),
-	B: MEK("basic_control_circuit"),
-	S: PC('air_canister')
-})
-event.remove({ id: PC("pneumatic_leggings") })
-event.recipes.createMechanicalCrafting(PC("pneumatic_leggings"), [
-	'SBS',
-	'SCS',
-	'D D'
-], {
-	C: PC('compressed_iron_leggings'),
-	B: MEK("basic_control_circuit"),
-	S: PC('air_canister'),
-	D: KJ("iron_compressed_sheet"),
-})
-event.remove({ id: PC("pneumatic_boots") })
-event.recipes.createMechanicalCrafting(PC("pneumatic_boots"), [
-	'BCB',
-	'BSB'
-], {
-	C: PC('compressed_iron_boots'),
-	S: MEK("basic_control_circuit"),
-	B: PC('air_canister')
-})
-
-
-//无人机升级
-event.remove({ id: PC("drone_upgrade") })
-event.shapeless(PC('drone'), [MEK("basic_control_circuit"),[PC('logistics_drone'), PC('harvesting_drone'), PC('guard_drone'), PC('collector_drone')]])
-
-//记忆棒
-event.remove({ id: PC("memory_stick") })
-event.shaped(PC("memory_stick"), [
-	'CSB',
-], {
-	C: 'create_sa:heap_of_experience',
-	S: MC('soul_sand'),
-	B: ['create_dd:industrial_iron_ingot', 'pneumaticcraft:ingot_iron_compressed'],
-})
-
-//流体储罐
-event.remove({ id: PC("small_tank") })//一级
-event.shaped(PC("small_tank"), [
-	'C',
-	'S',
-	'C',
-], {
-	C: KJ('iron_compressed_sheet'),
-	S: CR('fluid_tank'),
-})
-event.remove({ id: PC("medium_tank") })//二级
-event.shaped(PC("medium_tank"), [
-	'B',
-	'S',
-	'C',
-], {
-	C: TE('gold_gear'),
-	S: PC("small_tank"),
-	B: PC("pressure_tube"),
-})
-event.remove({ id: PC("large_tank") })//三级
-event.shaped(PC("large_tank"), [
-	'B',
-	'S',
-	'C',
-], {
-	C: TE('diamond_gear'),
-	S: PC("medium_tank"),
-	B: PC("advanced_pressure_tube"),
-})
-event.remove({ id: PC("huge_tank") })//四级
-event.shaped(PC("huge_tank"), [
-	'B',
-	'S',
-	'C',
-], {
-	C: TE('netherite_gear'),
-	S: PC("large_tank"),
-	B: PC("reinforced_air_canister"),
-})
 }
 
 function tweaks(event) {

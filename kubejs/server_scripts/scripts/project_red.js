@@ -10,9 +10,39 @@ function project_red(event) {
 	event.remove({ output: PR_C('red_iron_comp') })
 	event.remove({ input: PR_C('plate') })
 	event.remove({ mod: 'projectred_illumination' })
+	event.remove({ id: PR_T('red_alloy_wire') })
+
+	//红石合金锭
 	event.recipes.createCompacting([PR_C('red_ingot')], [MC('copper_ingot'), Fluid.of(TE("redstone"), 250)])
 	event.recipes.createCompacting([PR_C('red_ingot')], [MC('copper_ingot'), MC("redstone"), MC("redstone"), MC("redstone"), MC("redstone")])
 	event.recipes.thermal.smelter(PR_C('red_ingot'), [MC("copper_ingot"), MC("redstone")])
+
+    //红石合金导线
+	event.recipes.createCompacting([PR_T('red_alloy_wire', 4)], ['createaddition:copper_wire', Fluid.of(TE("redstone"), 250)])
+	event.recipes.createCompacting([PR_T('red_alloy_wire', 4)], ['createaddition:copper_wire', MC("redstone"), MC("redstone"), MC("redstone"), MC("redstone")])
+	event.recipes.thermal.smelter(PR_T('red_alloy_wire', 4), ['createaddition:copper_wire', MC("redstone")])
+	event.custom({
+		"type":"createaddition:rolling",
+		"input": {
+			  "item": "projectred_core:red_ingot"
+		},
+		"result": {
+			"item": "projectred_transmission:red_alloy_wire",
+			"count": 4
+		}
+	})
+	event.recipes.immersiveengineeringMetalPress(
+		"4x projectred_transmission:red_alloy_wire",
+		"projectred_core:red_ingot",
+		"immersiveengineering:mold_wire"
+	)
+	event.shapeless("4x projectred_transmission:red_alloy_wire", [
+		"projectred_core:red_ingot",
+		Item.of("immersiveengineering:wirecutter").ignoreNBT(),
+	]);
+
+
+
 	event.shapeless(PR_C('platformed_plate'), [PR_C('plate'), PR_T('red_alloy_wire'), CR("andesite_alloy")])
 
 	let convert = (c, id) => {

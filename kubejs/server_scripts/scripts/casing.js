@@ -27,11 +27,12 @@ tweak_casing(CR('brass_casing'), 'create:brass_ingot', '#forge:treated_wood')
 //压缩机壳
 tweak_casing('compressedcreativity:compressed_iron_casing', 'pneumaticcraft:ingot_iron_compressed', 'createindustry:chipwood')
 tweak_casing('compressedcreativity:compressed_iron_casing', 'pneumaticcraft:ingot_iron_compressed', 'create:copper_casing')
+//钢机壳
+tweak_casing('createindustry:steel_casing', 'create_dd:steel_ingot', 'createindustry:hardened_planks')
 
 tweak_casing('kubejs:redstone_casing', 'minecraft:iron_ingot', '#forge:stone')
 tweak_casing('kubejs:zinc_casing', 'create:zinc_ingot', '#forge:stone')
 tweak_casing('kubejs:invar_casing', 'thermal:invar_ingot', 'minecraft:basalt')
-tweak_casing('createindustry:steel_casing', 'alloyed:steel_ingot', 'createindustry:hardened_planks')
 tweak_casing('immersiveengineering:concrete_leaded', 'thermal:lead_ingot', 'immersiveengineering:concrete')
 tweak_casing('kubejs:enderium_casing', 'minecraft:ender_pearl', '#forge:obsidian')
 tweak_casing('kubejs:fluix_casing', 'thermal:lead_ingot', 'minecraft:blackstone')

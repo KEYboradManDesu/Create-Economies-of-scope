@@ -12,7 +12,7 @@ tooltip.add(['kubejs:missingno'], '§7§kmissingnomissingnomissingnomissingno')
 tooltip.add("upgrade_aquatic:polar_kelp", [`§7只能通过魔法合成，可种植`]);
 tooltip.add("twilightforest:uncrafting_table", [`§a被彻底的Ban了，不要想着获取它`]);
 tooltip.add("cookingforblockheads:sink", [`§a小时候家里的水槽忘了关，现在村里成亚特兰蒂斯了`]);
-tooltip.add(['kubejs:golden_pen'], '§6为部分物品添加生产编号，永远不消耗');
+tooltip.add(['kubejs:golden_pen'], '§6为部分物品添加生产编号，永不消耗');
 
 let holds = (id, slots) => tooltip.add("metalbarrels:" + id + "_barrel", [`§7${slots} 格`])
     let main_assembly = (id, stage) => tooltip.add(id, [`§7主目标: ${stage == "4" ? "§6最终章" : "§6章节 " + stage}`, '§8思考一下如何自动化制作此物品'])
@@ -33,7 +33,6 @@ pen_regis('kubejs:pen_regis_01', "1号", "动力构件")
 pen_regis('kubejs:pen_regis_02', "2号", "动力构件")
 pen_regis('kubejs:pen_regis_03', "3号", "动力构件")
 pen_regis('kubejs:pen_regis_04', "4号", "动力构件")
-
 pen_regis('kubejs:pen_regis_10', "0号", "等待切石机切割")
 pen_regis('kubejs:pen_regis_11', "1号", "动力构件")
 pen_regis('kubejs:pen_regis_12', "2号", "动力构件")
@@ -48,7 +47,7 @@ bonus_assembly('kubejs:gold_source_mechanism', "1A")
 //第二章
 main_assembly('create:precision_mechanism', "2")
 bonus_assembly('kubejs:infernal_mechanism', "2A")
-bonus_assembly('create_dd:integrated_mechanism', "2A")   
+bonus_assembly('projectred_core:motor', "2A")    
 //第三章
 main_assembly('kubejs:inductive_mechanism', "3")
 bonus_assembly('kubejs:abstruse_mechanism', "3A")

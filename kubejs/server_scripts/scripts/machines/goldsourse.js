@@ -172,6 +172,7 @@ event.recipes.botania.petal_apothecary(BO('medumone'), [
 	BO('#petals/brown'),
 	BO('#petals/gray')])
 
+/*
 event.remove({ output: 'creatania:blazunia' })//烈焰轰花
 event.recipes.botania.petal_apothecary('creatania:blazunia', [
 	KJ("life_gold_source"), 
@@ -180,6 +181,7 @@ event.recipes.botania.petal_apothecary('creatania:blazunia', [
 	BO('#petals/yellow'),
 	BO('#petals/red'),
 	BO('#petals/light_blue')])
+*/
 
 event.remove({ output: BO('marimorphosis') })//异构花
 event.recipes.botania.petal_apothecary(BO('marimorphosis'), [
@@ -212,6 +214,7 @@ event.custom({
 //魔力灌注
 event.recipes.botania.mana_infusion(BO('mana_powder'), KJ('rune_dust'), 1000)
 //磨粉
+/*
 event.recipes.createMilling([BO('mana_powder', 4)], BO('mana_pearl')).processingTime(150)
 //魔力结晶
 event.custom({
@@ -236,6 +239,7 @@ event.shaped(BO('mana_powder'), [
 ], {
 	R: KJ('mana_crystal')
 })
+*/
 
 ////魔力珍珠
 //魔力灌注

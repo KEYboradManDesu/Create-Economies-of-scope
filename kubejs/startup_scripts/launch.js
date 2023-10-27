@@ -87,7 +87,6 @@ event.create('sand_ball').texture("kubejs:item/sand_ball").displayName('沙球')
 event.create('rough_sand').texture("kubejs:item/rough_sand").displayName('沙块')
 event.create('purified_sand').texture("kubejs:item/purified_sand").displayName('高纯沙')
 event.create('press_rod_die').texture("kubejs:item/press_rod_die").displayName('杆冲压模具').unstackable()
-event.create('motor').texture("kubejs:item/motor").displayName('电动马达')
 event.create('battery').texture("kubejs:item/battery").displayName('电池')
 event.create('battery_incomplete', 'create:sequenced_assembly').texture("kubejs:item/battery_incomplete").displayName('电池（缺电）')
 event.create('sculk_motor').texture("kubejs:item/sculk_motor").displayName('循声马达').rarity(RARITY_UNCOMMON)
@@ -103,14 +102,15 @@ event.create('arcane_golden_sheet').texture("kubejs:item/arcane_golden_sheet").d
 event.create('living_core').texture("kubejs:item/living_core").displayName('活力核心')
 event.create('metamorphic_lich_core').texture("kubejs:item/metamorphic_lich_core").displayName('腐化核心').rarity(RARITY_UNCOMMON)
 event.create('life_gold_source').texture("kubejs:item/life_gold_source").displayName('金源机魂').rarity(RARITY_UNCOMMON)
-event.create('mana_crystal').texture("kubejs:item/mana_crystal").displayName('魔力结晶')
+//event.create('mana_crystal').texture("kubejs:item/mana_crystal").displayName('魔力结晶')
 event.create('andesite_alloy_gear').texture("kubejs:item/andesite_alloy_gear").displayName('安山合金齿轮')
 event.create('zinc_wire').texture("kubejs:item/zinc_wire").displayName('锌线')
 event.create('nickel_wire').texture("kubejs:item/nickel_wire").displayName('镍线')
 event.create('incomplete_tube', 'create:sequenced_assembly').texture("kubejs:item/incomplete_tube").displayName('黄铜电子管（未完成）')
 event.create('incomplete_electron_tube').texture("kubejs:item/imcomplete_electron_tube").displayName('真空管（待抽真空）')
 event.create('incomplete_light_bulb').texture("kubejs:item/imcomplete_light_bulb").displayName('白炽灯泡（待抽真空）')
-
+event.create('uncharged_electric_machine', 'create:sequenced_assembly').parentModel("kubejs:block/electric_machine").displayName('电气机器（未充能）')
+event.create('incomplete_motor', 'create:sequenced_assembly').texture("kubejs:item/incomplete_motor").displayName('马达（未完成）')
 
 // 构件
 event.create('incomplete_hemp_fabric', 'create:sequenced_assembly').texture("kubejs:item/incomplete_hemp_fabric").displayName('坚韧布料（未完成）')
@@ -344,11 +344,14 @@ onEvent('block.registry', event => {
 	machine('Andesite', "translucent", "lantern", "安山机器")
 	machine('Inductive', "translucent", "lantern", "物流机器")
 	
-	machine('Brass', "translucent", "lantern", "黄铜机器")
 	machine('Copper', "cutout", "lantern", "铜机器")
+
+	machine('Brass', "translucent", "lantern", "黄铜机器")
+	machine('Obsidian', "translucent", "lantern", "坚实机器")
+	machine('Electric', "translucent", "lantern", "电气机器")
+
 	machine('Zinc', "cutout", "lantern", "锌机器")
 	machine('Enderium', "cutout", "lantern", "谐振机器")
-	machine('Obsidian', "translucent", "lantern", "坚实机器")
 	//machine('Pneumatic', "translucent", "lantern", "气动机器")
 	machine('Redstone', "solid", "stone", "红石机器")
 	machine('Steel', "translucent", "lantern", "钢机器")

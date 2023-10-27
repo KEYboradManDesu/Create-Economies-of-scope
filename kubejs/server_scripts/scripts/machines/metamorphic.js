@@ -104,9 +104,9 @@ metamorphic_machine(BO('mana_detector'), 1, MC('target'))
 metamorphic_machine(BO('forest_eye'), 1, BO('mana_pearl'))
 metamorphic_machine(BO('brewery'), 1, MC('brewing_stand'))
 metamorphic_machine(BO('alchemy_catalyst'), 1, BO('brewery'))
-metamorphic_machine('creatania:mana_generator', 1, CR('mechanical_pump'))
-metamorphic_machine('creatania:mana_motor', 1, KJ('motor'))
-metamorphic_machine('creatania:mana_condenser', 1, CR('propeller'))
-metamorphic_machine('creatania:omnibox', 1, CR('gearbox'))
+//metamorphic_machine('creatania:mana_generator', 1, CR('mechanical_pump'))
+//metamorphic_machine('creatania:mana_motor', 1, KJ('motor'))
+//metamorphic_machine('creatania:mana_condenser', 1, CR('propeller'))
+//metamorphic_machine('creatania:omnibox', 1, CR('gearbox'))
 
 }

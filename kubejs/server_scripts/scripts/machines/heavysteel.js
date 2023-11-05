@@ -108,8 +108,6 @@ let steel_machineB = (id, amount, other_ingredient) => {
 	/*else
 		event.stonecutting(Item.of(id, amount), 'kubejs:steel_machine')*/
 }
-steel_machineB(MEK('pigment_extractor'), 1, MC('bucket'))
-steel_machineB(MEK('pigment_mixer'), 1, CR('whisk'))
 steel_machineB(MEK('personal_chest'), 1, '#balm:wooden_chests')
 steel_machineB(MEK('personal_barrel'), 1, F('#barrels'))
 

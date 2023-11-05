@@ -121,8 +121,6 @@ function unwantedRecipes(event) {  //不想要的配方
     event.remove({ id: CR('item_application/andesite_casing_from_log') })
 	event.remove({ mod: ('creatania') })
 	event.remove({ output: 'twilightforest:uncrafting_table' })
-	event.remove({ id: 'beyond_earth:iron_stick' })
-	event.remove({ id: IM('crafting/stick_iron') })
 }
 
 function pneumaticcraft(event) {
@@ -831,26 +829,6 @@ let connectors = (event, output, output2, rod, texture) => {
 	connectors(event, IM("connector_hv", 4), IM("connector_hv_relay", 4), F("#rods/aluminum"), KJ("#insulating_glass"))}
 */
 
-//酚醛树脂
-event.custom({
-	"type": "tconstruct:casting_table",
-	"cast": {
-	"item": IM('mold_plate')},
-	"fluid": {
-	"name": "immersiveengineering:phenolic_resin",
-	"amount": 250},
-	"result": Item.of(IM("plate_duroplast")),
- 	"cooling_time": 15
-})
-event.custom({
-	"type": "tconstruct:casting_basin",
-	"fluid": {
-	"name": "immersiveengineering:phenolic_resin",
-	"amount": 1000},
-	"result": Item.of(IM("duroplast")),
- 	"cooling_time": 60
-})
-
 //人造皮革
 event.recipes.createFilling(IM("ersatz_leather"), [IM('hemp_fabric'), Fluid.of('createaddition:seed_oil', 125)])
 event.recipes.createFilling(IM("ersatz_leather"), [IM('hemp_fabric'), Fluid.of(PC('vegetable_oil'), 125)])
@@ -1330,6 +1308,19 @@ MysteriousItemConversionCategory.RECIPES.add(ConversionRecipe.create('ae2:singul
 MysteriousItemConversionCategory.RECIPES.add(ConversionRecipe.create('create:chromatic_compound', 'create:shadow_steel'))
 MysteriousItemConversionCategory.RECIPES.add(ConversionRecipe.create('create:chromatic_compound', 'create:refined_radiance'))
 
+////特殊风帆
+let sails = (id, amount, other_ingredient) => {
+	event.remove({ output: id })
+	event.smithing(Item.of(id, amount), 'create:white_sail', other_ingredient)
+	event.recipes.createMechanicalCrafting(Item.of(id, amount), "AB", { A: 'create:white_sail', B: other_ingredient })
+}
+sails('create_dd:smoking_sail', 1, MC('campfire'))
+sails('create_dd:splashing_sail', 1, MC('water_bucket'))
+sails('create_dd:haunting_sail', 1, MC('soul_campfire'))
+sails('create_dd:blasting_sail', 1, MC('lava_bucket'))
+sails('create_dd:freezing_sail', 1, MC('powder_snow_bucket'))
+
+
 ////热力刷石机
 let bedrock_cobblegen = (adjacent, output) => {
 	event.custom({
@@ -1422,7 +1413,6 @@ event.shaped(KJ("circuit_scrap", 2),
 event.recipes.createMilling(KJ("circuit_scrap"), F("#circuit_press"))
 
 event.replaceInput({ output: CR('adjustable_chain_gearshift') }, CR('electron_tube'), MC('redstone'))
-event.replaceInput({ id: TE("rf_coil") }, MC('gold_ingot'), F('#rods/gold'))//红石通量线圈
 event.replaceInput({ id: CR("crafting/kinetics/filter") }, MC('#wool'), [IM('hemp_fabric'), MC('#wool')])//过滤器
 event.replaceInput({ id: CR("crafting/kinetics/attribute_filter") }, MC('#wool'), [IM('hemp_fabric'), MC('#wool')])//属性过滤器
 event.replaceInput({ id: "immersive_weathering:nulch_block" }, 'immersive_weathering:ash_layer_block', 'supplementaries:ash')//沃土
@@ -1431,9 +1421,6 @@ event.replaceOutput({ id: AC("tin_can_to_iron_nugget") }, MC('iron_nugget'), TE(
 event.replaceOutput({ id: AC("tin_can_to_iron_nugget_from_blasting") }, MC('iron_nugget'), TE('tin_nugget'))
 event.replaceInput({ id: CR("mechanical_crafting/wand_of_symmetry") }, MC('ender_pearl'), CR('refined_radiance'))//对称之杖
 event.replaceInput({ id: MC("hopper") }, F('#ingots/iron'), TE('lead_plate'))//漏斗
-
-event.recipes.createCrushing([Item.of(TE("bitumen")), Item.of(TE("bitumen"), 2).withChance(0.75), Item.of(TE("tar"), 1).withChance(0.75), Item.of(MC("sand")).withChance(0.25)], TE("oil_sand"))
-event.recipes.createCrushing([Item.of(TE("bitumen")), Item.of(TE("bitumen"), 2).withChance(0.75), Item.of(TE("tar"), 1).withChance(0.75), Item.of(MC("red_sand")).withChance(0.25)], TE("oil_red_sand"))
 
 event.remove({ id: TE("augments/item_filter_augment") })
 event.shapeless(TE("item_filter_augment"), [CR("filter"), TE("lapis_gear")])

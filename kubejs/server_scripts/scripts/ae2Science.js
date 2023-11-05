@@ -7,8 +7,8 @@ onEvent('recipes', event => {
 function silicon(event) {
 
 	event.replaceOutput({ id: IM("cokeoven/coke") }, IM('coal_coke'), TE('coal_coke'))
-	event.recipes.thermal.pyrolyzer([MC("charcoal", 2), Fluid.of(TE('creosote'), 50)], MC("#logs")).energy(1000)
-	event.recipes.thermal.pyrolyzer([TE("coal_coke"), Fluid.of(TE('creosote'), 50)], MC("charcoal")).energy(2000)
+	event.recipes.thermal.pyrolyzer([MC("charcoal", 2), Fluid.of(IM('creosote'), 50)], MC("#logs")).energy(1000)
+	event.recipes.thermal.pyrolyzer([TE("coal_coke"), Fluid.of(IM('creosote'), 50)], MC("charcoal")).energy(2000)
 	let t = KJ('incomplete_coke_chunk')
 	event.recipes.createSequencedAssembly([
 		KJ('coke_chunk'),
@@ -23,8 +23,8 @@ function silicon(event) {
 		Item.of(KJ("sand_ball")).withChance(0.25)
 	], 'minecraft:sandstone')
 	event.recipes.thermal.bottler(KJ("sand_ball"), [Fluid.of(MC("water"), 50), F("#sand/colorless")]).energy(1000)
-	event.recipes.thermal.chiller(KJ("creosote_pellet"), [Fluid.of(TE("creosote"), 50)]).energy(1000)
-	event.recipes.thermal.crucible(Fluid.of("mekanism:steam", 250), KJ("creosote_pellet")).energy(3000)
+	//event.recipes.thermal.chiller(KJ("creosote_pellet"), [Fluid.of(IM("creosote"), 50)]).energy(1000)
+	//event.recipes.thermal.crucible(Fluid.of("mekanism:steam", 250), KJ("creosote_pellet")).energy(3000)
 	event.remove({ id: TE("blitz_powder") })
 	event.remove({ output: TE("basalz_powder") })
 	event.remove({ output: TE("blizz_powder") })

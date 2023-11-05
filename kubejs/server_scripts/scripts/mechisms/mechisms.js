@@ -191,9 +191,36 @@ function kinetic(event){
 
 // 开始注册密封构件
 function seal(event){
+    
+    output_item = 'kubejs:sealed_mechanism' //此处修改输出
+    trans_item = 'kubejs:incomplete_sealed_mechanism2'
+    round = 1
+
     //密封构件:
 
     //动力构件:30%
+    success_chance = 70.0
+    fail_chance = 30.0
+    input_item = 'kubejs:pen_regis_21' //此处修改输入
+    cons_item = 'kubejs:treated_kelp'
+    cons_item2 = '#immersive_weathering:wax'
+    rand_item = Item.of('ftbquests:lootcrate', '{CustomModelData:15,type:"sm"}')
+
+    event.recipes.createSequencedAssembly([
+        //成品：
+        Item.of(output_item).withChance(success_chance),
+        //随机废料：
+        Item.of(rand_item).withChance(fail_chance),
+       ], 
+       //输入物品：
+       input_item, 
+       [
+       //每步的配方
+        event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第一步
+        event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
+        event.recipes.createDeploying(trans_item, [trans_item, cons_item2])//第三步
+   ]).transitionalItem(trans_item).loops(round)
+
     //物流构件:40%
     
     //2x防腐海带:20%
@@ -203,9 +230,7 @@ function seal(event){
     //憎水涂料:30%
     //杂酚油:40% 
 
-    output_item = 'kubejs:sealed_mechanism' //此处修改输出
-    trans_item = 'kubejs:incomplete_sealed_mechanism2'
-    round = 1
+
 
     // 70%成功率，共一个配方 
     success_chance = 70.0

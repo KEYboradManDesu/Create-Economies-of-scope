@@ -14,30 +14,18 @@ event.recipes.createSplashing([//失魂沙缠魂
 
 //液态灵魂
 event.recipes.createMixing(Fluid.of(TC("liquid_soul"), 500), [MC('twisting_vines'), MC('weeping_vines')]).heated()
-event.recipes.createEmptying([FA("arcane_crystal_dust_speck"), Fluid.of(TC("liquid_soul"), 50)], FA("soul"))
+event.recipes.createEmptying(Fluid.of(TC("liquid_soul"), 125), FA("soul"))
 
 //焦黑炉核心
 donutCraft(event, TC('foundry_controller'), TC('scorched_bricks'), KJ('infernal_mechanism'))
 
 event.remove({ output: 'create_sa:heat_engine' })
 event.replaceInput("create_sa:heat_engine",Ingredient.of(Item.of('kubejs:infernal_mechanism')).toJson())
-/*
-let t2 = 'create_sa:incomplete_heat_engine'
-event.recipes.createSequencedAssembly([
-	'create_sa:heat_engine',
-], KJ('kinetic_mechanism'), [
-	event.recipes.createDeploying(t2, [t2, F('#plates/zinc')]),
-	event.recipes.createDeploying(t2, [t2, (TE("copper_gear"))]),
-	event.recipes.createDeploying(t2, [t2, (TE("copper_gear"))])
-]).transitionalItem(t2)
-		.loops(3)
-	.id('kubejs:heat_engine')
-*/
 
 let t = KJ('incomplete_infernal_mechanism')
 event.recipes.createSequencedAssembly([
 	KJ('infernal_mechanism'),
-], [CR('precision_mechanism'), KJ('handmade_precision_mechanism')], [
+], CR('precision_mechanism'), [
 	event.recipes.createFilling(t, [t, Fluid.of(TC("liquid_soul"), 500)]),
 	event.recipes.createFilling(t, [t, Fluid.of(MC("lava"), 1000)]),
 	event.recipes.createFilling(t, [t, Fluid.of(MC("lava"), 1000)]),
@@ -51,7 +39,7 @@ event.shaped(KJ('zinc_machine'), [
 	'SCS',
 	'SSS'
 ], {
-	C: KJ('zinc_casing'),
+	C: [KJ('zinc_casing'), 'create_dd:industrial_casing'],
 	S: KJ('infernal_mechanism')
 })
 
@@ -85,7 +73,8 @@ zinc_machine('storagedrawers:controller', 1, MC('diamond'))
 zinc_machine('storagedrawers:controller_slave', 1, MC('gold_ingot'))
 zinc_machine('torchmaster:megatorch', 1, MC('torch'))
 zinc_machine('thermal:upgrade_augment_2', 1, MC('redstone'))
-zinc_machine('thermal:upgrade_augment_2', 1, MC('redstone'))
+zinc_machine('create_dd:industrial_fan', 1, CR('propeller'))
+zinc_machine('create_dd:superheating_sail', 1)
 
 zinc_machine('chickens:breeder', 1, F('#seeds'))
 zinc_machine('chickens:roost', 1, MC('hay_block'))

@@ -193,11 +193,12 @@ event.removeAllTagsFrom('immersiveengineering:raw_block_uranium')
 
 event.get('forge:gears').add('kubejs:andesite_alloy_gear')
 
-
 event.get('forge:raw_materials/manasteel').add('kubejs:raw_mana_steel')
 event.get('create:crushed_raw_materials').add('kubejs:crushed_raw_mana_steel')
 
 event.get('immersive_weathering:wax').add('immersivepetroleum:paraffin_wax')
+
+event.removeAllTagsFrom('immersiveengineering:storage_steel')
 
 //罐头
 event.get('#forge:cans_sealed').add('kubjs:can_sealed')
@@ -205,12 +206,11 @@ event.get('#forge:cans_sealed').add('kubjs:can_sealed')
 })
 
 onEvent('fluid.tags', event => {
+/*
 event.get('forge:kerosene').add('createindustry:kerosene')
 event.get('forge:diesel').add('createindustry:diesel')
-event.get('forge:crude_oil').add('beyond_earth:oil')
 event.get('forge:crude_oil').add('createindustry:crude_oil_fluid')
-event.get('forge:biodiesel').add('#forge:diesel')
-
+*/
 
 })
 

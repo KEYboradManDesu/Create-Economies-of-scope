@@ -112,9 +112,10 @@ event.custom({
 
 	event.remove({ output: 'create_dd:bronze_saw' })	
     event.smithing('create_dd:bronze_saw', 'create:mechanical_saw', 'create_dd:reinforcement_plating')
+	event.recipes.createMechanicalCrafting('create_dd:bronze_saw', "AB", { A: 'create:mechanical_saw', B: 'create_dd:reinforcement_plating' })
 	event.remove({ output: 'create_dd:bronze_drill' })	
     event.smithing('create_dd:bronze_drill', 'create:mechanical_drill', 'create_dd:reinforcement_plating')
-
+	event.recipes.createMechanicalCrafting('create_dd:bronze_drill', "AB", { A: 'create:mechanical_drill', B: 'create_dd:reinforcement_plating' })
 }
 
 function inductiveMachine(event) {

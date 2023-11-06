@@ -279,8 +279,8 @@ function seal(event){
   ]).transitionalItem(trans_item).loops(round)
 
      // 90% 成功率，共两个配方
-     success_chance = 80.0
-     fail_chance = 20.0
+     success_chance = 90.0
+     fail_chance = 10.0
      // 防腐海带+杂酚油
      input_item = KJ('pen_regis_1M4') //此处修改输入
      cons_item = 'kubejs:treated_kelp'
@@ -302,7 +302,7 @@ function seal(event){
     ]).transitionalItem(trans_item).loops(round)
   
      // 硫化橡胶+憎水涂料
-     input_item = KJ('pen_regis_1M3') //此处修改输入
+     input_item = KJ('pen_regis_1M5') //此处修改输入
      cons_item = 'thermal:cured_rubber'
      cons_item2 = Item.of('createindustry:water_insulation')
      rand_item = Item.of('ftbquests:lootcrate', '{CustomModelData:15,type:"sm"}') // 需要修改
@@ -321,4 +321,23 @@ function seal(event){
          event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
          event.recipes.createDeploying(trans_item, [trans_item, cons_item2])//第三步
     ]).transitionalItem(trans_item).loops(round)
+
+    // 100%成功率，共一个配方 
+    // 硫化橡胶+杂酚油
+    input_item = KJ('pen_regis_1M6') //此处修改输入
+    cons_item = 'thermal:cured_rubber'
+    rand_item = Item.of('ftbquests:lootcrate', '{CustomModelData:15,type:"sm"}') // 需要修改
+
+    event.recipes.createSequencedAssembly([
+        //成品：
+        Item.of(output_item)
+       ], 
+       //输入物品：
+       input_item, 
+       [
+       //每步的配方
+        event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第一步
+        event.recipes.createDeploying(trans_item, [trans_item, cons_item]),//第二步
+        event.recipes.createFilling(trans_item, [trans_item,Fluid.of('immersiveengineering:creosote', 250)])//第三步
+   ]).transitionalItem(trans_item).loops(round)
 }

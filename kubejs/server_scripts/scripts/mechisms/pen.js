@@ -1,3 +1,5 @@
+console.info('Initializing CEOS Pen System')
+
 //起始物品配方命名规范：pens_1M1 [1M1中第一个1代表第一章，M代表主线，第二个1代表第一个配方]
 
 onEvent('recipes', event => {

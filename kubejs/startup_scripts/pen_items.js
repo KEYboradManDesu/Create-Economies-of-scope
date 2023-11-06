@@ -1,5 +1,4 @@
-console.info('Initializing CEOS Unique Assemble Recipes')
-console.info('You are going to love it ;)')
+console.info('Registering CEOS Unique Pen Related Items...')
 
 //钢笔命名规范：KJ(pen_regis_1M1) [1M1中第一个1代表第一章，M代表主线，第二个1代表第一个配方]
 

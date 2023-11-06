@@ -1,4 +1,8 @@
 // 此文件未完成
+
+console.info('Initializing CEOS Unique Assembly Recipes')
+console.info('You are going to love it ;)')
+
 onEvent('recipes', event => {
     kinetic(event) //动力
     seal(event) //密封

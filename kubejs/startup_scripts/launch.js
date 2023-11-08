@@ -148,6 +148,7 @@ event.create('incomplete_gold_source_mechanism', 'create:sequenced_assembly').te
 event.create('metamorphic_mechanism').texture("kubejs:item/mechanism/metamorphic_mechanism").displayName('异构构件')
 event.create('incomplete_metamorphic_mechanism', 'create:sequenced_assembly').texture("kubejs:item/mechanism/incomplete_metamorphic_mechanism").displayName('异构构件（未完成）')
 
+/* 已弃用
 // 钢笔
 event.create('golden_pen').texture("kubejs:item/pens/pen").displayName('金质钢笔').maxStackSize(1)
 
@@ -193,6 +194,8 @@ event.create('kubejs:pen_regis_33', 'create:sequenced_assembly')
 .textureJson({layer0: "create_dd:item/inductive_mechanism", layer1: "kubejs:item/namber/3"}).displayName('物流构件')
 event.create('kubejs:pen_regis_34', 'create:sequenced_assembly')
 .textureJson({layer0: "create_dd:item/inductive_mechanism", layer1: "kubejs:item/namber/4"}).displayName('物流构件')
+
+*/
 
 //抽屉
 event.create('osmium_drawersop').parentModel("kubejs:item/drawersop_casing").displayName('锇加固抽屉')

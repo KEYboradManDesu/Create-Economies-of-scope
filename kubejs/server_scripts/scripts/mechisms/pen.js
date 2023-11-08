@@ -1,8 +1,12 @@
+console.info('Initializing CEOS Pen System')
+
+//起始物品配方命名规范：pens_1M1 [1M1中第一个1代表第一章，M代表主线，第二个1代表第一个配方]
+
 onEvent('recipes', event => {
-    pens_1(event) // 钢笔-1
-    pens_1_2(event) // 钢笔-1_2
-    pens_1_3(event) // 钢笔-1_3
-    pens_1_4(event) // 钢笔-1_4
+    pens_1M1(event) // 第一章-主线-木板
+    pens_1M2(event) // 第一章-主线-模板
+    pens_1B1(event) // 第一章-支线A-动力构件
+    //pens_1M4(event) // 钢笔-1_4
 })
 
 let switchCutting = (event, a, b) => {
@@ -10,17 +14,18 @@ let switchCutting = (event, a, b) => {
     event.stonecutting(b, a)
 }
 
-function pens_1(event){
-    event.recipes.createDeploying('kubejs:pen_regis_00', ['#minecraft:wooden_slabs', 'kubejs:golden_pen']).keepIngredient('kubejs:golden_pen')
+// 第一章-主线-木板
+function pens_1M1(event){
+    event.recipes.createDeploying(KJ('pen_regis_1M0A'), ['#minecraft:wooden_slabs', 'kubejs:golden_pen']).keepIngredient('kubejs:golden_pen')
     //event.recipes.createDeploying('kubejs:pen_regis_02', ['kubejs:pen_regis_01', 'kubejs:golden_pen']).keepIngredient('kubejs:golden_pen')
     //event.recipes.createDeploying('kubejs:pen_regis_03', ['kubejs:pen_regis_02', 'kubejs:golden_pen']).keepIngredient('kubejs:golden_pen')
     //event.recipes.createDeploying('kubejs:pen_regis_01', ['kubejs:pen_regis_03', 'kubejs:golden_pen']).keepIngredient('kubejs:golden_pen') // 回溯
-    switchCutting(event, 'kubejs:pen_regis_01', 'kubejs:pen_regis_00')
-    switchCutting(event, 'kubejs:pen_regis_02', 'kubejs:pen_regis_00')
-    switchCutting(event, 'kubejs:pen_regis_03', 'kubejs:pen_regis_00')
-    switchCutting(event, 'kubejs:pen_regis_04', 'kubejs:pen_regis_00')
+    switchCutting(event, KJ('pen_regis_1M1A'), KJ('pen_regis_1M0A'))
+    switchCutting(event, KJ('pen_regis_1M2A'), KJ('pen_regis_1M0A'))
+    switchCutting(event, KJ('pen_regis_1M3A'), KJ('pen_regis_1M0A'))
+    switchCutting(event, KJ('pen_regis_1M4A'), KJ('pen_regis_1M0A'))
 
-    event.shaped('kubejs:pen_regis_01', [
+    event.shaped(KJ('pen_regis_1M1A'), [
 		'S  ',
         '   ',
         '  B'
@@ -28,7 +33,7 @@ function pens_1(event){
 		S: '#minecraft:wooden_slabs',
         B: 'kubejs:golden_pen'
 	}).keepIngredient('kubejs:golden_pen')
-    event.shaped('kubejs:pen_regis_02', [
+    event.shaped(KJ('pen_regis_1M2A'), [
 		' S ',
         '   ',
         '  B'
@@ -36,7 +41,7 @@ function pens_1(event){
 		S: '#minecraft:wooden_slabs',
         B: 'kubejs:golden_pen'
 	}).keepIngredient('kubejs:golden_pen')
-    event.shaped('kubejs:pen_regis_03', [
+    event.shaped(KJ('pen_regis_1M3A'), [
 		'  S',
         '   ',
         '  B'
@@ -44,7 +49,7 @@ function pens_1(event){
 		S: '#minecraft:wooden_slabs',
         B: 'kubejs:golden_pen'
 	}).keepIngredient('kubejs:golden_pen')
-    event.shaped('kubejs:pen_regis_04', [
+    event.shaped(KJ('pen_regis_1M4A'), [
 		'   ',
         'S  ',
         '  B'
@@ -54,14 +59,14 @@ function pens_1(event){
 	}).keepIngredient('kubejs:golden_pen')
 }
 
-function pens_1_2(event){
-    event.recipes.createDeploying('kubejs:pen_regis_10', ['tconstruct:pattern', 'kubejs:golden_pen']).keepIngredient('kubejs:golden_pen')
-    switchCutting(event, 'kubejs:pen_regis_11', 'kubejs:pen_regis_10')
-    switchCutting(event, 'kubejs:pen_regis_12', 'kubejs:pen_regis_10')
-    switchCutting(event, 'kubejs:pen_regis_13', 'kubejs:pen_regis_10')
-    switchCutting(event, 'kubejs:pen_regis_14', 'kubejs:pen_regis_10')
+function pens_1M2(event){
+    event.recipes.createDeploying(KJ('pen_regis_1M0B'), ['tconstruct:pattern', 'kubejs:golden_pen']).keepIngredient('kubejs:golden_pen')
+    switchCutting(event, KJ('pen_regis_1M1B'), 'kubejs:pen_regis_10')
+    switchCutting(event, KJ('pen_regis_1M2B'), 'kubejs:pen_regis_10')
+    switchCutting(event, KJ('pen_regis_1M3B'), 'kubejs:pen_regis_10')
+    switchCutting(event, KJ('pen_regis_1M4B'), 'kubejs:pen_regis_10')
 
-    event.shaped('kubejs:pen_regis_11', [
+    event.shaped(KJ('pen_regis_1M0B'), [
 		'S  ',
         '   ',
         '  B'
@@ -69,7 +74,7 @@ function pens_1_2(event){
 		S: 'tconstruct:pattern',
         B: 'kubejs:golden_pen'
 	}).keepIngredient('kubejs:golden_pen')
-    event.shaped('kubejs:pen_regis_12', [
+    event.shaped(KJ('pen_regis_1M0B'), [
 		' S ',
         '   ',
         '  B'
@@ -77,7 +82,7 @@ function pens_1_2(event){
 		S: 'tconstruct:pattern',
         B: 'kubejs:golden_pen'
 	}).keepIngredient('kubejs:golden_pen')
-    event.shaped('kubejs:pen_regis_13', [
+    event.shaped(KJ('pen_regis_1M0B'), [
 		'  S',
         '   ',
         '  B'
@@ -85,7 +90,7 @@ function pens_1_2(event){
 		S: 'tconstruct:pattern',
         B: 'kubejs:golden_pen'
 	}).keepIngredient('kubejs:golden_pen')
-    event.shaped('kubejs:pen_regis_14', [
+    event.shaped(KJ('pen_regis_1M0B'), [
 		'   ',
         'S  ',
         '  B'
@@ -95,14 +100,14 @@ function pens_1_2(event){
 	}).keepIngredient('kubejs:golden_pen')
 }
 
-function pens_1_3(event){
+function pens_1B1(event){
     //event.recipes.createDeploying('kubejs:pen_regis_20', ['kubejs:kinetic_mechanism', 'kubejs:golden_pen']).keepIngredient('kubejs:golden_pen')
-    switchCutting(event, 'kubejs:pen_regis_21', 'kubejs:kinetic_mechanism')
-    switchCutting(event, 'kubejs:pen_regis_22', 'kubejs:kinetic_mechanism')
-    switchCutting(event, 'kubejs:pen_regis_23', 'kubejs:kinetic_mechanism')
-    switchCutting(event, 'kubejs:pen_regis_24', 'kubejs:kinetic_mechanism')
+    switchCutting(event, KJ('pen_regis_1B1'), 'kubejs:kinetic_mechanism')
+    switchCutting(event, KJ('pen_regis_1B2'), 'kubejs:kinetic_mechanism')
+    switchCutting(event, KJ('pen_regis_1B3'), 'kubejs:kinetic_mechanism')
+    switchCutting(event, KJ('pen_regis_1B4'), 'kubejs:kinetic_mechanism')
 
-    event.shaped('kubejs:pen_regis_21', [
+    event.shaped(KJ('pen_regis_1B1'), [
 		'S  ',
         '   ',
         '  B'
@@ -110,7 +115,7 @@ function pens_1_3(event){
 		S: 'kubejs:kinetic_mechanism',
         B: 'kubejs:golden_pen'
 	}).keepIngredient('kubejs:golden_pen')
-    event.shaped('kubejs:pen_regis_22', [
+    event.shaped(KJ('pen_regis_1B2'), [
 		' S ',
         '   ',
         '  B'
@@ -118,7 +123,7 @@ function pens_1_3(event){
 		S: 'kubejs:kinetic_mechanism',
         B: 'kubejs:golden_pen'
 	}).keepIngredient('kubejs:golden_pen')
-    event.shaped('kubejs:pen_regis_23', [
+    event.shaped(KJ('pen_regis_1B3'), [
 		'  S',
         '   ',
         '  B'
@@ -126,7 +131,7 @@ function pens_1_3(event){
 		S: 'kubejs:kinetic_mechanism',
         B: 'kubejs:golden_pen'
 	}).keepIngredient('kubejs:golden_pen')
-    event.shaped('kubejs:pen_regis_24', [
+    event.shaped(KJ('pen_regis_1B4'), [
 		'   ',
         'S  ',
         '  B'
@@ -136,7 +141,8 @@ function pens_1_3(event){
 	}).keepIngredient('kubejs:golden_pen')
 }
 
-function pens_1_4(event){
+/*
+function pens_1B(event){
     //event.recipes.createDeploying('kubejs:pen_regis_30', ['create_dd:inductive_mechanism', 'kubejs:golden_pen']).keepIngredient('kubejs:golden_pen')
     switchCutting(event, 'kubejs:pen_regis_31', 'create_dd:inductive_mechanism')
     switchCutting(event, 'kubejs:pen_regis_32', 'create_dd:inductive_mechanism')
@@ -175,4 +181,6 @@ function pens_1_4(event){
 		S: 'create_dd:inductive_mechanism',
         B: 'kubejs:golden_pen'
 	}).keepIngredient('kubejs:golden_pen')
+
 }
+*/

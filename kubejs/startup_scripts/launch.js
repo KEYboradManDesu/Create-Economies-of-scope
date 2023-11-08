@@ -385,6 +385,8 @@ onEvent('fluid.registry', event => {
 
 	event.create("waste").displayName("异彩废液").bucketColor(0x123d36).stillTexture('kubejs:fluid/waste_still').flowingTexture('kubejs:fluid/waste_flow')
 
+	event.create("bio").displayName("生物质").bucketColor(0x474344).stillTexture('kubejs:fluid/bio_still').flowingTexture('kubejs:fluid/bio_flow')
+
 	event.create("sky_stone").displayName("不稳陨石").bucketColor(0x595959).stillTexture('kubejs:fluid/sky_stone_still').flowingTexture('kubejs:fluid/sky_stone_flowing')
 
 	event.create("zure_berry_ice_cream").displayName("天蓝冰淇淋").bucketColor(0x97FFFF).stillTexture('kubejs:fluid/zure_berry_ice_cream_still').flowingTexture('kubejs:fluid/zure_berry_ice_cream_flow')

@@ -61,10 +61,10 @@ function pens_1M1(event){
 
 function pens_1M2(event){
     event.recipes.createDeploying(KJ('pen_regis_1M0B'), ['tconstruct:pattern', 'kubejs:golden_pen']).keepIngredient('kubejs:golden_pen')
-    switchCutting(event, KJ('pen_regis_1M1B'), 'kubejs:pen_regis_10')
-    switchCutting(event, KJ('pen_regis_1M2B'), 'kubejs:pen_regis_10')
-    switchCutting(event, KJ('pen_regis_1M3B'), 'kubejs:pen_regis_10')
-    switchCutting(event, KJ('pen_regis_1M4B'), 'kubejs:pen_regis_10')
+    switchCutting(event, KJ('pen_regis_1M1B'), KJ('pen_regis_1M0B'))
+    switchCutting(event, KJ('pen_regis_1M2B'), KJ('pen_regis_1M0B'))
+    switchCutting(event, KJ('pen_regis_1M3B'), KJ('pen_regis_1M0B'))
+    switchCutting(event, KJ('pen_regis_1M4B'), KJ('pen_regis_1M0B'))
 
     event.shaped(KJ('pen_regis_1M0B'), [
 		'S  ',

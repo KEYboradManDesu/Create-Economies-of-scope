@@ -15,11 +15,11 @@ global.professions.forEach(element => {
 
 //钢笔标记物品
 event.get('minecraft:wooden_slabs')
-.add('kubejs:pen_regis_00')
-.add('kubejs:pen_regis_01')
-.add('kubejs:pen_regis_02')
-.add('kubejs:pen_regis_03')
-.add('kubejs:pen_regis_04')
+.add('kubejs:pen_regis_1M0A')
+.add('kubejs:pen_regis_1M1A')
+.add('kubejs:pen_regis_1M2A')
+.add('kubejs:pen_regis_1M3A')
+.add('kubejs:pen_regis_1M4A')
 
 
 

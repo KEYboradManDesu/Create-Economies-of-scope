@@ -221,7 +221,7 @@ function seal(event){
     input_item = KJ('pen_regis_1M1') //此处修改输入
     cons_item = 'kubejs:treated_kelp'
     cons_item2 = '#immersive_weathering:wax'
-    rand_item = Item.of('ftbquests:lootcrate', '{CustomModelData:15,type:"sm"}')
+    rand_item = Item.of('ftbquests:lootcrate', '{CustomModelData:15,type:"sm"}') // 需要修改
 
     event.recipes.createSequencedAssembly([
         //成品：

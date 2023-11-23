@@ -179,4 +179,7 @@ event.stonecutting(Item.of('create:brass_tunnel'), 'create:brass_funnel')
 event.remove({ output: 'createdieselgenerators:large_diesel_engine' })	
 event.smithing('createdieselgenerators:large_diesel_engine', 'createdieselgenerators:diesel_engine', 'create_dd:reinforcement_plating')
 event.recipes.createMechanicalCrafting('createdieselgenerators:large_diesel_engine', "AB", { A: 'createdieselgenerators:diesel_engine', B: 'create_dd:reinforcement_plating' })
+event.remove({ output: 'createdieselgenerators:huge_diesel_engine' })	
+event.smithing('createdieselgenerators:huge_diesel_engine', 'createdieselgenerators:large_diesel_engine', 'create_dd:reinforcement_plating')
+event.recipes.createMechanicalCrafting('createdieselgenerators:huge_diesel_engine', "AB", { A: 'createdieselgenerators:large_diesel_engine', B: 'create_dd:reinforcement_plating' })
 }

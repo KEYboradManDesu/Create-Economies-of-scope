@@ -1544,6 +1544,6 @@ onEvent('entity.spawned', event => {
 	float_and_lights(event, KJ("radiant_sheet"))
 	float_and_lights(event, KJ("radiant_wire"))
 	float_and_lights(event, KJ("radiant_rod"))
-	float_and_lights(event, KJ("shadow_steel_rod"))
+	float_and_lights(event, KJ("shadow_rod"))
 
 })

@@ -58,18 +58,19 @@ event.remove({ id: "immersiveengineering:refinery/biodiesel" })
 event.remove({ id: PC("fluid_mixer/biodiesel") })
 event.remove({ id: PC("thermo_plant/lubricant_from_biodiesel") })
 event.remove({ id: PC("thermo_plant/lubricant_from_diesel") })
+event.remove({ id: "createdieselgenerators:distillation/crude_oil" })
 
 ////沥青沙提取
 ///动力搅拌
 event.recipes.createMixing([
-Fluid.of('immersivepetroleum:crudeoil', 75),
+Fluid.of('createdieselgenerators:crude_oil', 75),
 Item.of('thermal:bitumen').withChance(0.85),
 Item.of('thermal:tar').withChance(0.45),
 Item.of('minecraft:sand')
 ], [Item.of('thermal:oil_sand', 1)])
 //红的
 event.recipes.createMixing([
-Fluid.of('immersivepetroleum:crudeoil', 75),
+Fluid.of('createdieselgenerators:crude_oil', 75),
 Item.of('thermal:bitumen').withChance(0.85),
 Item.of('thermal:tar').withChance(0.45),
 Item.of('minecraft:red_sand')
@@ -101,7 +102,7 @@ event.custom({
         "chance": 1.0
       },
       {
-        "fluid": "immersivepetroleum:crudeoil",
+        "fluid": "createdieselgenerators:crude_oil",
         "amount": 100
       }
     ],
@@ -127,7 +128,7 @@ event.custom({
         "chance": 1.0
       },
       {
-        "fluid": "immersivepetroleum:crudeoil",
+        "fluid": "createdieselgenerators:crude_oil",
         "amount": 100
       }
     ],
@@ -180,7 +181,32 @@ event.custom({
     "time": 1,
     "energy": 1024,
 }).id("kubejs:crude_oil")
-
+//机动蒸馏
+event.custom({
+  "type": "createdieselgenerators:distillation",
+  "ingredients": [
+    {
+      "fluidTag": "forge:crude_oil",
+      "amount": 50
+    }
+  ],
+  "heatRequirement": "superheated",
+  "processingTime": 150,
+  "results": [
+    {
+      "fluid": "thermal:heavy_oil",
+      "amount": 15
+    },
+    {
+      "fluid": "thermal:light_oil",
+      "amount": 30
+    },
+    {
+      "fluid": "immersivepetroleum:lubricant",
+      "amount": 5
+    }
+  ]
+})
 }
 
 function light_oil(event) {
@@ -208,7 +234,7 @@ event.custom({
   }
 }).id("kubejs:naphtha_cracking")
 //蒸馏
-event.remove({ id: "immersivepetroleum:refinery/phenol" });//简化苯和丙烯加工杂酚油流程
+//event.remove({ id: "immersivepetroleum:refinery/phenol" });//简化苯和丙烯加工杂酚油流程
 event.remove({ id: "immersivepetroleum:distillationtower/naphtha_cracking" });
 event.custom({
   "type": "immersivepetroleum:distillation",
@@ -218,8 +244,12 @@ event.custom({
       "amount": 6
     },
     {
-      "fluid": "immersiveengineering:creosote",
-      "amount": 4
+      "fluid": "immersivepetroleum:benzene",
+      "amount": 2
+    },
+    {
+      "fluid": "immersivepetroleum:propylene",
+      "amount": 2
     }
   ],
   "input": {
@@ -229,6 +259,57 @@ event.custom({
   "time": 1,
   "energy": 1024
 })
+//机动蒸馏
+event.custom({
+  "type": "createdieselgenerators:distillation",
+  "ingredients": [
+    {
+      "fluidTag": "forge:crude_oil",
+      "amount": 10
+    }
+  ],
+  "heatRequirement": "heated",
+  "processingTime": 30,
+  "results": [
+    {
+      "fluid": "mekanism:ethene",
+      "amount": 6
+    },
+    {
+      "fluid": "immersivepetroleum:benzene",
+      "amount": 2
+    },
+    {
+      "fluid": "immersivepetroleum:propylene",
+      "amount": 2
+    }
+  ]
+})
+
+////柴油
+//精炼
+event.remove({ id: "immersivepetroleum:hydrotreater/sulfur_recovery" });
+event.custom({
+  "type": "immersivepetroleum:hydrotreater",
+  "time": 1,
+  "energy": 80,
+  "result": {
+    "fluid": "createdieselgenerators:diesel",
+    "amount": 10
+  },
+  "input": {
+    "tag": "forge:diesel_sulfur",
+    "amount": 10
+  },
+  "secondary_input": {
+    "tag": "minecraft:water",
+    "amount": 10
+  },
+  "secondary_result": {
+    "item": "thermal:sulfur_dust",
+    "chance": "0.05"
+  }
+}).id("kubejs:naphtha_cracking")
 
 ////乙醛
 event.remove({ id: "immersivepetroleum:refinery/acetaldehyde" });
@@ -264,6 +345,25 @@ event.custom({
     "amount": 12
   },
   "energy": 120
+})
+
+////汽油
+event.remove({ id: "immersivepetroleum:refinery/gasoline" });
+event.custom({
+  "type": "immersiveengineering:refinery",
+  "result": {
+    "fluid": "createdieselgenerators:gasoline",
+    "amount": 10
+  },
+  "input0": {
+    "tag": "forge:naphtha",
+    "amount": 7
+  },
+  "input1": {
+    "tag": "forge:gasoline_additives",
+    "amount": 3
+  },
+  "energy": 80
 })
 
 ////汽油转石油气
@@ -323,6 +423,32 @@ event.custom({
   },
   "time": 1,
   "energy": 1024
+})
+//机动蒸馏
+event.custom({
+  "type": "createdieselgenerators:distillation",
+  "ingredients": [
+    {
+      "fluidTag": "forge:heavy_oil",
+      "amount": 15
+    }
+  ],
+  "heatRequirement": "heated",
+  "processingTime": 45,
+  "results": [
+    {
+      "fluid": "thermal:light_oil",
+      "amount": 7
+    },
+    {
+      "fluid": "immersivepetroleum:gasoline_additives",
+      "amount": 3
+    },
+    {
+      "fluid": "immersivepetroleum:kerosene",
+      "amount": 5
+    }
+  ]
 })
 //焦煤塔精炼
 event.custom({
@@ -444,6 +570,28 @@ event.custom({
   "time": 1,
   "energy": 1024
 })
+//机动蒸馏
+event.custom({
+  "type": "createdieselgenerators:distillation",
+  "ingredients": [
+    {
+      "fluidTag": "forge:lubricant_cracked",
+      "amount": 10
+    }
+  ],
+  "heatRequirement": "heated",
+  "processingTime": 30,
+  "results": [
+    {
+      "fluid": "immersivepetroleum:kerosene",
+      "amount": 5
+    },
+    {
+      "fluid": "immersivepetroleum:diesel_sulfur",
+      "amount": 10
+    }
+  ]
+})
 event.custom({
   "type": "immersivepetroleum:distillation",
   "results": [
@@ -453,14 +601,31 @@ event.custom({
     }
   ],
   "input": {
-    "fluid": "immersivepetroleum:diesel",
+    "tag": "kubejs:diesel",
     "amount": 10
   },
   "time": 1,
   "energy": 1024
 })
+//机动蒸馏
+event.custom({
+  "type": "createdieselgenerators:distillation",
+  "ingredients": [
+    {
+      "fluidTag": "kubejs:diesel",
+      "amount": 10
+    }
+  ],
+  "heatRequirement": "heated",
+  "processingTime": 30,
+  "results": [
+    {
+      "fluid": "immersivepetroleum:kerosene",
+      "amount": 10
+    }
+  ]
+})
 //精炼
-event.remove({ id: "immersivepetroleum:distillationtower/kerosene" });
 event.remove({ id: "immersivepetroleum:distillationtower/kerosene" });
 event.custom({
   "type": "immersivepetroleum:distillation",
@@ -480,6 +645,28 @@ event.custom({
   },
   "time": 1,
   "energy": 1024
+})
+//机动蒸馏
+event.custom({
+  "type": "createdieselgenerators:distillation",
+  "ingredients": [
+    {
+      "fluidTag": "forge:kerosene",
+      "amount": 10
+    }
+  ],
+  "heatRequirement": "heated",
+  "processingTime": 30,
+  "results": [
+    {
+      "fluid": "thermal:light_oil",
+      "amount": 7
+    },
+    {
+      "fluid": "immersivepetroleum:gasoline_additives",
+      "amount": 3
+    }
+  ]
 })
 }
 
@@ -835,13 +1022,14 @@ event.recipes.createMixing([
 //沉浸炼油厂加工
 event.custom({
 	"type":"immersiveengineering:refinery",
-	"result":{"fluid":"immersiveengineering:biodiesel","amount":24},
+	"result":{"fluid":"createdieselgenerators:biodiesel","amount":24},
 	"catalyst":{"tag":"forge:dusts/saltpeter"},
 	"input0":{"tag":"forge:plantoil","amount":12},
 	"input1":{"tag":"forge:ethanol","amount":12},
 	"energy": 500
 })
 //气动流体混合机加工
+/*
 event.custom({
 	"type": "pneumaticcraft:fluid_mixer",
 	"input1": {
@@ -855,7 +1043,7 @@ event.custom({
 	  "amount": 12
 	},
 	"fluid_output": {
-	  "fluid": "immersiveengineering:biodiesel",
+	  "fluid": "createdieselgenerators:biodiesel",
 	  "amount": 12
 	},
 	"item_output": {
@@ -864,7 +1052,7 @@ event.custom({
 	"pressure": 2.0,
 	"time": 300
 })
-
+*/
 
 ////基片
 event.remove({ id: 'mekanism:reaction/substrate/water_hydrogen' })
@@ -967,7 +1155,7 @@ event.get('forge:ethylene').add('mekanism:ethene')
 event.get('forge:bio').add('kubejs:bio')
 
 //event.get('forge:diesel').add('thermal:refined_fuel')
-event.get('kubejs:diesel').add('immersivepetroleum:diesel')
+event.get('kubejs:diesel').add('createdieselgenerators:diesel')
 
 event.get('forge:crude_oil').add('beyond_earth:oil')
 event.get('forge:biodiesel').add('#forge:diesel')

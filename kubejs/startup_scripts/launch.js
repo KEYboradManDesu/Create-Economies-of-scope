@@ -87,9 +87,9 @@ event.create('sand_ball').texture("kubejs:item/sand_ball").displayName('沙球')
 event.create('rough_sand').texture("kubejs:item/rough_sand").displayName('沙块')
 event.create('purified_sand').texture("kubejs:item/purified_sand").displayName('高纯沙')
 event.create('press_rod_die').texture("kubejs:item/press_rod_die").displayName('杆冲压模具').unstackable()
-event.create('battery').texture("kubejs:item/battery").displayName('电池')
-event.create('battery_incomplete', 'create:sequenced_assembly').texture("kubejs:item/battery_incomplete").displayName('电池（缺电）')
-event.create('sculk_motor').texture("kubejs:item/sculk_motor").displayName('循声马达').rarity(RARITY_UNCOMMON)
+//event.create('battery').texture("kubejs:item/battery").displayName('电池')
+//event.create('battery_incomplete', 'create:sequenced_assembly').texture("kubejs:item/battery_incomplete").displayName('电池（缺电）')
+//event.create('sculk_motor').texture("kubejs:item/sculk_motor").displayName('循声马达').rarity(RARITY_UNCOMMON)
 //event.create('golden_electron_tube').texture("kubejs:item/golden_electron_tube").displayName('金制电子管')
 event.create('iron_compressed_sheet').texture("kubejs:item/iron_compressed_sheet").displayName('压缩铁板')
 event.create('matter_plastics').texture("kubejs:item/matter_plastics").displayName('物质塑料').rarity(RARITY_UNCOMMON)
@@ -97,13 +97,15 @@ event.create('dye_entangled_singularity').texture("kubejs:item/dye_entangled_sin
 event.create('incomplete_component_electronic', 'create:sequenced_assembly').texture("kubejs:item/incomplete_component_electronic").displayName('电子元件（未完成）')
 event.create('incomplete_component_electronic_adv', 'create:sequenced_assembly').texture("kubejs:item/incomplete_component_electronic_adv").displayName('高级电子元件（未完成）')
 //event.create('blank_tier_installer').texture("kubejs:item/blank_tier_installer").displayName('空白工厂安装器')
-event.create('gold_matter').texture("kubejs:item/gold_matter").displayName('金物质').rarity(RARITY_UNCOMMON).unstackable()
+//event.create('gold_matter').texture("kubejs:item/gold_matter").displayName('金物质').rarity(RARITY_UNCOMMON).unstackable()
 event.create('arcane_golden_sheet').texture("kubejs:item/arcane_golden_sheet").displayName('神秘金板')
 event.create('living_core').texture("kubejs:item/living_core").displayName('活力核心')
 event.create('metamorphic_lich_core').texture("kubejs:item/metamorphic_lich_core").displayName('腐化核心').rarity(RARITY_UNCOMMON)
 event.create('life_gold_source').texture("kubejs:item/life_gold_source").displayName('金源机魂').rarity(RARITY_UNCOMMON)
 //event.create('mana_crystal').texture("kubejs:item/mana_crystal").displayName('魔力结晶')
 event.create('andesite_alloy_gear').texture("kubejs:item/andesite_alloy_gear").displayName('安山合金齿轮')
+event.create('wood_gear').texture("kubejs:item/wood_gear").displayName('木齿轮')
+event.create('arcane_gold_gear').texture("kubejs:item/arcane_gold_gear").displayName('神秘金齿轮')
 event.create('zinc_wire').texture("kubejs:item/zinc_wire").displayName('锌线')
 event.create('nickel_wire').texture("kubejs:item/nickel_wire").displayName('镍线')
 event.create('incomplete_tube', 'create:sequenced_assembly').texture("kubejs:item/incomplete_tube").displayName('黄铜电子管（未完成）')
@@ -148,55 +150,6 @@ event.create('incomplete_gold_source_mechanism', 'create:sequenced_assembly').te
 event.create('metamorphic_mechanism').texture("kubejs:item/mechanism/metamorphic_mechanism").displayName('异构构件')
 event.create('incomplete_metamorphic_mechanism', 'create:sequenced_assembly').texture("kubejs:item/mechanism/incomplete_metamorphic_mechanism").displayName('异构构件（未完成）')
 
-/* 已弃用
-// 钢笔
-event.create('golden_pen').texture("kubejs:item/pens/pen").displayName('金质钢笔').maxStackSize(1)
-
-//钢笔中间物品
-event.create('kubejs:pen_regis_00')
-.parentModel("kubejs:item/pen_regis/marked_slab").textureJson({layer0: "minecraft:block/oak_planks", layer1: "kubejs:block/namber/0"}).displayName('标记木板（等待切割）')
-event.create('kubejs:pen_regis_01', 'create:sequenced_assembly')
-.parentModel("kubejs:item/pen_regis/marked_slab").textureJson({layer0: "minecraft:block/oak_planks", layer1: "kubejs:block/namber/1"}).displayName('标记木板')
-event.create('kubejs:pen_regis_02', 'create:sequenced_assembly')
-.parentModel("kubejs:item/pen_regis/marked_slab").textureJson({layer0: "minecraft:block/oak_planks", layer1: "kubejs:block/namber/2"}).displayName('标记木板')
-event.create('kubejs:pen_regis_03', 'create:sequenced_assembly')
-.parentModel("kubejs:item/pen_regis/marked_slab").textureJson({layer0: "minecraft:block/oak_planks", layer1: "kubejs:block/namber/3"}).displayName('标记木板')
-event.create('kubejs:pen_regis_04', 'create:sequenced_assembly')
-.parentModel("kubejs:item/pen_regis/marked_slab").textureJson({layer0: "minecraft:block/oak_planks", layer1: "kubejs:block/namber/4"}).displayName('标记木板')
-
-event.create('kubejs:pen_regis_10')
-.textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:item/namber/0"}).displayName('标记模具（等待切割）')
-event.create('kubejs:pen_regis_11', 'create:sequenced_assembly')
-.textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:item/namber/1"}).displayName('标记模具')
-event.create('kubejs:pen_regis_12', 'create:sequenced_assembly')
-.textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:item/namber/1"}).displayName('标记模具')
-event.create('kubejs:pen_regis_13', 'create:sequenced_assembly')
-.textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:item/namber/1"}).displayName('标记模具')
-event.create('kubejs:pen_regis_14', 'create:sequenced_assembly')
-.textureJson({layer0: "tconstruct:item/materials/pattern", layer1: "kubejs:item/namber/1"}).displayName('标记模具')
-
-//event.create('kubejs:pen_regis_20')
-//.textureJson({layer0: "kubejs:item/mechanism/kinetic_mechanism", layer1: "kubejs:item/namber/0"}).displayName('标记模具（等待切割）')
-event.create('kubejs:pen_regis_21', 'create:sequenced_assembly')
-.textureJson({layer0: "kubejs:item/mechanism/kinetic_mechanism", layer1: "kubejs:item/namber/1"}).displayName('动力构件')
-event.create('kubejs:pen_regis_22', 'create:sequenced_assembly')
-.textureJson({layer0: "kubejs:item/mechanism/kinetic_mechanism", layer1: "kubejs:item/namber/2"}).displayName('动力构件')
-event.create('kubejs:pen_regis_23', 'create:sequenced_assembly')
-.textureJson({layer0: "kubejs:item/mechanism/kinetic_mechanism", layer1: "kubejs:item/namber/3"}).displayName('动力构件')
-event.create('kubejs:pen_regis_24', 'create:sequenced_assembly')
-.textureJson({layer0: "kubejs:item/mechanism/kinetic_mechanism", layer1: "kubejs:item/namber/4"}).displayName('动力构件')
-
-event.create('kubejs:pen_regis_31', 'create:sequenced_assembly')
-.textureJson({layer0: "create_dd:item/inductive_mechanism", layer1: "kubejs:item/namber/1"}).displayName('物流构件')
-event.create('kubejs:pen_regis_32', 'create:sequenced_assembly')
-.textureJson({layer0: "create_dd:item/inductive_mechanism", layer1: "kubejs:item/namber/2"}).displayName('物流构件')
-event.create('kubejs:pen_regis_33', 'create:sequenced_assembly')
-.textureJson({layer0: "create_dd:item/inductive_mechanism", layer1: "kubejs:item/namber/3"}).displayName('物流构件')
-event.create('kubejs:pen_regis_34', 'create:sequenced_assembly')
-.textureJson({layer0: "create_dd:item/inductive_mechanism", layer1: "kubejs:item/namber/4"}).displayName('物流构件')
-
-*/
-
 //抽屉
 event.create('osmium_drawersop').parentModel("kubejs:item/drawersop_casing").displayName('锇加固抽屉')
 
@@ -207,7 +160,7 @@ event.create('crushed_raw_mana_steel').texture("kubejs:item/ore/crushed_raw_mana
 event.create('raw_mana_steel').texture("kubejs:item/ore/raw_mana_steel").displayName('粗魔力钢')
 
 ////混合物
-event.create('andesite_alloy_ingot').texture("kubejs:item/compound/andesite_alloy_classic").displayName('安山合金锭')
+//event.create('andesite_alloy_ingot').texture("kubejs:item/compound/andesite_alloy_classic").displayName('安山合金锭')
 event.create('silicon_compound').texture("kubejs:item/compound/silicon_compound").displayName('硅混合物')
 event.create('nickel_compound').texture("kubejs:item/compound/nickel_compound").displayName('铁镍混合物')
 event.create('invar_compound', 'create:sequenced_assembly').texture("kubejs:item/compound/invar_compound").displayName('殷瓦钢胚')
@@ -318,6 +271,14 @@ onEvent('block.registry', event => {
        .displayName('防腐海带块')
 	   .tagBlock("create:wrench_pickup")
 
+	event.create('arcane_honey_block')
+	   .model('kubejs:block/arcane_honey_block')
+       .material('honey')
+       .hardness(0.5)
+	   .notSolid()
+	   .renderType('translucent')
+       .displayName('神秘蜂蜜块')
+	   
 	event.create('enderium_casing').model('kubejs:block/enderium_casing').material('metal').hardness(4.0).displayName('末影机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
 	event.create('zinc_casing').material('metal').hardness(3.0).displayName('锌机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
 	event.create('invar_casing').material('metal').hardness(3.0).displayName('殷钢机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
@@ -359,7 +320,7 @@ onEvent('block.registry', event => {
 	machine('Redstone', "solid", "stone", "红石机器")
 	machine('Steel', "translucent", "lantern", "钢机器")
 
-	machine('Gold_Source', "solid", "lantern", "金源机器")
+	machine('Gold_Source', "translucent", "lantern", "金源机器")
 	machine('Metamorphic', "translucent", "lantern", "异构机器")
 
 	/*let mechanism_block = (name, material, display) => {
@@ -377,6 +338,8 @@ onEvent('block.registry', event => {
 })
 
 onEvent('fluid.registry', event => {
+
+	event.create("arcane_honey").displayName("神秘蜂蜜").bucketColor(0xffb800).stillTexture('kubejs:fluid/arcane_honey_still').flowingTexture('kubejs:fluid/arcane_honey_flow')
 
 	event.create("fine_sand").displayName("细砂").bucketColor(0xE3DBB0).stillTexture('kubejs:fluid/fine_sand_still').flowingTexture('kubejs:fluid/fine_sand_flow')
 

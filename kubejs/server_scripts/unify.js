@@ -1,6 +1,5 @@
 onEvent("recipes", (event) => {
   event.remove({ id: "immersiveengineering:crusher/ore_coal" })
-  event.remove({ id: "immersivepetroleum:hydrotreater/sulfur_recovery" })
   event.remove({ input: "#alltheores:ore_hammers" })
   event.remove({ output: "#alltheores:ore_hammers" })
   event.remove({ id: "tconstruct:smeltery/melting/metal/copper/ore_dense" })
@@ -335,27 +334,6 @@ function unifyAllTheMetal(
   "base_ingredient":{"item":"minecraft:coal"}},
   "input":{"tag":"forge:ores/coal"},
   "energy":6000
-  })
-  event.custom({
-  "type": "immersivepetroleum:hydrotreater",
-  "time": 1,
-  "energy": 80,
-  "result": {
-    "fluid": "immersivepetroleum:diesel",
-    "amount": 10
-  },
-  "input": {
-    "tag": "forge:diesel_sulfur",
-    "amount": 10
-  },
-  "secondary_input": {
-    "tag": "minecraft:water",
-    "amount": 5
-  },
-  "secondary_result": {
-    "item": "thermal:sulfur_dust",
-    "chance": "0.05"
-  }
   })
 
   replaceIO("#forge:dusts/niter", "thermal:niter_dust");

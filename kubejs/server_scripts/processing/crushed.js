@@ -1,26 +1,8 @@
 const Crushed = (obj, event) => {
-  Crusheds(
-    obj.name,
-    obj.crushed,
-    obj.gem,
-    obj.ore,
-    obj.deepslateOre,
-    obj.rawOre,
-    obj.rawOreBlock,
-    event
-  );
+  Crusheds(obj.name, obj.crushed, obj.gem, obj.ore, obj.deepslateOre, obj.rawOre, obj.rawOreBlock, event);
 };
 
-const Crusheds = (
-  name,
-  crushed,
-  gem,
-  ore,
-  deepslateOre,
-  rawOre,
-  rawOreBlock,
-  event
-) => {
+const Crusheds = (name, crushed, gem, ore, deepslateOre, rawOre, rawOreBlock, event) => {
   if (crushed === "") return;
 
   if (ore) {

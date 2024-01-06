@@ -11,7 +11,7 @@
       "chain": "main",
       "worth": {
         "coin": "thermal:copper_coin",
-        "count": 10
+        "count": 64
       },
       "initial": "item.lightmanscurrency.coin_iron.initial",
       "plural": "item.lightmanscurrency.coin_iron.plural"
@@ -21,31 +21,33 @@
       "chain": "main",
       "worth": {
         "coin": "thermal:silver_coin",
-        "count": 10
+        "count": 64
       },
-      "initial": "item.lightmanscurrency.coin_emerald.initial",
-      "plural": "item.lightmanscurrency.coin_emerald.plural"
+      "initial": "item.lightmanscurrency.coin_gold.initial",
+      "plural": "item.lightmanscurrency.coin_gold.plural"
     },
     {
       "coinitem": "thermal:bronze_coin",
       "chain": "main",
       "worth": {
         "coin": "thermal:gold_coin",
-        "count": 10
+        "count": 64
       },
-      "initial": "item.lightmanscurrency.coin_diamond.initial",
-      "plural": "item.lightmanscurrency.coin_diamond.plural"
+      "initial": "item.lightmanscurrency.coin_emerald.initial",
+      "plural": "item.lightmanscurrency.coin_emerald.plural"
     },
     {
       "coinitem": "thermal:netherite_coin",
       "chain": "main",
       "worth": {
         "coin": "thermal:bronze_coin",
-        "count": 10
+        "count": 64
       },
-      "initial": "item.lightmanscurrency.coin_netherite.initial",
-      "plural": "item.lightmanscurrency.coin_netherite.plural"
+      "initial": "item.lightmanscurrency.coin_diamond.initial",
+      "plural": "item.lightmanscurrency.coin_diamond.plural"
     },
+
+
     {
       "coinitem": "createdeco:copper_coinstack",
       "chain": "main",
@@ -93,7 +95,7 @@
         "coin": "thermal:netherite_coin",
         "count": 9
       },
-      "plural": "block.lightmanscurrency.coinpile_netherite.plural",
+      "plural": "block.lightmanscurrency.coin_diamond.plural",
       "hidden": true
     }
   ]

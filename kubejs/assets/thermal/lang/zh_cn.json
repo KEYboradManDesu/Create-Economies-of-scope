@@ -3,6 +3,10 @@
 	"info.thermal.machine_press.0": "自动将物品交换成硬币，反之亦然。",
 	"info.thermal.machine_press.1": "需要贸易契约。",
 	"info.thermal.machine_press.2": "谢谢惠顾！",
-	"msg.fuelingStation.link": "起始坐标标记为",
-	"item.thermal.bronze_coin": "铂金币"
+
+	"item.thermal.bronze_coin": "§b铂金币",
+	"item.thermal.copper_coin": "§4铜币",
+	"item.thermal.gold_coin": "§6金币",
+	"item.thermal.silver_coin": "§7银币",
+	"item.thermal.netherite_coin": "§8下界合金币"
 }

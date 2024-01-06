@@ -35,6 +35,8 @@ let recompact = (id, id2) => {
 	event.remove({ input: "darkerdepths:limestone_gold_ore" })
 	event.remove({ input: "darkerdepths:limestone_iron_ore" })
 
+  event.remove({ id: "createaddition:pressing/steel_ingot" })
+
   removeIO('createindustry:saltpeter')
   removeIO('createindustry:sulfur_powder')
 

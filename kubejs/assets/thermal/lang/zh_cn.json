@@ -8,5 +8,6 @@
 	"item.thermal.copper_coin": "§4铜币",
 	"item.thermal.gold_coin": "§6金币",
 	"item.thermal.silver_coin": "§7银币",
-	"item.thermal.netherite_coin": "§8下界合金币"
+	"item.thermal.netherite_coin": "§8下界合金币",
+	"item.thermal.constantan_coin": "§dCreate币"
 }

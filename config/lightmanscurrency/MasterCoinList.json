@@ -46,6 +46,16 @@
       "initial": "item.lightmanscurrency.coin_diamond.initial",
       "plural": "item.lightmanscurrency.coin_diamond.plural"
     },
+    {
+      "coinitem": "thermal:constantan_coin",
+      "chain": "main",
+      "worth": {
+        "coin": "thermal:netherite_coin",
+        "count": 64
+      },
+      "initial": "item.lightmanscurrency.coin_netherite.initial",
+      "plural": "item.lightmanscurrency.coin_netherite.plural"
+    },
 
 
     {
@@ -96,6 +106,16 @@
         "count": 9
       },
       "plural": "block.lightmanscurrency.coin_diamond.plural",
+      "hidden": true
+    },
+    {
+      "coinitem": "createdeco:netherite_coinstack",
+      "chain": "main",
+      "worth": {
+        "coin": "createdeco:iron_coinstack",
+        "count": 9
+      },
+      "plural": "block.lightmanscurrency.coin_netherite.plural",
       "hidden": true
     }
   ]

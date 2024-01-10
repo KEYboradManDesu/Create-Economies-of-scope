@@ -19,10 +19,12 @@
     "item.lightmanscurrency.coin_diamond.plural" : "下界合金币",
     "item.lightmanscurrency.coin_diamond.initial": "下界",
 
-    "item.lightmanscurrency.coin_netherite" : "物质币",
-    "item.lightmanscurrency.coin_netherite.plural" : "物质币",
-    "item.lightmanscurrency.coin_netherite.initial": "物质",
+    "item.lightmanscurrency.coin_netherite" : "Create币",
+    "item.lightmanscurrency.coin_netherite.plural" : "Create币",
+    "item.lightmanscurrency.coin_netherite.initial": "Create",
 
+    "gui.button.bank.deposit": "存入",
+    "gui.button.bank.withdraw": "取出",
 
     "item.lightmanscurrency.wallet_copper" : "钱包（铜）",
     "item.lightmanscurrency.wallet_iron" : "钱包（铁）",

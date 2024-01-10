@@ -80,6 +80,9 @@ event.create('desh_dust').texture("kubejs:item/dust/desh_dust").displayName('戴
 event.create('ostrum_dust').texture("kubejs:item/dust/ostrum_dust").displayName('紫金粉')
 event.create('calorite_dust').texture("kubejs:item/dust/calorite_dust").displayName('耐热金属粉')
 
+//炼金镭射
+event.create('alchemical_laser').parentModel("kubejs:block/ponder_laser_lamp_on").displayName('炼金镭射（思索入口）').unstackable()
+
 // 黏性蕨
 event.create('earth_slimy_fern_leaf').texture("kubejs:item/fern/leaf/earth_slimy_fern_leaf").displayName('大地黏性蕨叶')
 event.create('ender_slimy_fern_leaf').texture("kubejs:item/fern/leaf/ender_slimy_fern_leaf").displayName('末影黏性蕨叶')
@@ -244,6 +247,11 @@ event.create('can_opened_vegetable_soup').texture("kubejs:item/cans/can_opened")
 onEvent('block.registry', event => {
 // Register new blocks here
 // event.create('example_block').material('wood').hardness(1.0).displayName('Example Block')
+
+//炼金镭射
+event.create('ponder_laser_lamp').model('kubejs:block/ponder_laser_lamp').material("lantern").notSolid().renderType("translucent").displayName('镭射灯（可思索）')
+event.create('ponder_laser_lamp_on').model('kubejs:block/ponder_laser_lamp_on').material("lantern").notSolid().lightLevel(15).renderType("translucent").displayName('镭射灯（可思索）')
+
 event.create('treated_kelp_block').model('kubejs:block/treated_kelp_block').material('leaves').hardness(0.5).displayName('防腐海带块').tagBlock("create:wrench_pickup")
 event.create('arcane_honey_block').model('kubejs:block/arcane_honey_block').material('honey').hardness(0.5).notSolid().renderType('translucent').displayName('神秘蜂蜜块')
 	   

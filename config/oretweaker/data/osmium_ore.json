@@ -1,7 +1,7 @@
 {
     "oreConfig": [
       {
-        "ore": ":mekanism:osmium_ore",
+        "ore": "mekanism:osmium_ore",
         "fillers": [
           "minecraft:end_stone"
         ],

@@ -3,11 +3,11 @@
       {
         "ore": ":mekanism:fluorite_ore",
         "fillers": [
-          "STONE_ORE_REPLACEABLES"
+          "minecraft:netherrack"
         ],
         "distribution": "UNIFORM",
-        "minY": -64,
-        "maxY": 64,
+        "minY": 0,
+        "maxY": 128,
         "maxVeinSize": 7,
         "spawnRate": 1.5,
         "discardChanceOnAirExposure": 1.0,

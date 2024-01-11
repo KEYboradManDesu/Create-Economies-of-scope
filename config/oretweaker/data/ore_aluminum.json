@@ -1,7 +1,7 @@
 {
     "oreConfig": [
       {
-        "ore": ":mekanism:fluorite_ore",
+        "ore": "immersiveengineering:ore_aluminum",
         "fillers": [
           "minecraft:netherrack"
         ],

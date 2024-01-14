@@ -9,7 +9,7 @@
       "minY": -64,
       "maxY": 64,
       "maxVeinSize": 7,
-      "spawnRate": 2.0,
+      "spawnRate": 4.0,
       "discardChanceOnAirExposure": 1.0,
       "biomeFilters": {
         "biomeBlacklist": [],

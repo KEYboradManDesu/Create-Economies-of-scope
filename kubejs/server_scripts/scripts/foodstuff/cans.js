@@ -26,7 +26,7 @@ function platesproduction(event) {
 
 function canproduction(event) {
 	onEvent('recipes', event => {
-		//制作罐头
+		//压制罐头
 		event.recipes.createDeploying('kubejs:can_empty', ['kubejs:iron_thin_plate_with_tin', 'minecraft:iron_block']).keepIngredient('minecraft:iron_block')
 
 	onEvent('recipes', event => {

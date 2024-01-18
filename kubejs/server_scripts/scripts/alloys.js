@@ -97,6 +97,23 @@ event.remove({ id: PC("explosion_crafting/compressed_iron_block") })
 
 event.remove({ output: 'createbigcannons:cast_iron_block' })
 event.remove({ output: 'createindustry:cast_iron_block' })	
+
+event.remove({ id: TE('fire_charge/invar_ingot_3') })
+event.remove({ id: TE('fire_charge/enderium_ingot_2') })
+event.remove({ id: TE('fire_charge/constantan_ingot_2') })
+event.remove({ id: TE('fire_charge/bronze_ingot_4') })
+event.remove({ id: TE('fire_charge/electrum_ingot_2') })
+event.remove({ id: TE('fire_charge/lumium_ingot_4') })
+event.remove({ id: TE('fire_charge/signalum_ingot_4') })
+event.remove({ id: TE('machine/pulverizer/pulverizer_cinnabar') })
+event.remove({ id: TE('machine/smelter/smelter_alloy_signalum') })
+event.remove({ id: TE('machine/smelter/smelter_alloy_lumium') })
+event.remove({ id: TE('machine/smelter/smelter_alloy_electrum') })
+event.remove({ id: TE('machine/smelter/smelter_alloy_enderium') })
+event.remove({ id: TE('machine/smelter/smelter_alloy_invar') })
+event.remove({ id: TE('machine/smelter/smelter_alloy_constantan') })
+event.remove({ id: TE('machine/smelter/smelter_alloy_bronze') })
+event.remove({ id: TE('compat/tconstruct/smelter_alloy_tconstruct_rose_gold_ingot') })
 }
 
 function stone_alloys(event) {

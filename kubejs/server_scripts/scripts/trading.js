@@ -1,6 +1,5 @@
 onEvent('recipes', event => {
 	trading(event)
-	packages(event)
 })
 
 function trading(event) { //交易系统
@@ -54,11 +53,4 @@ function trading(event) { //交易系统
 				trade(KJ('profession_agreement_' + element), transaction.in, transaction.out)
 			})
 	});
-}
-
-function packages(event) {
-event.recipes.create.itemApplication(
-	Item.of('kubejs:express_delivery', '{Tags:["test1"],display:{Lore:[\'{"text":"收件人: ","color":"gray","bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}\',\'{"text":"测试1","color":"light_purple","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}\']}}'), [
-	KJ('empty_express_delivery'), 
-	Item.of('supplementaries:sack', '{BlockEntityTag:{ForgeCaps:{},Items:[{Count:64b,Slot:0b,id:"thermal:silver_coin"}]}}')])
 }

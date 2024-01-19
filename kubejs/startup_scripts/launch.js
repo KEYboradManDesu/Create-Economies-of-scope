@@ -102,8 +102,8 @@ event.create('metamorphic_lich_rod').texture("kubejs:item/tool/metamorphic_lich_
 
 // 杂物
 event.create('circuit_scrap').texture("kubejs:item/circuit_scrap").displayName('模板碎片')
-event.create('incomplete_coke_chunk', 'create:sequenced_assembly').texture("kubejs:item/incomplete_coke_chunk").displayName('碎焦碳')
-event.create('coke_chunk').texture("kubejs:item/coke_chunk").displayName('焦碳块')
+event.create('incomplete_coke_chunk', 'create:sequenced_assembly').texture("kubejs:item/incomplete_coke_chunk").displayName('碎焦炭')
+event.create('coke_chunk').texture("kubejs:item/coke_chunk").displayName('焦炭块')
 event.create('creosote_pellet').texture("kubejs:item/creosote_pellet").displayName('杂酚油滴')
 event.create('smoke_mote').texture("kubejs:item/smoke_mote").displayName('微小烟云')
 event.create('sand_ball').texture("kubejs:item/sand_ball").displayName('沙球').maxStackSize(4)

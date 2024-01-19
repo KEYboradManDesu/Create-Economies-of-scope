@@ -262,6 +262,7 @@ replaceIO("pneumaticcraft:printed_circuit_board", "mekanism:basic_control_circui
 replaceIO('create_dd:chromatic_compound', 'create:chromatic_compound')
 replaceIO('create_dd:refined_radiance', 'create:refined_radiance')
 replaceIO('create_dd:shadow_steel', 'create:shadow_steel')
+replaceIO('immersiveengineering:coal_coke', 'thermal:coal_coke')
 
 ////原木处理
 
@@ -402,12 +403,12 @@ function unifyAllTheMetal(
 
   unifyAllTheMetal(
     "aluminum",
-    "alltheores:aluminum_ore",
-    "alltheores:aluminum_slate_ore",
-    "alltheores:aluminum_nether_ore",
-    "alltheores:aluminum_end_ore",
+    "",
+    "immersiveengineering:deepslate_ore_aluminum",
+    "immersiveengineering:ore_aluminum",
+    "",
     "immersiveengineering:raw_aluminum",
-    "alltheores:raw_aluminum_block",
+    "immersiveengineering:raw_block_aluminum",
     "immersiveengineering:storage_aluminum",
     "immersiveengineering:ingot_aluminum",
     "immersiveengineering:nugget_aluminum",
@@ -882,12 +883,12 @@ function unifyAllTheMetal(
 
   unifyAllTheMetal(
     "osmium",
-    "alltheores:osmium_ore",
-    "alltheores:osmium_slate_ore",
-    "alltheores:osmium_nether_ore",
-    "alltheores:osmium_end_ore",
+    "",
+    "mekanism:deepslate_osmium_ore",
+    "",
+    "mekanism:osmium_ore",
     "mekanism:raw_osmium",
-    "alltheores:raw_osmium_block",
+    "mekanism:block_raw_osmium",
     "mekanism:block_osmium",
     "mekanism:ingot_osmium",
     "mekanism:nugget_osmium",
@@ -978,12 +979,12 @@ function unifyAllTheMetal(
 
   unifyAllTheMetal(
     "silver",
-    "alltheores:silver_ore",
-    "alltheores:silver_slate_ore",
-    "alltheores:silver_nether_ore",
-    "alltheores:silver_end_ore",
+    "",
+    "thermal:deepslate_silver_ore",
+    "",
+    "thermal:silver_ore",
     "thermal:raw_silver",
-    "alltheores:raw_silver_block",
+    "thermal:raw_silver_block",
     "thermal:silver_block",
     "thermal:silver_ingot",
     "thermal:silver_nugget",

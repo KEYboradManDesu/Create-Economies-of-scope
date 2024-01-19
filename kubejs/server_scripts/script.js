@@ -1448,6 +1448,7 @@ sails('create_dd:haunting_sail', 1, MC('soul_campfire'))
 sails('create_dd:blasting_sail', 1, MC('lava_bucket'))
 sails('create_dd:freezing_sail', 1, MC('powder_snow_bucket'))
 
+event.blasting(TE('coal_coke'), MC('coal'))
 
 ////热力刷石机
 let bedrock_cobblegen = (adjacent, output) => {

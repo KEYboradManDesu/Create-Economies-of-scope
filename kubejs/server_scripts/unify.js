@@ -1051,12 +1051,12 @@ function unifyAllTheMetal(
 
   unifyAllTheMetal(
     "uranium",
-    "alltheores:uranium_ore",
-    "alltheores:uranium_slate_ore",
-    "alltheores:uranium_nether_ore",
-    "alltheores:uranium_end_ore",
-    "immersiveengineering:raw_uranium",
-    "alltheores:raw_uranium_block",
+    "",
+    "mekanism:deepslate_uranium_ore",
+    "",
+    "mekanism:uranium_ore",
+    "mekanism:raw_uranium",
+    "mekanism:block_raw_uranium",
     "immersiveengineering:storage_uranium",
     "immersiveengineering:ingot_uranium",
     "immersiveengineering:nugget_uranium",

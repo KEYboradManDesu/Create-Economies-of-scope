@@ -51,7 +51,6 @@ coinstack('createdeco:brass_coinstack', TE('bronze_coin'))
 coinstack('createdeco:netherite_coinstack', TE('netherite_coin'))
 coinstack('createdeco:iron_coinstack', TE('constantan_coin'))
 
-event.remove({ output: 'lightmanscurrency:wallet_copper' })
 event.remove({ output: 'lightmanscurrency:wallet_iron' })
 event.remove({ output: "lightmanscurrency:wallet_gold" })
 event.remove({ output: "lightmanscurrency:wallet_emerald" })

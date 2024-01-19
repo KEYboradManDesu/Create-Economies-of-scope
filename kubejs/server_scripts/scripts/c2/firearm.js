@@ -260,7 +260,7 @@ event.recipes.createMechanicalCrafting(Item.of('cgm:bazooka', '{AmmoCount:0}'), 
     "SJJJS",
     " RCV "
 ], {
-	R: 'alloyed:steel_ingot',
+	R: 'create_dd:steel_ingot',
 	S: CR('smart_chute'),
 	C: KJ('inductive_mechanism'),
 	V: IM('gunpart_hammer'),
@@ -310,7 +310,7 @@ event.recipes.createMechanicalCrafting(Item.of('cgm:heavy_rifle', '{AmmoCount:0}
     "L CVLLA L"
   ], {
 	R: IM('gunpart_barrel'),
-	S: 'alloyed:steel_ingot',
+	S: 'create_dd:steel_ingot',
 	C: 'create_dd:steel_casing',
 	V: 'cgm:pistol',
 	A: KJ('shadow_steel_rod'),

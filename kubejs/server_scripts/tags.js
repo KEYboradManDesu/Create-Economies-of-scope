@@ -39,17 +39,6 @@ event.get('forge:tools/knives').add('create:millstone')
 
 event.get('kubejs:certus_quartz_crystal').add('ae2:certus_quartz_crystal')
 
-//event.get('kubejs:creosote').add('kubejs:creosote_ball')
-
-/*
-event.get('kubejs:handmade').add('kubejs:handmade_kinetic_mechanism')
-event.get('kubejs:handmade').add('kubejs:handmade_sealed_mechanism')
-event.get('kubejs:handmade').add('kubejs:handmade_precision_mechanism')
-event.get('kubejs:handmade').add('kubejs:handmade_inductive_mechanism')
-event.get('kubejs:handmade').add('kubejs:handmade_infernal_mechanism')
-event.get('kubejs:handmade').add('kubejs:handmade_abstruse_mechanism')
-*/
-
 event.get('ae2:quantum_entangled_singularity').add('ae2:quantum_entangled_singularity')
 
 event.get('minecraft:coals').add('thermal:coal_coke')

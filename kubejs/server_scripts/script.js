@@ -1557,17 +1557,6 @@ event.shapeless(TE("item_filter_augment"), [CR("filter"), TE("lapis_gear")])
 //绳子
 event.shapeless('supplementaries:rope', ['#supplementaries:ropes'])
 
-//金金金金金金
-event.remove({ id: 'createdeco:gold_coinstack' })
-event.remove({ id: 'createdeco:gold_coin' })
-event.shapeless("createdeco:gold_coinstack", [TE('gold_coin'), TE('gold_coin'), TE('gold_coin'), TE('gold_coin'), TE('gold_coin'), TE('gold_coin')])
-event.shaped(TE('gold_coin', 6), [
-	'C'
-], {
-	C: 'createdeco:gold_coinstack',
-})
-
-
 //削弱刷铁轨收益
 event.remove({ id: TC('smeltery/melting/metal/iron/nugget_3') })
 event.remove({ id: TC('smeltery/melting/metal/gold/powered_rail') })

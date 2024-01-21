@@ -66,27 +66,27 @@
 			#Whether the wandering trader should have the emeralds from their trades replaced with the default trader coin.
 			changeWanderingTrades = false
 			#The default coin to replace a traders emeralds with.
-			defaultTraderCoin = "lightmanscurrency:coin_emerald"
+			defaultTraderCoin = "thermal:silver_coin"
 			#List of trader coin overrides.
 			#Each entry must be formatted as follows: "mod:some_trader_type-lightmanscurrency:some_coin"
 			#Every trader not on this list will use the default trader coin defined above.
-			traderOverrides = ["minecraft:butcher-lightmanscurrency:coin_iron", "minecraft:cartographer-lightmanscurrency:coin_iron", "minecraft:farmer-lightmanscurrency:coin_iron", "minecraft:fisherman-lightmanscurrency:coin_iron", "minecraft:fletcher-lightmanscurrency:coin_copper", "minecraft:leatherworker-lightmanscurrency:coin_iron", "minecraft:mason-lightmanscurrency:coin_iron", "minecraft:shepherd-lightmanscurrency:coin_iron"]
+			traderOverrides = ["minecraft:butcher-thermal:silver_coin", "minecraft:cartographer-thermal:silver_coin", "minecraft:farmer-thermal:silver_coin", "minecraft:fisherman-thermal:silver_coin", "minecraft:fletcher-lightmanscurrency:coin_copper", "minecraft:leatherworker-thermal:silver_coin", "minecraft:mason-thermal:silver_coin", "minecraft:shepherd-thermal:silver_coin"]
 
 	#Loot item customization. Accepts item ids (i.e. lightmanscurrency:coin_copper).
 	#Leave blank (lootItemT? = "") to not spawn loot of that tier (so that you can use higher-tier spawn rates without the presence of lower-tier loot).
 	[common.loot_customization]
 		#T1 loot item. Used for T1-T6 entity & chest loot drops.
-		lootItemT2 = "lightmanscurrency:coin_copper"
+		lootItemT1 = "thermal:copper_coin"
 		#T2 loot item. Used for T2-T6 entity & chest loot drops.
-		lootItemT4 = "lightmanscurrency:coin_iron"
+		lootItemT2 = "createdeco:copper_coinstack"
 		#T3 loot item. Used for T3-T6 entity & chest loot drops.
-		lootItemT5 = "lightmanscurrency:coin_gold"
+		lootItemT3 = " thermal:silver_coin"
 		#T4 loot item. Used for T4-T6 entity & chest loot drops.
-		lootItemT? = "lightmanscurrency:coin_emerald"
+		lootItemT4 = "createdeco:zinc_coinstack"
 		#T5 loot item. Used for T5-T6 entity & chest loot drops.
-		lootItemT? = "lightmanscurrency:coin_diamond"
+		lootItemT5 = "thermal:gold_coin"
 		#T6 loot item. Used for T6 entity & chest loot drops.
-		lootItemT? = "lightmanscurrency:coin_netherite"
+		lootItemT6 = "createdeco:gold_coinstack"
 
 	#Entity loot settings. Accepts entity ids (i.e. minecraft:zombie)
 	[common.entity_loot]

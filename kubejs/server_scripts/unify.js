@@ -18,8 +18,6 @@ let recompact = (id, id2) => {
 ////移除配方
 
   event.remove({ id: "immersiveengineering:crusher/ore_coal" })
-  event.remove({ input: "#alltheores:ore_hammers" })
-  event.remove({ output: "#alltheores:ore_hammers" })
   event.remove({ id: "tconstruct:smeltery/melting/metal/copper/ore_dense" })
   event.remove({ input: "immersiveengineering:ore_lead" })
   event.remove({ input: "immersiveengineering:ore_uranium" })
@@ -763,12 +761,12 @@ function unifyAllTheMetal(
 
   unifyAllTheMetal(
     "lead",
-    "alltheores:lead_ore",
-    "alltheores:lead_slate_ore",
-    "alltheores:lead_nether_ore",
-    "alltheores:lead_end_ore",
+    "thermal:lead_ore",
+    "thermal:deepslate_lead_ore",
+    "",
+    "",
     "thermal:raw_lead",
-    "alltheores:raw_lead_block",
+    "thermal:raw_lead_block",
     "thermal:lead_block",
     "thermal:lead_ingot",
     "thermal:lead_nugget",
@@ -859,12 +857,12 @@ function unifyAllTheMetal(
 
   unifyAllTheMetal(
     "nickel",
-    "alltheores:nickel_ore",
-    "alltheores:nickel_slate_ore",
-    "alltheores:nickel_nether_ore",
-    "alltheores:nickel_end_ore",
+    "thermal:nickel_ore",
+    "thermal:deepslate_lead_ore",
+    "",
+    "",
     "thermal:raw_nickel",
-    "alltheores:raw_nickel_block",
+    "thermal:raw_nickel_block",
     "thermal:nickel_block",
     "thermal:nickel_ingot",
     "thermal:nickel_nugget",
@@ -1027,12 +1025,12 @@ function unifyAllTheMetal(
 
   unifyAllTheMetal(
     "tin",
-    "alltheores:tin_ore",
-    "alltheores:tin_slate_ore",
-    "alltheores:tin_nether_ore",
-    "alltheores:tin_end_ore",
+    "thermal:tin_ore",
+    "thermal:deepslate_tin_ore",
+    "",
+    "",
     "thermal:raw_tin",
-    "alltheores:raw_tin_block",
+    "thermal:raw_tin_block",
     "thermal:tin_block",
     "thermal:tin_ingot",
     "thermal:tin_nugget",
@@ -1077,8 +1075,8 @@ function unifyAllTheMetal(
     "zinc",
     "create:zinc_ore",
     "create:deepslate_zinc_ore",
-    "alltheores:zinc_nether_ore",
-    "alltheores:zinc_end_ore",
+    "",
+    "",
     "create:raw_zinc",
     "create:raw_zinc_block",
     "create:zinc_block",

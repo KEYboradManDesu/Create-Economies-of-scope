@@ -118,9 +118,9 @@
 		#Entities that will drop a large amount of T1 -> T4 loot.
 		bossEntityListT4 = ["minecraft:warden"]
 		#Entities that will drop a large amount of T1 -> T5 loot.
-		bossEntityListT5 = ["minecraft:ender_dragon"]
+		bossEntityListT5 = ["minecraft:ender_dragon", "alexsmobs:warped_mosco", "minecraft:wither", "alexsmobs:void_worm"]
 		#Entities that will drop a large amount of T1 -> T6 loot.
-		bossEntityListT6 = ["minecraft:wither", "alexsmobs:void_worm"]
+		bossEntityListT6 = []
 
 	#Chest loot settings.
 	[common.chest_loot]

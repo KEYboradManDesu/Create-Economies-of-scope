@@ -55,6 +55,7 @@ onEvent('item.registry', event => {
 			.displayName(`§6职业铭牌：§r${zhname}`)
 			.unstackable()
 
+		/*
 		event.create(`profession_agreement_${id}`)
 			.color(1, c1)
 			.color(2, c2)
@@ -62,6 +63,7 @@ onEvent('item.registry', event => {
 			.texture("kubejs:item/trade/purchase_agreement_0")
 			.displayName(`§6出售协议：§r${zhname}`)
 			.maxStackSize(32)
+		*/
 	}
 
 	let trade = (zhname, name, c1, c2, transactions, custom) => {
@@ -77,9 +79,9 @@ onEvent('item.registry', event => {
 			.unstackable()
 	}
 
-	event.create('empty_agreement').texture("kubejs:item/trade/empty_agreement").displayName('空白协议书')
-	event.create('incomplete_empty_agreement', 'create:sequenced_assembly').texture("kubejs:item/trade/incomplete_empty_agreement").displayName('空白协议书（未签字）')
-	event.create('master_agreement').texture("kubejs:item/trade/task_agreement").displayName('专精协议书').maxStackSize(4).rarity(RARITY_EPIC)
+	//event.create('empty_agreement').texture("kubejs:item/trade/empty_agreement").displayName('空白协议书')
+	//event.create('incomplete_empty_agreement', 'create:sequenced_assembly').texture("kubejs:item/trade/incomplete_empty_agreement").displayName('空白协议书（未签字）')
+	//event.create('master_agreement').texture("kubejs:item/trade/task_agreement").displayName('专精协议书').maxStackSize(4).rarity(RARITY_EPIC)
 	//event.create('express_delivery').parentModel("kubejs:block/express_delivery/express_delivery").displayName('快递盒').unstackable().rarity(RARITY_UNCOMMON)
 
 	//货币

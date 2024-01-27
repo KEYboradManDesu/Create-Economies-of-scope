@@ -205,7 +205,6 @@ event.create('incomplete_engineering_processor', 'create:sequenced_assembly').te
 event.create('complex_bullet').texture("kubejs:item/arms/complex_bullet").displayName('复合弹药')
 event.create('advanced_bullet_casing').texture("kubejs:item/arms/advanced_bullet_casing").displayName('高级空弹壳')
 event.create('complex_bullet_casing').texture("kubejs:item/arms/complex_bullet_casing").displayName('复合空弹壳')
-//event.create('compressed_air_canister').texture("kubejs:item/arms/compressed_air_canister").displayName('压缩气瓶')
 event.create('incomplete_advanced_bullet', 'create:sequenced_assembly').texture("kubejs:item/arms/incomplete_advanced_bullet").displayName('高级弹药（未完成）')
 event.create('incomplete_basic_bullet', 'create:sequenced_assembly').texture("kubejs:item/arms/incomplete_basic_bullet").displayName('初级弹药（未完成）')
 event.create('incomplete_complex_bullet', 'create:sequenced_assembly').texture("kubejs:item/arms/incomplete_complex_bullet").displayName('复合弹药（未完成）')
@@ -220,7 +219,7 @@ onEvent('block.registry', event => {
 
 //炼金镭射
 event.create('ponder_laser_lamp').model('kubejs:block/ponder_laser_lamp').material("lantern").notSolid().renderType("translucent").displayName('镭射灯（可思索）')
-event.create('ponder_laser_lamp_on').model('kubejs:block/ponder_laser_lamp_on').material("lantern").notSolid().lightLevel(15).renderType("translucent").displayName('镭射灯（可思索）')
+event.create('ponder_laser_lamp_on').model('kubejs:block/ponder_laser_lamp_on').material("lantern").notSolid().renderType("translucent").displayName('镭射灯（可思索）')
 
 event.create('treated_kelp_block').model('kubejs:block/treated_kelp_block').material('leaves').hardness(0.5).displayName('防腐海带块').tagBlock("create:wrench_pickup")
 event.create('arcane_honey_block').model('kubejs:block/arcane_honey_block').material('honey').hardness(0.5).notSolid().renderType('translucent').displayName('神秘蜂蜜块')
@@ -230,7 +229,6 @@ event.create('zinc_casing').material('metal').hardness(3.0).displayName('锌机�
 event.create('invar_casing').material('metal').hardness(3.0).displayName('殷钢机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
 event.create('fluix_casing').material('metal').hardness(3.0).displayName('福鲁伊克斯机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
 event.create('matter_casing').material('stone').hardness(8.0).displayName('物质机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
-//event.create('redstone_casing').material('stone').hardness(3.0).displayName('红石机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
 event.create('creative_casing').material('stone').hardness(-1.0).displayName('§d创造机壳§r').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
 event.create('gold_source_casing').material('wood').hardness(2.0).displayName('金源机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
 event.create('mana_casing').material('stone').hardness(2.0).displayName('魔力机壳').tagBlock("create:wrench_pickup").tagBlock("minecraft:mineable/pickaxe")
@@ -258,9 +256,6 @@ machine('Obsidian', "translucent", "lantern", "坚实机器")
 machine('Electric', "translucent", "lantern", "电气机器")
 machine('Zinc', "cutout", "lantern", "锌机器")
 machine('Enderium', "cutout", "lantern", "谐振机器")
-//machine('Pneumatic', "translucent", "lantern", "气动机器")
-//machine('Redstone', "solid", "stone", "红石机器")
-machine('Steel', "translucent", "lantern", "钢机器")
 machine('Gold_Source', "translucent", "lantern", "金源机器")
 machine('Metamorphic', "translucent", "lantern", "异构机器")
 })
@@ -275,13 +270,15 @@ event.create("waste").displayName("异彩废液").bucketColor(0x123d36).stillTex
 event.create("bio").displayName("生物质").bucketColor(0x474344).stillTexture('kubejs:fluid/bio_still').flowingTexture('kubejs:fluid/bio_flow')
 event.create("sky_stone").displayName("不稳陨石").bucketColor(0x595959).stillTexture('kubejs:fluid/sky_stone_still').flowingTexture('kubejs:fluid/sky_stone_flowing')
 
-event.create('programming').displayName(`玻色-爱因斯坦凝聚态逻辑（编程）`).thinTexture(0xFF3030).bucketColor(0xFF3030).textureStill('kubejs:fluid/number_still').textureFlowing('kubejs:fluid/number_flow').color(0xFF3030)
-event.create('raw_logic').displayName(`玻色-爱因斯坦凝聚态逻辑（未处理）`).thinTexture(0xE7FFCB).bucketColor(0xE7FFCB).textureStill('kubejs:fluid/number_still').textureFlowing('kubejs:fluid/number_flow').color(0xE7FFCB)
+event.create('programming').displayName("玻色-爱因斯坦凝聚态逻辑（编程）").thinTexture(0xFF3030).bucketColor(0xFF3030).stillTexture('kubejs:fluid/number_still').flowingTexture('kubejs:fluid/number_flow').color(0xFF3030)
+event.create('raw_logic').displayName("玻色-爱因斯坦凝聚态逻辑（未处理）").thinTexture(0xE7FFCB).bucketColor(0xE7FFCB).stillTexture('kubejs:fluid/number_still').flowingTexture('kubejs:fluid/number_flow').color(0xE7FFCB)
+
 /*
 let colors = [0xCBE827, 0xAEE827, 0x68E827, 0x27E86E, 0x27E8B1, 0x27DEE8, 0x27B5E8, 0x2798E8, 0x2778E8, 0x2748E8]
 for (i = 0; i < 10; i++)
-	event.create('number_' + i).displayName(`玻色-爱因斯坦凝聚态逻辑 (${i})`).thinTexture(colors[i]).bucketColor(colors[i]).textureStill('kubejs:fluid/number_still').textureFlowing('kubejs:fluid/number_flow').color(colors[i])
+	event.create('number_' + i).displayName(`玻色-爱因斯坦凝聚态逻辑 (${i})`).thinTexture(colors[i]).bucketColor(colors[i]).stillTexture('kubejs:fluid/number_still').flowingTexture('kubejs:fluid/number_flow').color(colors[i])
 */
+
 event.create("number_0").displayName("玻色-爱因斯坦凝聚态逻辑（0）").thinTexture(0xCBE827).bucketColor(0xCBE827).stillTexture('kubejs:fluid/number_still').flowingTexture('kubejs:fluid/number_flow').color(0xAEE827)
 event.create("number_1").displayName("玻色-爱因斯坦凝聚态逻辑（1）").thinTexture(0xAEE827).bucketColor(0xAEE827).stillTexture('kubejs:fluid/number_still').flowingTexture('kubejs:fluid/number_flow').color(0xAEE827)
 event.create("number_2").displayName("玻色-爱因斯坦凝聚态逻辑（2）").thinTexture(0x68E827).bucketColor(0x68E827).stillTexture('kubejs:fluid/number_still').flowingTexture('kubejs:fluid/number_flow').color(0x68E827)

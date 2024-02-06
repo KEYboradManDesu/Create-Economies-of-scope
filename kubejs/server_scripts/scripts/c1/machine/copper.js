@@ -164,8 +164,10 @@ event.shaped(CR('belt_connector', 1), [
 	S: KJ('treated_kelp')
 })//防腐海带合成传动带
 
+/*
 event.shapeless(KJ('sealed_mechanism'), [TE('cured_rubber'), [KJ('kinetic_mechanism'), 'create_dd:inductive_mechanism'], TE('cured_rubber'), Item.of('createindustry:water_insulation').ignoreNBT()
 ]).id("kubejs:sealed_mechanism_manual_only").damageIngredient(Item.of('createindustry:water_insulation').ignoreNBT())
+*/
 
 event.shapeless(KJ('sealed_mechanism'), [TE('cured_rubber'), [KJ('kinetic_mechanism'), 'create_dd:inductive_mechanism'], TE('cured_rubber'), '#immersive_weathering:wax'
 ]).id("kubejs:sealed_mechanism1_manual_only")

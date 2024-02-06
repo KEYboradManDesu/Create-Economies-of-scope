@@ -30,6 +30,23 @@ const CreateFiuldDust = (name, dust, gem, ingot, fluid, fluid_byproduct, event) 
   });
 
   event.recipes.createMixing([Fluid.of(fluid, 630)], [Item.of(dust, 3), AE2('matter_ball')]).superheated()
+
+  event.custom({
+    "type": "createbigcannons:melting",
+    "ingredients": [
+      {
+        "item": dust
+      }
+    ],
+    "results": [
+      {
+        "fluid": fluid,
+        "amount": 90
+      }
+    ],
+    "processingTime": 180,
+    "heatRequirement": "heated"
+  });
   }
 
   if (fluid_byproduct !== "") {
@@ -79,44 +96,6 @@ const CreateFiuldDust = (name, dust, gem, ingot, fluid, fluid_byproduct, event) 
       "processingTime": 180,
       "heatRequirement": "heated"
     });
-  }
-
-  if (ingot !== "") {
-  event.custom({
-    "type": "createbigcannons:melting",
-    "ingredients": [
-      {
-        "item": dust
-      }
-    ],
-    "results": [
-      {
-        "fluid": fluid,
-        "amount": 90
-      }
-    ],
-    "processingTime": 180,
-    "heatRequirement": "heated"
-  });
-  }
-
-  if (gem !== "") {
-  event.custom({
-    "type": "createbigcannons:melting",
-    "ingredients": [
-      {
-        "item": dust
-      }
-    ],
-    "results": [
-      {
-        "fluid": fluid,
-        "amount": 100
-      }
-    ],
-    "processingTime": 180,
-    "heatRequirement": "heated"
-  });
   }
 
 };

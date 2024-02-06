@@ -230,7 +230,7 @@
 		#small uranium vein Generation Settings.
 		[world_generation.uranium.small]
 			#Determines if small uranium veins should be added to world generation. Note: Requires generating uranium ore to be enabled.
-			shouldGenerate = true
+			shouldGenerate = false
 			#Chance that small uranium veins generates in a chunk.
 			#Range: 1 ~ 256
 			perChunk = 4
@@ -271,7 +271,7 @@
 		#buried uranium vein Generation Settings.
 		[world_generation.uranium.buried]
 			#Determines if buried uranium veins should be added to world generation. Note: Requires generating uranium ore to be enabled.
-			shouldGenerate = true
+			shouldGenerate = false
 			#Chance that buried uranium veins generates in a chunk.
 			#Range: 1 ~ 256
 			perChunk = 7
@@ -312,12 +312,12 @@
 	#Generation Settings for fluorite ore.
 	[world_generation.fluorite]
 		#Determines if fluorite ore should be added to world generation.
-		shouldGenerate = true
+		shouldGenerate = false
 
 		#normal fluorite vein Generation Settings.
 		[world_generation.fluorite.normal]
 			#Determines if normal fluorite veins should be added to world generation. Note: Requires generating fluorite ore to be enabled.
-			shouldGenerate = true
+			shouldGenerate = false
 			#Chance that normal fluorite veins generates in a chunk.
 			#Range: 1 ~ 256
 			perChunk = 5
@@ -358,7 +358,7 @@
 		#buried fluorite vein Generation Settings.
 		[world_generation.fluorite.buried]
 			#Determines if buried fluorite veins should be added to world generation. Note: Requires generating fluorite ore to be enabled.
-			shouldGenerate = true
+			shouldGenerate = false
 			#Chance that buried fluorite veins generates in a chunk.
 			#Range: 1 ~ 256
 			perChunk = 3
@@ -404,7 +404,7 @@
 		#normal lead vein Generation Settings.
 		[world_generation.lead.normal]
 			#Determines if normal lead veins should be added to world generation. Note: Requires generating lead ore to be enabled.
-			shouldGenerate = true
+			shouldGenerate = false
 			#Chance that normal lead veins generates in a chunk.
 			#Range: 1 ~ 256
 			perChunk = 8

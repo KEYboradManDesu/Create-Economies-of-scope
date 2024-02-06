@@ -18,6 +18,46 @@
         ]
       },
       "replace": true
+    },
+    {
+      "ore": "darkerdepths:silver_ore",
+      "fillers": [],
+      "minY": -1,
+      "maxY": -1,
+      "maxVeinSize": -1,
+      "spawnRate": -1.0,
+      "discardChanceOnAirExposure": -1.0,
+      "replace": true
+    },
+    {
+      "ore": "thermal:deepslate_silver_ore",
+      "fillers": [],
+      "minY": -1,
+      "maxY": -1,
+      "maxVeinSize": -1,
+      "spawnRate": -1.0,
+      "discardChanceOnAirExposure": -1.0,
+      "replace": true
+    },
+    {
+      "ore": "darkerdepths:aridrock_silver_ore",
+      "fillers": [],
+      "minY": -1,
+      "maxY": -1,
+      "maxVeinSize": -1,
+      "spawnRate": -1.0,
+      "discardChanceOnAirExposure": -1.0,
+      "replace": true
+    },
+    {
+      "ore": "darkerdepths:limestone_silver_ore",
+      "fillers": [],
+      "minY": -1,
+      "maxY": -1,
+      "maxVeinSize": -1,
+      "spawnRate": -1.0,
+      "discardChanceOnAirExposure": -1.0,
+      "replace": true
     }
   ]
 }

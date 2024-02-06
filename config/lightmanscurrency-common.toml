@@ -104,11 +104,11 @@
 		#Entities that will occasionally drop T1 -> T3 loot.
 		entityListT3 = ["minecraft:guardian", "minecraft:elder_guardian", "minecraft:phantom", "minecraft:blaze", "minecraft:ghast", "minecraft:witch", "minecraft:hoglin", "minecraft:piglin_brute", "minecraft:piglin", "minecraft:zombified_piglin", "alexsmobs:crimson_mosquito", "alexsmobs:dropbear", "alexsmobs:guster", "alexsmobs:skelewag", "alexsmobs:tusklin"]
 		#Entities that will occasionally drop T1 -> T4 loot.
-		entityListT4 = ["minecraft:enderman", "minecraft:evoker", "minecraft:vindicator", "minecraft:pillager", "minecraft:ravager", "minecraft:shulker", "alexsmobs:enderiophage", "alexsmobs:farseer", "alexsmobs:murmur", "alexsmobs:straddler"]
+		entityListT4 = ["minecraft:enderman", "minecraft:evoker", "minecraft:vindicator", "minecraft:pillager", "minecraft:ravager", "minecraft:shulker", "alexsmobs:enderiophage", "alexsmobs:farseer", "alexsmobs:murmur", "alexsmobs:straddler", "minecraft:wither_skeleton", "alexsmobs:mimicube"]
 		#Entities that will occasionally drop T1 -> T5 loot.
-		entityListT5 = ["minecraft:wither_skeleton"]
+		entityListT5 = []
 		#Entities that will occasionally drop T1 -> T6 loot.
-		entityListT6 = ["alexsmobs:mimicube"]
+		entityListT6 = []
 		#Entities that will drop a large amount of T1 loot.
 		bossEntityListT1 = []
 		#Entities that will drop a large amount of T1 -> T2 loot.
@@ -120,12 +120,12 @@
 		#Entities that will drop a large amount of T1 -> T5 loot.
 		bossEntityListT5 = ["minecraft:ender_dragon", "alexsmobs:warped_mosco", "minecraft:wither", "alexsmobs:void_worm"]
 		#Entities that will drop a large amount of T1 -> T6 loot.
-		bossEntityListT6 = []
+		bossEntityListT6 = ["alexsmobs:void_worm"]
 
 	#Chest loot settings.
 	[common.chest_loot]
 		#Whether coins can spawn in chests Does not effect entity loot drops.
-		enableChestLoot = true
+		enableChestLoot = false
 		#Chests that will occasionally spawn T1 loot.
 		chestListT1 = ["minecraft:chests/underwater_ruin_small", "minecraft:chests/underwater_ruin_big"]
 		#Chests that will occasionally spawn T1 -> T2 loot.
@@ -133,9 +133,9 @@
 		#Chests that will occasionally spawn T1 -> T3 loot.
 		chestListT3 = ["minecraft:chests/jungle_temple", "minecraft:chests/nether_bridge", "minecraft:chests/simple_dungeon", "minecraft:chests/ruined_portal"]
 		#Chests that will occasionally spawn T1 -> T4 loot.
-		chestListT4 = ["minecraft:chests/stronghold_crossing", "minecraft:chests/stronghold_corridor", "minecraft:chests/stronghold_library", "minecraft:chests/ancient_city"]
+		chestListT4 = ["minecraft:chests/stronghold_crossing", "minecraft:chests/stronghold_corridor", "minecraft:chests/stronghold_library", "minecraft:chests/ancient_city", "minecraft:chests/buried_treasure", "minecraft:chests/bastion_hoglin_stable", "minecraft:chests/bastion_bridge", "minecraft:chests/bastion_other", "minecraft:chests/bastion_treasure", "minecraft:chests/end_city_treasure"]
 		#Chests that will occasionally spawn T1 -> T5 loot.
-		chestListT5 = ["minecraft:chests/buried_treasure", "minecraft:chests/bastion_hoglin_stable", "minecraft:chests/bastion_bridge", "minecraft:chests/bastion_other", "minecraft:chests/bastion_treasure", "minecraft:chests/end_city_treasure"]
+		chestListT5 = []
 		#Chests that will occasionally spawn T1 -> T6 loot.
 		chestListT6 = []
 

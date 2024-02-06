@@ -120,6 +120,7 @@ event.create('living_core').texture("kubejs:item/living_core").displayName('活�
 event.create('metamorphic_lich_core').texture("kubejs:item/metamorphic_lich_core").displayName('腐化核心').rarity(RARITY_UNCOMMON)
 event.create('life_gold_source').texture("kubejs:item/life_gold_source").displayName('金源机魂').rarity(RARITY_UNCOMMON)
 event.create('andesite_alloy_gear').texture("kubejs:item/andesite_alloy_gear").displayName('安山合金齿轮')
+event.create('andesite_alloy_ingot').texture("kubejs:item/andesite_alloy_classic").displayName('安山合金锭')
 event.create('wood_gear').texture("kubejs:item/wood_gear").displayName('木齿轮')
 event.create('arcane_gold_gear').texture("kubejs:item/arcane_gold_gear").displayName('神秘金齿轮')
 event.create('zinc_wire').texture("kubejs:item/zinc_wire").displayName('锌线')
